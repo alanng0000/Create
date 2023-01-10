@@ -4904,6 +4904,7 @@ public class Edit : ViewView
 
 
 
+
         return true;
     }
 
@@ -4914,9 +4915,7 @@ public class Edit : ViewView
 
     private bool InitCharSize()
     {
-        this.CharWidth = 0;
-
-        this.CharHeight = 0;
+        this.CharWidth = 8;
 
 
 
