@@ -42,9 +42,8 @@ public class Create : Object
 
 
 
-
-
         this.InitControlHandle();
+
 
 
 
@@ -95,8 +94,6 @@ public class Create : Object
 
 
         Control.This.CharInput.Handle.AddHandle(charHandle);
-
-
 
 
 
