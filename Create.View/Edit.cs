@@ -111,18 +111,6 @@ public class Edit : ViewView
 
 
 
-    
-    private DrawRect DrawRect;
-
-
-
-
-
-    private Draw Draw { get; set; }
-
-
-
-
 
     private Caret Caret { get; set; }
 
@@ -337,12 +325,6 @@ public class Edit : ViewView
 
 
         this.InitSelectBrush();
-
-
-
-
-
-        this.InitDrawRect();
 
 
 
@@ -4267,23 +4249,25 @@ public class Edit : ViewView
 
 
 
+        DrawRect rect;
 
-        this.DrawRect.Pos.Left = left;
+        rect = new DrawRect();
+
+        rect.Init();
+
+        rect.Pos.Left = left;
+
+        rect.Pos.Up = up;
+
+        rect.Size.Width = width;
+
+        rect.Size.Height = height;
 
 
-        this.DrawRect.Pos.Up = up;
-
-
-        this.DrawRect.Size.Width = width;
-
-
-        this.DrawRect.Size.Height = height;
 
 
 
-
-
-        draw.FillRectangle(this.SelectBrush, this.DrawRect);
+        draw.Rect(this.SelectBrush, rect);
 
 
 
@@ -4874,35 +4858,6 @@ public class Edit : ViewView
     }
 
 
-
-
-
-
-
-    private bool InitDrawRect()
-    {
-        DrawRect rect;
-
-        rect = new DrawRect();
-
-        rect.Init();
-
-        rect.Pos = new DrawPos();
-
-        rect.Pos.Init();
-
-        rect.Size = new DrawSize();
-
-        rect.Size.Init();
-
-
-
-        this.DrawRect = rect;
-
-
-
-        return true;
-    }
 
 
 
