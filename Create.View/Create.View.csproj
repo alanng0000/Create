@@ -10,7 +10,10 @@
         <ProjectReference Include="../../System/System.Control/System.Control.csproj" />
         <ProjectReference Include="../../System/System.Compose/System.Compose.csproj" />
         <ProjectReference Include="../../System/System.View/System.View.csproj" />
-        <ProjectReference Include="../../Clase/Clase/Clase.csproj" />
+        <ProjectReference Include="../../Class/Class/Class.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Content Include="Demo" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
