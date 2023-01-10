@@ -1,4 +1,4 @@
-namespace Develop.View;
+namespace Create.View;
 
 
 
@@ -8,7 +8,7 @@ public class Frame : ViewFrame
     public override bool Init()
     {
         this.Title = "Create";
-        
+
 
 
 

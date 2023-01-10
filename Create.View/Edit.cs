@@ -1,10 +1,10 @@
-namespace Develop.View;
+namespace Create.View;
 
 
 
 
 
-public class Edit : Draw
+public class Edit : ViewView
 {
     public Frame Frame { get; set; }
 
