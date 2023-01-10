@@ -58,13 +58,13 @@ public class Create : Object
 
     private bool InitControlHandle()
     {
-        Handle handle;
+        KeyHandle handle;
 
 
-        handle = new Handle();
+        handle = new KeyHandle();
 
 
-        handle.Develop = this;
+        handle.Create = this;
 
 
         handle.Init();
@@ -80,13 +80,13 @@ public class Create : Object
 
 
 
-        ControlCharHandle charHandle;
+        CharHandle charHandle;
 
 
-        charHandle = new ControlCharHandle();
+        charHandle = new CharHandle();
 
 
-        charHandle.Develop = this;
+        charHandle.Create = this;
 
 
         charHandle.Init();
