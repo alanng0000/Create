@@ -58,21 +58,21 @@ public class Create : Object
 
     private bool InitControlHandle()
     {
-        KeyHandle handle;
+        KeyHandle keyHandle;
 
 
-        handle = new KeyHandle();
+        keyHandle = new KeyHandle();
 
 
-        handle.Create = this;
+        keyHandle.Create = this;
 
 
-        handle.Init();
+        keyHandle.Init();
         
 
 
 
-        Control.This.KeyInput.Handle.AddHandle(handle);
+        Control.This.KeyInput.Handle.AddHandle(keyHandle);
 
 
 
