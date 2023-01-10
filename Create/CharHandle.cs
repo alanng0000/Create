@@ -65,10 +65,10 @@ class CharHandle : Handle
 
     public override bool Execute(object arg)
     {
-        ControlCharEventArg o;
+        ControlCharArg o;
 
 
-        o = (ControlCharEventArg)arg;
+        o = (ControlCharArg)arg;
 
 
 
@@ -90,7 +90,7 @@ class CharHandle : Handle
 
 
 
-        if (this.Control.GetKeyState(this.Keys.Control))
+        if (this.Control.Get(this.Keys.Control))
         {
             return true;
         }

@@ -34,12 +34,8 @@ class KeyHandle : Handle
 
 
 
-    private HandleMethod[] HandleMethods { get; set; }
+    private HandleMethod[] HandleMethodList { get; set; }
 
-
-
-
-    private int KeyCount { get; set; }
 
 
 
@@ -75,11 +71,6 @@ class KeyHandle : Handle
 
 
 
-        this.KeyCount = 0x100;
-
-
-
-
 
         this.InitHandleMethods();
 
@@ -95,7 +86,15 @@ class KeyHandle : Handle
 
     private bool InitHandleMethods()
     {
-        this.HandleMethods = new HandleMethod[this.KeyCount];
+        int count;
+
+
+        count = this.Keys.Count;
+
+
+
+
+        this.HandleMethodList = new HandleMethod[count];
 
 
 
@@ -375,7 +374,7 @@ class KeyHandle : Handle
 
     private bool ControlKey()
     {
-        return this.Control.GetKeyState(this.Keys.Control);
+        return this.Control.Get(this.Keys.Control);
     }
 
 
@@ -386,7 +385,7 @@ class KeyHandle : Handle
 
     private bool Shift()
     {
-        return this.Control.GetKeyState(this.Keys.Shift);
+        return this.Control.Get(this.Keys.Shift);
     }
 
 
@@ -396,7 +395,7 @@ class KeyHandle : Handle
 
     private bool SetHandleMethod(byte key, HandleMethod method)
     {
-        this.HandleMethods[key] = method;
+        this.HandleMethodList[key] = method;
 
 
         return true;
@@ -411,9 +410,9 @@ class KeyHandle : Handle
 
     public override bool Execute(object arg)
     {
-        ControlKeyEventArg o;
+        ControlKeyArg o;
 
-        o = (ControlKeyEventArg)arg;
+        o = (ControlKeyArg)arg;
 
 
 
@@ -451,7 +450,7 @@ class KeyHandle : Handle
 
 
 
-        method = this.HandleMethods[key];
+        method = this.HandleMethodList[key];
 
 
 
