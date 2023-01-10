@@ -69,7 +69,7 @@ class KeyHandle : Handle
 
 
 
-        this.Keys = ControlKey.This;
+        this.Keys = global::System.Control.Key.This;
 
 
 
