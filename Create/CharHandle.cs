@@ -81,13 +81,6 @@ class CharHandle : Handle
 
 
 
-        if (oc == '\'')
-        {
-            oc = '←';
-        }
-
-
-
 
 
         if (this.Control.Get(this.Keys.Control))
