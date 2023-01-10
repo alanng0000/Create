@@ -31,7 +31,7 @@ public class Edit : ViewView
 
 
 
-    private ClaseClase Clase { get; set; }
+    private ClassClass Clase { get; set; }
 
 
 
@@ -478,7 +478,7 @@ public class Edit : ViewView
 
     private bool InitClase()
     {
-        this.Clase = new ClaseClase();
+        this.Clase = new ClassClass();
 
 
 
@@ -835,7 +835,7 @@ public class Edit : ViewView
         Line line;
 
 
-        line = this.Text.Lines.Get(0);
+        line = this.Text.Line.Get(0);
 
 
 
@@ -878,14 +878,14 @@ public class Edit : ViewView
                 line.Init();
 
 
-                this.Text.Lines.Add(line);
+                this.Text.Line.Add(line);
             }
 
 
 
             if (!b)
             {
-                line.Chars.Add(oc);
+                line.Char.Add(oc);
             }
 
 
@@ -953,11 +953,11 @@ public class Edit : ViewView
 
 
 
-            this.Line = this.Text.Lines.Get(this.PosA.Row);
+            this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
-            this.PosA.Col = this.Line.Chars.Count;
+            this.PosA.Col = this.Line.Char.Count;
 
 
 
