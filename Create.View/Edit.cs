@@ -2721,7 +2721,7 @@ public class Edit : ViewView
         int k;
 
 
-        k = this.Text.Line.Get(this.PosA.Row).Chars.Count;
+        k = this.Text.Line.Get(this.PosA.Row).Char.Count;
 
 
 
@@ -2867,7 +2867,7 @@ public class Edit : ViewView
         int rowCount;
 
 
-        rowCount = text.Lines.Count;
+        rowCount = text.Line.Count;
 
 
 
@@ -2883,7 +2883,7 @@ public class Edit : ViewView
             Line line;
 
 
-            line = text.Lines.Get(0);
+            line = text.Line.Get(0);
 
 
 
@@ -3139,7 +3139,7 @@ public class Edit : ViewView
             int k;
 
 
-            k = u.Chars.Count;
+            k = u.Char.Count;
 
 
 
@@ -3635,7 +3635,7 @@ public class Edit : ViewView
         
 
         
-        source.Chars.RemoveRange(range);
+        source.Char.RemoveRange(range);
         
 
 
@@ -3832,7 +3832,7 @@ public class Edit : ViewView
         CodeList codes;
 
 
-        codes = this.Clase.Result.Token.Codes;
+        codes = this.Clase.Result.Token.Code;
 
 
 
@@ -3852,7 +3852,7 @@ public class Edit : ViewView
 
 
 
-        this.Code = codes[0];
+        this.Code = (Code)codes.Get(0);
 
 
 
@@ -3868,7 +3868,7 @@ public class Edit : ViewView
         int count;
 
 
-        count = this.Code.Tokens.Count;
+        count = this.Code.Token.Count;
 
 
 
@@ -4070,7 +4070,7 @@ public class Edit : ViewView
         int firstCount;
 
 
-        firstCount = firstLine.Chars.Count - start.Col;
+        firstCount = firstLine.Char.Count - start.Col;
 
 
         firstCount = firstCount + 1;
