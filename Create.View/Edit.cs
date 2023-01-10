@@ -2028,7 +2028,7 @@ public class Edit : ViewView
 
 
 
-        if (!(this.Caret.Pos.Value.Col < line.Chars.Count))
+        if (!(this.Caret.Pos.Value.Col < line.Char.Count))
         {
             return false;
         }
@@ -2642,7 +2642,7 @@ public class Edit : ViewView
 
     private bool CheckColIndex(Line line, int col)
     {
-        if (!(col < line.Chars.Count))
+        if (!(col < line.Char.Count))
         {
             return false;
         }
@@ -2890,7 +2890,7 @@ public class Edit : ViewView
             int charCount;
 
 
-            charCount = line.Chars.Count;
+            charCount = line.Char.Count;
 
 
 
@@ -3151,7 +3151,7 @@ public class Edit : ViewView
 
 
 
-            this.Count = line.Chars.Count;
+            this.Count = line.Char.Count;
 
 
 
@@ -3267,7 +3267,7 @@ public class Edit : ViewView
 
 
 
-        line.Chars.Remove(this.PosA.Col);
+        line.Char.Remove(this.PosA.Col);
 
 
 
@@ -4178,7 +4178,7 @@ public class Edit : ViewView
 
 
 
-            u = line.Chars.Count - pos.Col;
+            u = line.Char.Count - pos.Col;
 
 
             u = u + 1;
@@ -4585,7 +4585,7 @@ public class Edit : ViewView
         char[] data;
 
 
-        data = line.Chars.Data;
+        data = line.Char.Data;
 
 
 
