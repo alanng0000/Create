@@ -287,7 +287,7 @@ public class Edit : ViewView
 
 
 
-        this.InitClase();
+        this.InitClass();
 
 
 
@@ -476,7 +476,7 @@ public class Edit : ViewView
 
 
 
-    private bool InitClase()
+    private bool InitClass()
     {
         this.Clase = new ClassClass();
 
@@ -4914,9 +4914,9 @@ public class Edit : ViewView
 
     private bool InitCharSize()
     {
-        this.CharWidth = d.Width;
+        this.CharWidth = 0;
 
-        this.CharHeight = d.Height;
+        this.CharHeight = 0;
 
 
 
