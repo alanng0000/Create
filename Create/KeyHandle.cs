@@ -2,7 +2,8 @@ namespace Create;
 
 
 
-class ControlHandle : ControlEventHandle
+
+class KeyHandle : Handle
 {
     public Develop Develop { get; set; }
 
@@ -22,7 +23,7 @@ class ControlHandle : ControlEventHandle
 
 
 
-    private ControlKeys Keys { get; set; }
+    private ControlKey Keys { get; set; }
 
 
 

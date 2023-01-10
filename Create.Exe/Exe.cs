@@ -4,7 +4,7 @@ namespace Create.Exe;
 
 class Exe : ExeExe
 {
-    protected override bool ExecuteMain(string arg)
+    protected override int ExecuteWork()
     {
         M m;
 
@@ -15,18 +15,22 @@ class Exe : ExeExe
         m.Init();
 
 
-        m.Main(arg);
+
+        int o;
+
+
+        o = m.Execute();
 
 
 
-        return true;
+        return o;
     }
 
 
 
 
 
-    static void Main(string[] args)
+    static int Main()
     {
         Exe exe;
 
@@ -37,9 +41,13 @@ class Exe : ExeExe
         exe.Init();
 
 
-        exe.Args = args;
+
+        int o;
 
 
-        exe.Execute();
+        o = exe.Execute();
+
+
+        return o;
     }
 }

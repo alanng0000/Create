@@ -72,7 +72,7 @@ public class Develop : Object
 
 
 
-        Control.This.StateChanged.AddHandle(handle);
+        Control.This.KeyInput.Handle.AddHandle(handle);
 
 
 
@@ -94,7 +94,7 @@ public class Develop : Object
 
 
 
-        Control.This.CharInput.AddHandle(charHandle);
+        Control.This.CharInput.Handle.AddHandle(charHandle);
 
 
 
@@ -111,12 +111,12 @@ public class Develop : Object
 
 
 
-    public bool Main(string arg)
+    public int Execute()
     {
         this.Frame.Execute();
 
 
 
-        return true;
+        return 0;
     }
 }

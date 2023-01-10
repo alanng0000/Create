@@ -4,7 +4,7 @@ namespace Create;
 
 
 
-class ControlCharHandle : ControlCharEventHandle
+class CharHandle : Handle
 {
     public Develop Develop { get; set; }
 
@@ -23,7 +23,7 @@ class ControlCharHandle : ControlCharEventHandle
 
 
 
-    private ControlKeys Keys { get; set; }
+    private ControlKey Keys { get; set; }
 
 
 
@@ -49,7 +49,7 @@ class ControlCharHandle : ControlCharEventHandle
 
 
 
-        this.Keys = this.Control.Keys;
+        this.Keys = ControlKey.This;
 
 
 
@@ -63,11 +63,20 @@ class ControlCharHandle : ControlCharEventHandle
 
 
 
-    public override bool Execute(ControlCharEventArg arg)
+    public override bool Execute(object arg)
     {
+        ControlCharEventArg o;
+
+
+        o = (ControlCharEventArg)arg;
+
+
+
+
+
         char oc;
 
-        oc = arg.Char;
+        oc = o.Char;
 
 
 
@@ -81,7 +90,7 @@ class ControlCharHandle : ControlCharEventHandle
 
 
 
-        if (this.Control.Get(this.Keys.Control))
+        if (this.Control.GetKeyState(this.Keys.Control))
         {
             return true;
         }
