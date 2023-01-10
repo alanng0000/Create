@@ -1,0 +1,10 @@
+global using Object = System.Infra.Object;
+global using Text = System.Text.Text;
+global using Control = System.Control.Control;
+global using ControlKeys = System.Control.Keys;
+global using ControlEventArg = System.Control.EventArg;
+global using ControlCharEventArg = System.Control.CharEventArg;
+global using ControlEventHandle = System.Compose.GenericEventHandle<System.Control.EventArg>;
+global using ControlCharEventHandle = System.Compose.GenericEventHandle<System.Control.CharEventArg>;
+global using Edit = Develop.View.Edit;
+global using Frame = Develop.View.Frame;

@@ -1,0 +1,27 @@
+class Door
+{
+    public String Name
+    {
+        get
+        {
+            return data;
+        }
+        set
+        {
+            data ← value;
+        }
+    }
+
+
+
+    public Bool Kk(Int a)
+    {
+        Console console;
+
+
+        console ← global Console;
+
+
+        console.Write("aabb");
+    }
+}
