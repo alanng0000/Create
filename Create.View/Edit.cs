@@ -2808,7 +2808,7 @@ public class Edit : ViewView
 
 
 
-        this.Text.Lines.Add(line);
+        this.Text.Line.Add(line);
         
 
 
@@ -2844,7 +2844,7 @@ public class Edit : ViewView
 
 
 
-        this.Text.Lines.Insert(index, line);
+        this.Text.Line.Insert(index, line);
 
 
 
@@ -3501,7 +3501,7 @@ public class Edit : ViewView
 
 
 
-        this.Text.Lines.RemoveRange(range);
+        this.Text.Line.RemoveRange(range);
 
 
 
@@ -3653,13 +3653,13 @@ public class Edit : ViewView
     {
         Chars destChars;
 
-        destChars = dest.Chars;
+        destChars = dest.Char;
 
 
 
         Chars sourceChars;
 
-        sourceChars = source.Chars;
+        sourceChars = source.Char;
 
 
 
@@ -3703,7 +3703,7 @@ public class Edit : ViewView
         ListIter iter;
 
 
-        iter = this.Clase.Result.Node.Trees.Iter();
+        iter = this.Clase.Result.Node.Tree.Iter();
 
 
         iter.Next();
@@ -3758,35 +3758,6 @@ public class Edit : ViewView
 
     private bool UpdateArea()
     {
-        this.Update(this.DrawRect);
-
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-    protected override bool Ops(Graphics graphics, DrawRectangle clipRect)
-    {
-        this.Graphics = graphics;
-
-
-
-        this.ClipRect = clipRect;
-
-
-
-
-        this.VideoOps();
-
-
 
         return true;
     }
@@ -3938,7 +3909,7 @@ public class Edit : ViewView
         TokenList tokens;
 
 
-        tokens = this.Code.Tokens;
+        tokens = this.Code.Token;
 
 
 
@@ -3966,7 +3937,7 @@ public class Edit : ViewView
 
         while (i < count)
         {
-            token = tokens[i];
+            token = tokens.Get(i);
 
 
 
