@@ -6,20 +6,20 @@ class Exe : ExeExe
 {
     protected override int ExecuteWork()
     {
-        M m;
+        Create create;
 
 
-        m = new M();
+        create = new Create();
 
 
-        m.Init();
+        create.Init();
 
 
 
         int o;
 
 
-        o = m.Execute();
+        o = create.Execute();
 
 
 
