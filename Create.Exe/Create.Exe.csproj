@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
+        <OutputType>WinExe</OutputType>
         <TargetFramework>net6.0-windows</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
         <ProjectReference Include="../../System/System.Exe/System.Exe.csproj" />
-        <ProjectReference Include="../Develop/Develop.csproj" />
+        <ProjectReference Include="../Create/Create.csproj" />
     </ItemGroup>
 
 </Project>
