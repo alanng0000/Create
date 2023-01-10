@@ -7,6 +7,12 @@ public class Frame : ViewFrame
 {
     public override bool Init()
     {
+        this.Title = "Create";
+        
+
+
+
+
         base.Init();
 
 
