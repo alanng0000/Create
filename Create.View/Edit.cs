@@ -1160,7 +1160,7 @@ public class Edit : ViewView
 
 
 
-            this.Line = this.Text.Lines.Get(this.PosA.Row);
+            this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -1173,7 +1173,7 @@ public class Edit : ViewView
 
             if (!ba)
             {
-                this.Caret.Pos.Value.Col = this.Line.Chars.Count;
+                this.Caret.Pos.Value.Col = this.Line.Char.Count;
             }
 
 
@@ -1237,7 +1237,7 @@ public class Edit : ViewView
 
 
 
-            this.PosA.Col = this.Line.Chars.Count;
+            this.PosA.Col = this.Line.Char.Count;
 
 
 
@@ -1287,7 +1287,7 @@ public class Edit : ViewView
 
             if (!ba)
             {
-                this.Caret.Pos.Value.Col = this.Line.Chars.Count;
+                this.Caret.Pos.Value.Col = this.Line.Char.Count;
             }
 
 
@@ -1398,7 +1398,7 @@ public class Edit : ViewView
 
 
 
-        this.PosA.Col = this.Line.Chars.Count;
+        this.PosA.Col = this.Line.Char.Count;
 
 
 
@@ -1504,7 +1504,7 @@ public class Edit : ViewView
 
 
 
-            this.PosA.Col = this.Line.Chars.Count;
+            this.PosA.Col = this.Line.Char.Count;
 
 
 
@@ -1759,7 +1759,7 @@ public class Edit : ViewView
 
             if (!ba)
             {
-                this.Caret.Pos.Value.Col = this.Line.Chars.Count;
+                this.Caret.Pos.Value.Col = this.Line.Char.Count;
             }
 
 
@@ -1843,7 +1843,7 @@ public class Edit : ViewView
 
 
 
-            this.PosA.Col = this.Line.Chars.Count;
+            this.PosA.Col = this.Line.Char.Count;
 
 
 
@@ -1893,7 +1893,7 @@ public class Edit : ViewView
 
             if (!ba)
             {
-                this.Caret.Pos.Value.Col = this.Line.Chars.Count;
+                this.Caret.Pos.Value.Col = this.Line.Char.Count;
             }
 
 
@@ -1943,7 +1943,7 @@ public class Edit : ViewView
     {
         int charCount;
 
-        charCount = this.Line.Chars.Count;
+        charCount = this.Line.Char.Count;
 
 
 
@@ -2465,7 +2465,7 @@ public class Edit : ViewView
 
         if (!b)
         {
-            this.Caret.Pos.Value.Col = this.Line.Chars.Count;
+            this.Caret.Pos.Value.Col = this.Line.Char.Count;
         }
 
 
@@ -2575,7 +2575,7 @@ public class Edit : ViewView
 
         if (!b)
         {
-            this.Caret.Pos.Value.Col = this.Line.Chars.Count;
+            this.Caret.Pos.Value.Col = this.Line.Char.Count;
         }
 
 
@@ -3056,7 +3056,7 @@ public class Edit : ViewView
 
 
 
-        this.Line.Chars.InsertRange(index, this.Chars, this.CharRange);
+        this.Line.Char.InsertRange(index, this.Chars, this.CharRange);
 
 
 
@@ -3073,7 +3073,7 @@ public class Edit : ViewView
 
     private bool AddNewChars()
     {
-        this.Line.Chars.AddRange(this.Chars, this.CharRange);
+        this.Line.Char.AddRange(this.Chars, this.CharRange);
 
 
 
