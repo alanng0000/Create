@@ -21,6 +21,7 @@ global using Token = Class.Token.Token;
 global using TokenList = Class.Token.TokenArray;
 global using Comment = Class.Token.Comment;
 global using CommentList = Class.Token.CommentArray;
+global using TextRange = Class.Token.TextRange;
 global using Node = Class.Node.Node;
 global using Tree = Class.Node.Tree;
 global using NodeClass = Class.Node.Class;

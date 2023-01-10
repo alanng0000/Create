@@ -4305,7 +4305,7 @@ public class Edit : ViewView
         TokenList tokens;
 
 
-        tokens = this.Code.Tokens;
+        tokens = this.Code.Token;
 
 
 
@@ -4314,7 +4314,7 @@ public class Edit : ViewView
         CommentList comments;
 
 
-        comments = this.Code.Comments;
+        comments = this.Code.Comment;
 
 
 
@@ -4360,7 +4360,7 @@ public class Edit : ViewView
 
         while (i < count)
         {
-            token = tokens[i];
+            token = tokens.Get(i);
 
 
             this.TokenVideoOps(i, ref token);
@@ -4432,7 +4432,7 @@ public class Edit : ViewView
 
         while (i < count)
         {
-            comment = comments[i];
+            comment = comments.Get(i);
 
 
             this.CommentVideoOps(ref comment);
@@ -4520,7 +4520,7 @@ public class Edit : ViewView
         int row;
 
 
-        row = range.Pos.Row;
+        row = range.Row;
 
 
 
@@ -4529,16 +4529,7 @@ public class Edit : ViewView
         int col;
         
         
-        col = range.Pos.Col;
-
-
-
-
-
-        int count;
-
-
-        count = range.Count;
+        col = range.Range.Start;
 
 
 
@@ -4606,10 +4597,10 @@ public class Edit : ViewView
 
 
 
-        DrawPoint pos;
+        // DrawPoint pos;
 
 
-        pos = new DrawPoint(left, up);
+        // pos = new DrawPoint(left, up);
 
 
 
@@ -4618,15 +4609,15 @@ public class Edit : ViewView
         
 
 
-        ReadOnlySpanChar t;
+        // ReadOnlySpanChar t;
 
 
-        t = new ReadOnlySpanChar(data, col, count);
+        // t = new ReadOnlySpanChar(data, col, count);
 
 
 
 
-        TextRenderer.DrawText(this.Graphics, t, this.Font, pos, color, this.TextFormatFlags);
+        // TextRenderer.DrawText(this.Graphics, t, this.Font, pos, color, this.TextFormatFlags);
 
 
 
@@ -4642,16 +4633,30 @@ public class Edit : ViewView
 
     private bool IsString(ref TextRange range)
     {
+        Pos pos;
+
+        pos = new Pos();
+
+        pos.Init();
+
+        pos.Row = range.Row;
+
+        pos.Col = range.Range.Start;
+
+
+
+
         char oc;
         
 
-        oc = this.TextInfra.Char(range.Pos);
+        oc = this.TextInfra.Char(pos);
 
 
 
         bool b;
         
         b = (oc == '"');
+
 
         
         if (!b)
@@ -4702,7 +4707,7 @@ public class Edit : ViewView
 
 
 
-            if (this.TextInfra.Equal(range, s))
+            if (this.TextInfra.Equal(range.Row, range.Range, s))
             {
                 return true;
             }
