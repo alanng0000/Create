@@ -1233,7 +1233,7 @@ public class Edit : ViewView
 
 
 
-            this.Line = this.Text.Lines.Get(this.PosA.Row);
+            this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -1274,7 +1274,7 @@ public class Edit : ViewView
 
 
 
-            this.Line = this.Text.Lines.Get(this.PosA.Row);
+            this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -1330,7 +1330,7 @@ public class Edit : ViewView
 
 
 
-        this.Line = this.Text.Lines.Get(this.PosA.Row);
+        this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -1394,7 +1394,7 @@ public class Edit : ViewView
 
 
 
-        this.Line = this.Text.Lines.Get(this.PosA.Row);
+        this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -1500,7 +1500,7 @@ public class Edit : ViewView
 
 
 
-            this.Line = this.Text.Lines.Get(this.PosA.Row);
+            this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -1746,7 +1746,7 @@ public class Edit : ViewView
 
 
 
-            this.Line = this.Text.Lines.Get(this.PosA.Row);
+            this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -1839,7 +1839,7 @@ public class Edit : ViewView
 
 
 
-            this.Line = this.Text.Lines.Get(this.PosA.Row);
+            this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -1880,7 +1880,7 @@ public class Edit : ViewView
 
 
 
-            this.Line = this.Text.Lines.Get(this.PosA.Row);
+            this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -2022,7 +2022,7 @@ public class Edit : ViewView
     {
         Line line;
 
-        line = this.Text.Lines.Get(this.Caret.Pos.Value.Row);
+        line = this.Text.Line.Get(this.Caret.Pos.Value.Row);
 
 
 
@@ -2452,7 +2452,7 @@ public class Edit : ViewView
 
 
 
-        this.Line = this.Text.Lines.Get(this.PosA.Row);
+        this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -2562,7 +2562,7 @@ public class Edit : ViewView
 
 
 
-        this.Line = this.Text.Lines.Get(this.PosA.Row);
+        this.Line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -2721,7 +2721,7 @@ public class Edit : ViewView
         int k;
 
 
-        k = this.Text.Lines.Get(this.PosA.Row).Chars.Count;
+        k = this.Text.Line.Get(this.PosA.Row).Chars.Count;
 
 
 
@@ -2957,7 +2957,7 @@ public class Edit : ViewView
 
 
 
-        this.Line = this.Text.Lines.Get(this.PosA.Row);
+        this.Line = this.Text.Line.Get(this.PosA.Row);
         
 
 
@@ -3132,7 +3132,7 @@ public class Edit : ViewView
 
             Line u;
 
-            u = this.Text.Lines.Get(this.PosB.Row);
+            u = this.Text.Line.Get(this.PosB.Row);
 
 
 
@@ -3147,7 +3147,7 @@ public class Edit : ViewView
 
             Line line;
 
-            line = this.Text.Lines.Get(this.PosA.Row);
+            line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -3263,7 +3263,7 @@ public class Edit : ViewView
         Line line;
 
 
-        line = this.Text.Lines.Get(this.PosA.Row);
+        line = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -3309,7 +3309,7 @@ public class Edit : ViewView
 
         
 
-        this.Line = this.Text.Lines.Get(this.PosA.Row);
+        this.Line = this.Text.Line.Get(this.PosA.Row);
         
 
 
@@ -3448,14 +3448,14 @@ public class Edit : ViewView
     {
         Line dest;
 
-        dest = this.Text.Lines.Get(this.PosB.Row);
+        dest = this.Text.Line.Get(this.PosB.Row);
 
 
 
 
         Line source;
 
-        source = this.Text.Lines.Get(this.PosA.Row);
+        source = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -3590,14 +3590,14 @@ public class Edit : ViewView
     {
         Line dest;
 
-        dest = this.Text.Lines.Get(this.PosB.Row);
+        dest = this.Text.Line.Get(this.PosB.Row);
 
 
 
 
         Line source;
 
-        source = this.Text.Lines.Get(this.PosA.Row);
+        source = this.Text.Line.Get(this.PosA.Row);
 
 
 
@@ -4092,7 +4092,7 @@ public class Edit : ViewView
         Line firstLine;
 
 
-        firstLine = this.Text.Lines.Get(start.Row);
+        firstLine = this.Text.Line.Get(start.Row);
 
 
 
@@ -4174,7 +4174,7 @@ public class Edit : ViewView
 
 
 
-            line = this.Text.Lines.Get(row);
+            line = this.Text.Line.Get(row);
 
 
 
@@ -4577,7 +4577,7 @@ public class Edit : ViewView
         Line line;
 
 
-        line = this.Text.Lines.Get(row);
+        line = this.Text.Line.Get(row);
 
 
 
