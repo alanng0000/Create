@@ -105,27 +105,20 @@ public class Edit : ViewView
 
 
 
+
     private DrawColor CommentTextColor;
 
 
 
 
-
-
-    private Graphics Graphics { get; set; }
-
-
-
-
-
-    private DrawRectangle ClipRect;
+    
+    private DrawRect DrawRect;
 
 
 
 
 
-    private DrawRectangle DrawRect;
-
+    private Draw Draw { get; set; }
 
 
 
@@ -4275,24 +4268,31 @@ public class Edit : ViewView
 
 
 
-
-        DrawRectangle rect;
-
+        this.DrawRect.Pos.Left = left;
 
 
-        rect = new DrawRectangle(new DrawPoint(left, up), new DrawSize(width, height));
+        this.DrawRect.Pos.Up = up;
+
+
+        this.DrawRect.Size.Width = width;
+
+
+        this.DrawRect.Size.Height = height;
 
 
 
 
 
-        this.Graphics.FillRectangle(this.SelectBrush, rect);
+        draw.FillRectangle(this.SelectBrush, this.DrawRect);
 
 
 
 
         return true;
     }
+
+
+
 
 
 
@@ -4881,7 +4881,24 @@ public class Edit : ViewView
 
     private bool InitDrawRect()
     {
-        this.DrawRect = new DrawRectangle(new DrawPoint(0, 0), new DrawSize(this.Size.Width, this.Size.Height));
+        DrawRect rect;
+
+        rect = new DrawRect();
+
+        rect.Init();
+
+        rect.Pos = new DrawPos();
+
+        rect.Pos.Init();
+
+        rect.Size = new DrawSize();
+
+        rect.Size.Init();
+
+
+
+        this.DrawRect = rect;
+
 
 
         return true;
