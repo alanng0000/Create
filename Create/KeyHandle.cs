@@ -69,7 +69,7 @@ class KeyHandle : Handle
 
 
 
-        this.Keys = this.Control.Keys;
+        this.Keys = ControlKey.This;
 
 
 
@@ -375,7 +375,7 @@ class KeyHandle : Handle
 
     private bool ControlKey()
     {
-        return this.Control.Get(this.Keys.Control);
+        return this.Control.GetKeyState(this.Keys.Control);
     }
 
 
@@ -386,7 +386,7 @@ class KeyHandle : Handle
 
     private bool Shift()
     {
-        return this.Control.Get(this.Keys.Shift);
+        return this.Control.GetKeyState(this.Keys.Shift);
     }
 
 
@@ -409,17 +409,24 @@ class KeyHandle : Handle
 
 
 
-    public override bool Execute(ControlEventArg arg)
+    public override bool Execute(object arg)
     {
+        ControlKeyEventArg o;
+
+        o = (ControlKeyEventArg)arg;
+
+
+
+
         byte key;
 
-        key = arg.Key;
+        key = o.Key;
 
 
 
         bool state;
 
-        state = arg.State;
+        state = o.State;
 
 
 
