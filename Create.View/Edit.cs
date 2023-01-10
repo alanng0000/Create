@@ -2521,7 +2521,7 @@ public class Edit : ViewView
 
         if (!this.CheckRowIndex(row))
         {
-            row = this.Text.Lines.Count - 1;
+            row = this.Text.Line.Count - 1;
         }
 
 
@@ -2627,7 +2627,7 @@ public class Edit : ViewView
 
     private bool CheckRowIndex(int row)
     {
-        if (!(row < this.Text.Lines.Count))
+        if (!(row < this.Text.Line.Count))
         {
             return false;
         }
