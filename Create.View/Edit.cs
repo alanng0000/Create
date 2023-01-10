@@ -499,7 +499,7 @@ public class Edit : ViewView
 
 
 
-        task.Kind = this.Clase.TaskKinds.Node;
+        task.Kind = this.Clase.TaskKindList.Node;
 
 
 
@@ -531,10 +531,10 @@ public class Edit : ViewView
 
 
 
-        SourceList sources;
+        SourceArray sources;
 
 
-        sources = new SourceList();
+        sources = new SourceArray();
 
 
         sources.Init();
@@ -553,7 +553,7 @@ public class Edit : ViewView
 
 
 
-        this.Clase.Sources = sources;
+        this.Clase.Source = sources;
 
 
 
