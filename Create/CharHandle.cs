@@ -6,7 +6,7 @@ namespace Create;
 
 class CharHandle : Handle
 {
-    public Develop Develop { get; set; }
+    public Create Create { get; set; }
 
 
 
@@ -38,7 +38,7 @@ class CharHandle : Handle
 
 
 
-        this.Edit = this.Develop.Frame.Edit;
+        this.Edit = this.Create.Frame.Edit;
 
 
 

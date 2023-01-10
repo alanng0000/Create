@@ -3,7 +3,7 @@ namespace Create;
 
 
 
-public class Develop : Object
+public class Create : Object
 {
     internal Frame Frame { get; set; }
 
@@ -31,7 +31,7 @@ public class Develop : Object
 
 
 
-        this.Frame.Title = "Develop";
+        this.Frame.Title = "Create";
 
 
 
@@ -58,10 +58,10 @@ public class Develop : Object
 
     private bool InitControlHandle()
     {
-        ControlHandle handle;
+        Handle handle;
 
 
-        handle = new ControlHandle();
+        handle = new Handle();
 
 
         handle.Develop = this;

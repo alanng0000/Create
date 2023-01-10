@@ -5,7 +5,7 @@ namespace Create;
 
 class KeyHandle : Handle
 {
-    public Develop Develop { get; set; }
+    public Create Create { get; set; }
 
 
 
@@ -53,7 +53,7 @@ class KeyHandle : Handle
 
 
 
-        this.Edit = this.Develop.Frame.Edit;
+        this.Edit = this.Create.Frame.Edit;
 
 
 
@@ -354,7 +354,7 @@ class KeyHandle : Handle
 
 
 
-        this.Edit.InsertText(this.Develop.Text);
+        this.Edit.InsertText(this.Create.Text);
 
 
 
