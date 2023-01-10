@@ -4938,35 +4938,10 @@ public class Edit : ViewView
 
     private bool InitCharSize()
     {
-        Graphics g;
-
-
-        g = this.CreateGraphics();
-
-        
-
-
-
-        DrawSize d;
-        
-        d = TextRenderer.MeasureText(g, "M", this.Font, new DrawSize(100, 100), this.TextFormatFlags);
-
-
-        
-
-
         this.CharWidth = d.Width;
 
         this.CharHeight = d.Height;
 
-
-
-        //global::System.Console.Write("Develop.View:Edit.InitCharSize(), CharWidth" + ": " + this.CharWidth + ", " + "CharHeight" + ": " + this.CharHeight + "\n");
-
-
-
-
-        g.Dispose();
 
 
 
