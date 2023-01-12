@@ -30,6 +30,11 @@ public class Edit : ViewView
 
 
 
+    private Infra Infra { get; set; }
+
+
+
+
 
     private ClassClass Clase { get; set; }
 
@@ -251,8 +256,12 @@ public class Edit : ViewView
 
 
 
+        this.Infra = Infra.This;
 
-        this.TokenType = global::Create.View.TokenTypeList.This;
+
+
+
+        this.TokenType = TokenTypeList.This;
 
 
 
@@ -3782,13 +3791,8 @@ public class Edit : ViewView
 
 
 
-        this.SetTokensTypesArray();
 
-
-
-
-
-        this.SetTokensTypes();
+        this.SetTokenListType();
 
 
 
