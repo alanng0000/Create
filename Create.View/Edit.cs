@@ -4278,17 +4278,7 @@ public class Edit : ViewView
 
         DrawRect rect;
 
-        rect = new DrawRect();
-
-        rect.Init();
-
-        rect.Pos.Left = left;
-
-        rect.Pos.Up = up;
-
-        rect.Size.Width = width;
-
-        rect.Size.Height = height;
+        rect = this.Infra.CreateRect(this.Infra.CreatePos(left, up), this.Infra.CreateSize(width, height));
 
 
 
@@ -4802,7 +4792,7 @@ public class Edit : ViewView
 
 
 
-        rect = this.Infra.CreateDrawRect(this.Infra.CreateDrawPos(left, up), this.Infra.CreateDrawSize(width, height));
+        rect = this.Infra.CreateRect(this.Infra.CreatePos(left, up), this.Infra.CreateSize(width, height));
 
 
 

@@ -30,7 +30,7 @@ class Infra : Object
 
 
 
-    public DrawPos CreateDrawPos(int left, int up)
+    public DrawPos CreatePos(int left, int up)
     {
         DrawPos pos;
 
@@ -49,7 +49,7 @@ class Infra : Object
 
 
 
-    public DrawSize CreateDrawSize(int width, int height)
+    public DrawSize CreateSize(int width, int height)
     {
         DrawSize size;
 
@@ -69,7 +69,7 @@ class Infra : Object
 
 
 
-    public DrawRect CreateDrawRect(DrawPos pos, DrawSize size)
+    public DrawRect CreateRect(DrawPos pos, DrawSize size)
     {
         DrawRect rect;
 
