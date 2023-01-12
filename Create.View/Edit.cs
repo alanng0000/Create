@@ -4894,12 +4894,45 @@ public class Edit : ViewView
     {
         FontFamily fontFamily;
 
+        fontFamily = new FontFamily();
 
-        fontFamily = new FontFamily("Cascadia Mono");
+        fontFamily.Name = "Cascadia Mono";
 
+        fontFamily.Init();
+        
+
+
+
+        FontStyle fontStyle;
+
+        fontStyle = new FontStyle();
+
+        fontStyle.Init();
+
+
+
+
+        Font font;
+
+
+        font = new Font();
+
+
+        font.Family = fontFamily;
+
+
+        font.Size = 14;
 
         
-        this.Font = new Font(fontFamily, 14, FontStyle.Regular, GraphicsUnit.Pixel);
+        font.Style = fontStyle;
+
+
+        font.Init();
+
+        
+
+
+        this.Font = font;
 
 
 
