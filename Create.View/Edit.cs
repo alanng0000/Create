@@ -4798,17 +4798,17 @@ public class Edit : ViewView
 
 
 
-        DrawRectangle rect;
+        DrawRect rect;
 
 
 
-        rect = new DrawRectangle(new DrawPoint(left, up), new DrawSize(width, height));
+        rect = this.Infra.CreateDrawRect(this.Infra.CreateDrawPos(left, up), this.Infra.CreateDrawSize(width, height));
 
 
 
 
 
-        this.Graphics.FillRectangle(this.CaretBrush, rect);
+        this.DrawOp.Rect(this.CaretBrush, rect);
 
 
 
@@ -4844,7 +4844,7 @@ public class Edit : ViewView
 
     private bool InitTextColors()
     {
-        this.CommentTextColor = DrawColor.FromArgb(0xff, 0x00, 0x80, 0x00);
+        this.CommentTextColor = this.Infra.CreateColor(0xff, 0x00, 0x80, 0x00);
 
 
 
