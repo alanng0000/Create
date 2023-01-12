@@ -4808,7 +4808,7 @@ public class Edit : ViewView
 
 
 
-        this.DrawOp.Rect(this.CaretBrush, rect);
+        this.DrawOp.Rect(rect, this.CaretBrush);
 
 
 
@@ -4860,7 +4860,7 @@ public class Edit : ViewView
 
     private bool InitCaretBrush()
     {
-        this.CaretBrush = new DrawSolidBrush(DrawColor.FromArgb(0xff, 0, 0, 0));
+        this.CaretBrush = this.Infra.CreateColorBrush(this.Infra.CreateColor(0xff, 0, 0, 0));
 
 
 
@@ -4876,7 +4876,7 @@ public class Edit : ViewView
 
     private bool InitSelectBrush()
     {
-        this.SelectBrush = new DrawSolidBrush(DrawColor.FromArgb(0xff, 0xad, 0xd6, 0xff));
+        this.SelectBrush = this.Infra.CreateColorBrush(this.Infra.CreateColor(0xff, 0xad, 0xd6, 0xff));
 
 
 
