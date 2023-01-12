@@ -4257,7 +4257,7 @@ public class Edit : ViewView
         int left;
 
 
-        left = this.VideoWidth(col);
+        left = this.DrawWidth(col);
         
 
 
@@ -4265,7 +4265,7 @@ public class Edit : ViewView
         int up;
 
 
-        up = this.VideoHeight(row);
+        up = this.DrawHeight(row);
 
 
 
@@ -4274,7 +4274,7 @@ public class Edit : ViewView
         int width;
 
 
-        width = this.VideoWidth(w);
+        width = this.DrawWidth(w);
 
 
 
@@ -4282,7 +4282,7 @@ public class Edit : ViewView
         int height;
 
 
-        height = this.VideoHeight(h);
+        height = this.DrawHeight(h);
 
 
 
@@ -4588,7 +4588,7 @@ public class Edit : ViewView
         int left;
 
 
-        left = this.VideoWidth(kb);
+        left = this.DrawWidth(kb);
 
 
 
@@ -4597,7 +4597,7 @@ public class Edit : ViewView
         int up;
 
 
-        up = this.VideoHeight(ka);
+        up = this.DrawHeight(ka);
 
 
 
@@ -4786,7 +4786,7 @@ public class Edit : ViewView
         int left;
 
 
-        left = this.VideoWidth(col);
+        left = this.DrawWidth(col);
         
 
 
@@ -4794,7 +4794,7 @@ public class Edit : ViewView
         int up;
 
 
-        up = this.VideoHeight(row);
+        up = this.DrawHeight(row);
 
 
 
@@ -4838,7 +4838,7 @@ public class Edit : ViewView
 
 
 
-    private int VideoWidth(int col)
+    private int DrawWidth(int col)
     {
         return this.CharWidth * col;
     }
@@ -4847,7 +4847,7 @@ public class Edit : ViewView
 
 
 
-    private int VideoHeight(int row)
+    private int DrawHeight(int row)
     {
         return this.LineHeight * row;
     }
