@@ -1,4 +1,4 @@
-class Door
+class Door : Akt
 {
     public String Name
     {
@@ -8,7 +8,7 @@ class Door
         }
         set
         {
-            data ← value;
+            data : value;
         }
     }
 
@@ -19,7 +19,7 @@ class Door
         Console console;
 
 
-        console ← global Console;
+        console : global Console;
 
 
         console.Write("aabb");
