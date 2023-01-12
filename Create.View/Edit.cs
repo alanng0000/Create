@@ -104,9 +104,14 @@ public class Edit : ViewView
 
 
 
-
-
     private DrawColor CommentTextColor;
+
+
+
+
+
+    private Draw DrawOp { get; set; }
+
 
 
 
@@ -3740,11 +3745,36 @@ public class Edit : ViewView
 
 
 
+    protected override bool DrawThis(Draw draw)
+    {
+        base.DrawThis(draw);
 
 
 
 
-    private bool VideoOps()
+        this.DrawOp = draw;
+
+
+
+
+        this.DrawAll();
+
+
+
+
+        this.DrawOp = null;
+
+
+
+
+        return true;
+    }
+
+
+
+
+
+    private bool DrawAll()
     {
         this.SetCode();
 
@@ -3881,10 +3911,10 @@ public class Edit : ViewView
 
     private bool SetTokenTokensTypes()
     {
-        TokenList tokens;
+        TokenList tokenList;
 
 
-        tokens = this.Code.Token;
+        tokenList = this.Code.Token;
 
 
 
@@ -3899,7 +3929,7 @@ public class Edit : ViewView
         int count;
 
 
-        count = tokens.Count;
+        count = tokenList.Count;
 
 
 
@@ -3912,7 +3942,7 @@ public class Edit : ViewView
 
         while (i < count)
         {
-            token = tokens.Get(i);
+            token = tokenList.Get(i);
 
 
 
