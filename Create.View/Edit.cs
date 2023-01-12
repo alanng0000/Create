@@ -43,7 +43,7 @@ public class Edit : ViewView
 
 
 
-    private TokenType[] TokensTypes { get; set; }
+    private TokenType[] TokenListType { get; set; }
 
 
 
@@ -252,7 +252,7 @@ public class Edit : ViewView
 
 
 
-        this.TokenType = TokenTypeList.This;
+        this.TokenType = global::Create.View.TokenTypeList.This;
 
 
 
@@ -3868,7 +3868,9 @@ public class Edit : ViewView
 
 
 
-    private bool SetTokensTypesArray()
+
+
+    private bool SetTokenListType()
     {
         int count;
 
@@ -3877,21 +3879,12 @@ public class Edit : ViewView
 
 
 
-        this.TokensTypes = new TokenType[count];
-
-
-
-        return true;
-    }
+        this.TokenListType = new TokenType[count];
 
 
 
 
-
-
-    private bool SetTokensTypes()
-    {
-        this.SetTokenTokensTypes();
+        this.SetTokenTokenListType();
 
 
 
@@ -3909,7 +3902,7 @@ public class Edit : ViewView
 
 
 
-    private bool SetTokenTokensTypes()
+    private bool SetTokenTokenListType()
     {
         TokenList tokenList;
 
@@ -3977,7 +3970,7 @@ public class Edit : ViewView
         TokenType type;
 
 
-        type = this.TokenTypes.Default;
+        type = this.TokenType.Default;
 
 
 
@@ -3989,7 +3982,7 @@ public class Edit : ViewView
 
             if (b)
             {
-                type = this.TokenTypes.String;
+                type = this.TokenType.String;
             }
         }
 
@@ -4003,7 +3996,7 @@ public class Edit : ViewView
 
             if (b)
             {
-                type = this.TokenTypes.Keyword;
+                type = this.TokenType.Keyword;
             }
         }
 
@@ -4297,7 +4290,7 @@ public class Edit : ViewView
 
 
 
-        draw.Rect(this.SelectBrush, rect);
+        this.DrawOp.Rect(this.SelectBrush, rect);
 
 
 
@@ -4507,7 +4500,7 @@ public class Edit : ViewView
 
     private TokenType GetTokenType(int index)
     {
-        return this.TokensTypes[index];
+        return this.TokenListType[index];
     }
 
 
@@ -4518,7 +4511,7 @@ public class Edit : ViewView
 
     internal bool SetTokenType(int index, TokenType type)
     {
-        this.TokensTypes[index] = type;
+        this.TokenListType[index] = type;
 
 
         return true;
