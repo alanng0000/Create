@@ -4647,6 +4647,13 @@ public class Edit : ViewView
 
 
 
+        Constant constant;
+
+        constant = Constant.This;
+
+
+
+
         char oc;
         
 
@@ -4656,7 +4663,7 @@ public class Edit : ViewView
 
         bool b;
         
-        b = (oc == '"');
+        b = (oc == constant.Quote);
 
 
         
