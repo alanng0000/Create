@@ -49,7 +49,7 @@ public class Edit : ViewView
 
 
 
-    internal TokenTypes TokenTypes { get; set; }
+    internal TokenTypeList TokenType { get; set; }
 
 
 
@@ -252,7 +252,7 @@ public class Edit : ViewView
 
 
 
-        this.TokenTypes = TokenTypes.This;
+        this.TokenType = TokenTypeList.This;
 
 
 
