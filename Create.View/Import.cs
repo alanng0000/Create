@@ -24,6 +24,7 @@ global using ViewView = System.View.View;
 global using Grid = System.View.Grid;
 global using Source = Class.Infra.Source;
 global using SourceArray = Class.Infra.SourceArray;
+global using Constant = Class.Infra.Constant;
 global using Code = Class.Token.Code;
 global using CodeList = Class.Token.CodeArray;
 global using Token = Class.Token.Token;
