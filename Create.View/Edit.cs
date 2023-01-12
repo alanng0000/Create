@@ -204,6 +204,11 @@ public class Edit : ViewView
 
 
 
+    private DrawSize DrawSize;
+
+
+
+
 
     public override bool Init()
     {
@@ -219,6 +224,12 @@ public class Edit : ViewView
 
         this.Size.Height = this.Frame.Size.Height;
 
+
+
+
+
+
+        this.DrawSize = this.Infra.CreateSize(this.Size.Width, this.Size.Height);
 
 
 
@@ -328,7 +339,7 @@ public class Edit : ViewView
 
 
 
-        this.InitTextColors();
+        this.InitTextColor();
 
 
 
@@ -4592,33 +4603,43 @@ public class Edit : ViewView
 
         up = up - 1;
 
-
-
         
 
 
 
-        // DrawPoint pos;
+        DrawPos pos;
 
-
-        // pos = new DrawPoint(left, up);
-
-
+        pos = this.Infra.CreatePos(left, up);
 
 
 
-        
+        DrawRect destRect;
 
-
-        // ReadOnlySpanChar t;
-
-
-        // t = new ReadOnlySpanChar(data, col, count);
+        destRect = this.Infra.CreateRect(pos, this.DrawSize);
 
 
 
 
-        // TextRenderer.DrawText(this.Graphics, t, this.Font, pos, color, this.TextFormatFlags);
+
+        DrawCharSpan charSpan;
+
+
+        charSpan = new DrawCharSpan();
+
+
+        charSpan.Init();
+
+
+
+        charSpan.Array = data;
+
+
+        charSpan.Range = range.Range;
+
+
+
+
+        this.DrawOp.Text(charSpan, this.Font, color, destRect);
 
 
 
@@ -4839,7 +4860,7 @@ public class Edit : ViewView
 
 
 
-    private bool InitTextColors()
+    private bool InitTextColor()
     {
         this.CommentTextColor = this.Infra.CreateColor(0xff, 0x00, 0x80, 0x00);
 
