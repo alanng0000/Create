@@ -108,4 +108,20 @@ class Infra : Object
 
         return color;
     }
+
+
+
+    public DrawColorBrush CreateColorBrush(DrawColor color)
+    {
+        DrawColorBrush brush;
+
+        brush = new DrawColorBrush();
+
+        brush.Color = color;
+
+        brush.Init();
+
+
+        return brush;
+    }
 }
