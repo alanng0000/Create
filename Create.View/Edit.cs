@@ -4294,7 +4294,7 @@ public class Edit : ViewView
 
 
 
-        this.DrawOp.Rect(this.SelectBrush, rect);
+        this.DrawOp.Rect(rect, this.SelectBrush);
 
 
 
@@ -4899,7 +4899,7 @@ public class Edit : ViewView
         fontFamily.Name = "Cascadia Mono";
 
         fontFamily.Init();
-        
+
 
 
 
