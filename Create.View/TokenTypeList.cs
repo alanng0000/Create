@@ -36,17 +36,22 @@ class TokenTypeList : Object
 
 
 
+        Infra infra;
 
-        this.Default = this.AddType(this.CreateColor(0xff, 0, 0, 0));
-
-
-        this.Keyword = this.AddType(this.CreateColor(0xff, 0, 0, 0xff));
+        infra = Infra.This;
 
 
-        this.String = this.AddType(this.CreateColor(0xff, 0xa3, 0x15, 0x15));
+
+        this.Default = this.AddType(infra.CreateColor(0xff, 0, 0, 0));
 
 
-        this.ClassName = this.AddType(this.CreateColor(0xff, 0x26, 0x7f, 0x99));
+        this.Keyword = this.AddType(infra.CreateColor(0xff, 0, 0, 0xff));
+
+
+        this.String = this.AddType(infra.CreateColor(0xff, 0xa3, 0x15, 0x15));
+
+
+        this.ClassName = this.AddType(infra.CreateColor(0xff, 0x26, 0x7f, 0x99));
 
 
 
@@ -89,25 +94,6 @@ class TokenTypeList : Object
 
 
 
-    private DrawColor CreateColor(byte alpha, byte red, byte green, byte blue)
-    {
-        DrawColor color;
-
-        color = new DrawColor();
-
-        color.Init();
-
-        color.Alpha = alpha;
-
-        color.Red = red;
-
-        color.Green = green;
-
-        color.Blue = blue;
-
-
-        return color;
-    }
 
 
 
