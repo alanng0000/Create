@@ -15,6 +15,11 @@ class KeyHandle : Handle
 
 
 
+    private Frame Frame { get; set; }
+
+
+
+
 
     private Control Control { get; set; }
 
@@ -53,7 +58,13 @@ class KeyHandle : Handle
 
 
 
-        this.Edit = this.Create.Frame.Edit;
+
+        this.Frame = this.Create.Frame;
+
+
+
+
+        this.Edit = this.Frame.Edit;
 
 
 
@@ -100,7 +111,7 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Keys.Enter, this.Edit.InsertLine);
+        this.SetHandleMethod(this.Keys.Enter, this.InsertLine);
 
 
 
@@ -201,6 +212,24 @@ class KeyHandle : Handle
 
 
         return ret;
+    }
+
+
+
+
+
+
+    private bool InsertLine()
+    {
+        this.Edit.InsertLine();
+
+
+
+        this.Create.Frame.Update();
+        
+
+
+        return true;
     }
 
 
@@ -353,10 +382,12 @@ class KeyHandle : Handle
 
 
 
-
         this.Edit.InsertText(this.Create.Text);
 
 
+
+
+        this.Frame.Update();
 
 
 
