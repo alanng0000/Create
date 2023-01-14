@@ -129,12 +129,12 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Keys.Enter, false, this.InsertLine);
+        this.SetHandleMethod(this.Keys.Enter, false, false, this.InsertLine);
 
 
 
 
-        this.SetHandleMethod(this.Keys.Backspace, false, this.Edit.Backspace);
+        this.SetHandleMethod(this.Keys.Backspace, false, false, this.Edit.Backspace);
 
 
 
@@ -156,25 +156,25 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Keys.Home, false, this.Edit.CaretStart);
+        this.SetHandleMethod(this.Keys.Home, false, false, this.Edit.CaretStart);
 
 
 
-        this.SetHandleMethod(this.Keys.End, false, this.Edit.CaretEnd);
-
-
-
-
-        this.SetHandleMethod(this.Keys.PageUp, false, this.Edit.PageUp);
-
-
-
-        this.SetHandleMethod(this.Keys.PageDown, false, this.Edit.PageDown);
+        this.SetHandleMethod(this.Keys.End, false, false, this.Edit.CaretEnd);
 
 
 
 
-        this.SetHandleMethod(this.Keys.Tab, false, this.Edit.InsertIndent);
+        this.SetHandleMethod(this.Keys.PageUp, false, false, this.Edit.PageUp);
+
+
+
+        this.SetHandleMethod(this.Keys.PageDown, false, false, this.Edit.PageDown);
+
+
+
+
+        this.SetHandleMethod(this.Keys.Tab, false, false, this.Edit.InsertIndent);
 
 
 
@@ -186,7 +186,7 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(vKey, true, this.InsertText);
+        this.SetHandleMethod(vKey, false, true, this.InsertText);
 
 
 
@@ -547,7 +547,7 @@ class KeyHandle : Handle
 
 
 
-    private bool ControlKey()
+    private bool IsControl()
     {
         return this.Control.Get(this.Keys.Control);
     }
@@ -558,7 +558,7 @@ class KeyHandle : Handle
 
 
 
-    private bool Shift()
+    private bool IsShift()
     {
         return this.Control.Get(this.Keys.Shift);
     }
@@ -568,15 +568,22 @@ class KeyHandle : Handle
 
 
 
-    private bool SetHandleMethod(byte key, bool control, HandleMethod method)
+    private bool SetHandleMethod(byte key, bool shift, bool control, HandleMethod method)
     {
+        int shiftIndex;
+
+        shiftIndex = this.BoolIndex(shift);
+
+
+
         int controlIndex;
 
-        controlIndex = this.ControlIndex(control);
+        controlIndex = this.BoolIndex(control);
 
 
 
-        this.KeyMethodList[key][controlIndex].Handle = method;
+
+        this.KeyMethodList[key][shiftIndex][controlIndex].Handle = method;
 
 
         return true;
@@ -586,18 +593,24 @@ class KeyHandle : Handle
 
 
 
-    private HandleMethod GetHandleMethod(byte key, bool control)
+    private HandleMethod GetHandleMethod(byte key, bool shift, bool control)
     {
+        int shiftIndex;
+
+        shiftIndex = this.BoolIndex(shift);
+
+
+
         int controlIndex;
 
-        controlIndex = this.ControlIndex(control);
+        controlIndex = this.BoolIndex(control);
 
 
 
 
         HandleMethod method;
         
-        method = this.KeyMethodList[key][controlIndex].Handle;
+        method = this.KeyMethodList[key][shiftIndex][controlIndex].Handle;
 
 
 
@@ -650,7 +663,7 @@ class KeyHandle : Handle
 
 
 
-        method = this.GetHandleMethod(key, this.ControlKey());
+        method = this.GetHandleMethod(key, this.IsShift(), this.IsControl());
 
 
 
