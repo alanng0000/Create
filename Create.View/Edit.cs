@@ -64,22 +64,15 @@ public class Edit : ViewView
 
 
 
+
     private int CharWidth { get; set; }
 
-
-
-    private int CharHeight { get; set; }
 
 
 
     private int LineHeight { get; set; }
 
 
-
-
-    
-
-    private Size VisibleSize;
 
 
 
@@ -204,6 +197,13 @@ public class Edit : ViewView
 
 
 
+    
+
+    private PortPort Port { get; set; }
+
+
+
+
 
     public override bool Init()
     {
@@ -319,12 +319,6 @@ public class Edit : ViewView
 
 
 
-        this.InitTextFormatFlags();
-
-
-
-
-
         this.InitFont();
 
 
@@ -353,15 +347,6 @@ public class Edit : ViewView
 
 
         this.LineHeight = 19;
-
-
-
-
-
-        this.InitVisibleSize();
-
-
-
 
 
         
@@ -536,20 +521,19 @@ public class Edit : ViewView
 
 
 
-
-
-        this.Clase.Task = task;
-
-
-
-        this.Clase.Source = sourceArray;
+        task.Source = sourceArray;
 
 
 
 
 
+        this.Class.Task = task;
+        
 
-        this.Compile();
+
+
+
+        this.Class.Execute();
 
 
 
@@ -560,8 +544,6 @@ public class Edit : ViewView
 
 
 
-
-    private PortPort Port { get; set; }
 
 
 
@@ -778,103 +760,6 @@ public class Edit : ViewView
         return true;
     }
 
-
-
-
-
-
-    private bool InitVisibleSize()
-    {
-        int videoWidth;
-
-
-        videoWidth = this.Size.Width;
-
-
-
-
-        int videoHeight;
-
-
-        videoHeight = this.Size.Height;
-
-
-
-
-
-        int k;
-
-
-
-
-
-        k = this.VisibleCount(videoWidth, this.CharWidth);
- 
-
-
-
-        this.VisibleSize.Width = k;
-
-
-
-
-
-        k = this.VisibleCount(videoHeight, this.LineHeight);
- 
-
-
-
-        this.VisibleSize.Height = k;
-
-
-
-
-
-        return true;
-    }
-
-
-
-
-    private int VisibleCount(int totalCount, int unitCount)
-    {
-        int t;
-
-
-        t = totalCount / unitCount;
-
-
-
-        int o;
-
-
-        o = t * unitCount;
-
-
-
-
-        int k;
-
-        k = t;
-
-
-
-        if (o < totalCount)
-        {
-            k = k + 1;
-        }
-
-
-
-
-        int ret;
-
-
-        ret = k;
-
-
-        return ret;
-    }
 
 
 
@@ -2821,7 +2706,7 @@ public class Edit : ViewView
 
 
 
-        this.Compile();
+        this.ExecuteClass();
 
 
 
@@ -3072,7 +2957,7 @@ public class Edit : ViewView
 
 
 
-        this.Compile();
+        this.ExecuteClass();
 
 
 
@@ -3285,7 +3170,7 @@ public class Edit : ViewView
 
 
 
-        this.Compile();
+        this.ExecuteClass();
 
 
 
@@ -3424,7 +3309,7 @@ public class Edit : ViewView
 
 
 
-        this.Compile();
+        this.ExecuteClass();
 
 
 
@@ -3562,9 +3447,12 @@ public class Edit : ViewView
 
 
 
-    private bool Compile()
+
+
+
+    private bool ExecuteClass()
     {
-        this.Clase.ExecuteCompile();
+        this.Class.Execute();
 
 
 
@@ -3753,7 +3641,7 @@ public class Edit : ViewView
         ListIter iter;
 
 
-        iter = this.Clase.Result.Node.Tree.Iter();
+        iter = this.Class.Result.Node.Tree.Iter();
 
 
         iter.Next();
@@ -3902,7 +3790,7 @@ public class Edit : ViewView
         CodeList codes;
 
 
-        codes = this.Clase.Result.Token.Code;
+        codes = this.Class.Result.Token.Code;
 
 
 
