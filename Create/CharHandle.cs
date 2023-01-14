@@ -11,6 +11,11 @@ class CharHandle : Handle
 
 
 
+    private Frame Frame { get; set; }
+
+    
+
+
     private Edit Edit { get; set; }
 
 
@@ -38,7 +43,12 @@ class CharHandle : Handle
 
 
 
-        this.Edit = this.Create.Frame.Edit;
+        this.Frame = this.Create.Frame;
+
+
+
+
+        this.Edit = this.Frame.Edit;
 
 
 
@@ -95,6 +105,10 @@ class CharHandle : Handle
 
         this.Edit.InsertChar(oc);
         
+
+
+
+        this.Frame.Update();
 
 
 
