@@ -36,7 +36,7 @@ public class Edit : ViewView
 
 
 
-    private ClassClass Clase { get; set; }
+    private ClassClass Class { get; set; }
 
 
 
@@ -87,11 +87,6 @@ public class Edit : ViewView
 
     private Pos ScrollPos;
 
-
-
-
-
-    private TextFormatFlags TextFormatFlags { get; set; }
 
 
 
@@ -227,6 +222,17 @@ public class Edit : ViewView
 
 
 
+        
+
+        this.Infra = Infra.This;
+
+
+
+    
+        this.TokenType = TokenTypeList.This;
+
+
+
 
 
         this.DrawSize = this.Infra.CreateSize(this.Size.Width, this.Size.Height);
@@ -263,16 +269,7 @@ public class Edit : ViewView
 
         this.CharRange = new Range();
 
-        
 
-
-
-        this.Infra = Infra.This;
-
-
-
-
-        this.TokenType = TokenTypeList.This;
 
 
 
@@ -383,24 +380,6 @@ public class Edit : ViewView
 
 
 
-    private bool InitTextFormatFlags()
-    {
-        this.TextFormatFlags = 
-        
-        TextFormatFlags.Left | 
-        TextFormatFlags.Top | 
-        TextFormatFlags.NoPadding |
-        TextFormatFlags.NoPrefix;
-
-
-        return true;
-    }
-
-
-
-
-
-
     private bool InitText()
     {
         this.Text = new Text();
@@ -478,12 +457,25 @@ public class Edit : ViewView
 
     private bool InitClass()
     {
-        this.Clase = new ClassClass();
+        this.Class = new ClassClass();
 
 
 
-        this.Clase.Init();
+        this.Class.Init();
 
+
+
+
+        
+        this.ExecutePort();
+
+
+
+
+
+        TaskKindList k;
+
+        k = TaskKindList.This;
 
 
 
@@ -499,11 +491,8 @@ public class Edit : ViewView
 
 
 
-        task.Kind = this.Clase.TaskKindList.Node;
+        task.Kind = k.Check;
 
-
-
-        task.Node = "Class";
 
 
 
@@ -518,10 +507,7 @@ public class Edit : ViewView
         source.Index = 0;
 
 
-        source.Name = "Source1";
-
-
-        source.Path = "Source1";
+        source.Name = "SourceA";
 
 
         source.Text = this.Text;
@@ -531,18 +517,21 @@ public class Edit : ViewView
 
 
 
-        SourceArray sources;
+        SourceArray sourceArray;
 
 
-        sources = new SourceArray();
+        sourceArray = new SourceArray();
 
 
-        sources.Init();
+        sourceArray.Count = 1;
+
+
+        sourceArray.Init();
 
 
 
 
-        sources.Add(source);
+        sourceArray.Set(0, source);
 
 
 
@@ -553,7 +542,7 @@ public class Edit : ViewView
 
 
 
-        this.Clase.Source = sources;
+        this.Clase.Source = sourceArray;
 
 
 
@@ -569,6 +558,67 @@ public class Edit : ViewView
         return true;
     }
 
+
+
+
+    private PortPort Port { get; set; }
+
+
+
+
+
+    private bool ExecutePort()
+    {
+        this.Port = this.Infra.CreatePort();
+
+
+
+
+        TaskKindList k;
+
+        k = TaskKindList.This;
+
+
+
+
+
+        Task task;
+
+
+
+        task = new Task();
+
+
+
+        task.Init();
+
+
+
+        task.Kind = k.Port;
+
+
+
+        task.Port = this.Port;
+
+
+
+        task.Out = null;
+
+        
+
+
+        this.Class.Task = task;
+
+
+
+
+        this.Class.Execute();
+
+
+
+
+        return true;
+    }
 
 
 
