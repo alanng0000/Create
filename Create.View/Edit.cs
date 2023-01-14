@@ -930,11 +930,6 @@ public class Edit : ViewView
 
 
 
-        this.UpdateArea();
-
-
-
-
 
         return true;
     }
@@ -1016,11 +1011,6 @@ public class Edit : ViewView
         }
 
 
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -1123,11 +1113,6 @@ public class Edit : ViewView
 
 
 
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -1241,12 +1226,6 @@ public class Edit : ViewView
 
 
 
-        this.UpdateArea();
-
-
-
-
-
         return true;
     }
 
@@ -1293,14 +1272,6 @@ public class Edit : ViewView
 
 
         this.CaretUpDownCol = this.Caret.Pos.Value.Col;
-
-
-
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -1359,12 +1330,6 @@ public class Edit : ViewView
 
         this.CaretUpDownCol = this.Caret.Pos.Value.Col;
 
-
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -1486,11 +1451,6 @@ public class Edit : ViewView
 
 
 
-        this.UpdateArea();
-
-
-
-
 
         return true;
     }
@@ -1591,13 +1551,6 @@ public class Edit : ViewView
         {
             this.FlipSelectRange();
         }
-
-
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -1718,13 +1671,6 @@ public class Edit : ViewView
             this.FlipSelectRange();
         }
 
-
-
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -1852,13 +1798,6 @@ public class Edit : ViewView
             this.FlipSelectRange();
         }
 
-
-
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -2413,14 +2352,6 @@ public class Edit : ViewView
         }
 
 
-        
-
-
-
-
-
-        this.UpdateArea();
-
 
 
 
@@ -2522,13 +2453,6 @@ public class Edit : ViewView
             this.Caret.Pos.Value.Col = this.PosA.Col;
         }
 
-
-
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -2711,12 +2635,6 @@ public class Edit : ViewView
         this.ExecuteClass();
 
 
-
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -2966,14 +2884,6 @@ public class Edit : ViewView
 
 
 
-
-        this.UpdateArea();
-
-
-
-
-
-
         return true;
     }
     
@@ -3171,17 +3081,8 @@ public class Edit : ViewView
 
 
 
-
         this.ExecuteClass();
 
-
-
-
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -3310,16 +3211,8 @@ public class Edit : ViewView
 
 
 
-
         this.ExecuteClass();
 
-
-
-
-
-
-
-        this.UpdateArea();
 
 
 
@@ -3691,16 +3584,6 @@ public class Edit : ViewView
 
 
 
-
-
-
-
-
-    private bool UpdateArea()
-    {
-
-        return true;
-    }
 
 
 
