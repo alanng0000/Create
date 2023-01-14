@@ -373,9 +373,6 @@ class KeyHandle : Handle
 
 
 
-
-
-
     private bool InsertText()
     {
         this.Edit.InsertText(this.Create.Text);
