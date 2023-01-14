@@ -28,7 +28,7 @@ class CharHandle : Handle
 
 
 
-    private ControlKey Keys { get; set; }
+    private ControlKey Key { get; set; }
 
 
 
@@ -59,7 +59,7 @@ class CharHandle : Handle
 
 
 
-        this.Keys = ControlKey.This;
+        this.Key = ControlKey.This;
 
 
 
@@ -93,7 +93,7 @@ class CharHandle : Handle
 
 
 
-        if (this.Control.Get(this.Keys.Control))
+        if (this.Control.Get(this.Key.Control))
         {
             return true;
         }
