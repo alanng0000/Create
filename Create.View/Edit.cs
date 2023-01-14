@@ -271,7 +271,7 @@ public class Edit : ViewView
 
 
         this.CharRange.Init();
-        
+
 
 
 
@@ -3750,14 +3750,14 @@ public class Edit : ViewView
 
 
 
-        this.SelectVideoOps();
+        this.DrawSelect();
 
 
 
 
 
 
-        this.CodeVideoOps();
+        this.DrawCode();
 
 
 
@@ -3971,7 +3971,7 @@ public class Edit : ViewView
 
 
 
-    private bool SelectVideoOps()
+    private bool DrawSelect()
     {
         Pos start;
 
@@ -3997,7 +3997,7 @@ public class Edit : ViewView
 
 
 
-            this.SelectOneRectVideoOps(start, r);
+            this.DrawSelectOneRect(start, r);
 
 
 
@@ -4031,7 +4031,7 @@ public class Edit : ViewView
 
 
 
-        this.SelectOneRectVideoOps(start, firstCount);
+        this.DrawSelectOneRect(start, firstCount);
 
 
 
@@ -4109,7 +4109,7 @@ public class Edit : ViewView
 
 
 
-            this.SelectOneRectVideoOps(pos, u);
+            this.DrawSelectOneRect(pos, u);
 
 
 
@@ -4142,7 +4142,7 @@ public class Edit : ViewView
 
 
 
-        this.SelectOneRectVideoOps(o, lastCount);
+        this.DrawSelectOneRect(o, lastCount);
 
 
 
@@ -4157,9 +4157,7 @@ public class Edit : ViewView
 
 
 
-
-
-    private bool SelectOneRectVideoOps(Pos pos, int count)
+    private bool DrawSelectOneRect(Pos pos, int count)
     {
         int row;
 
@@ -4252,7 +4250,7 @@ public class Edit : ViewView
 
 
 
-    private bool CodeVideoOps()
+    private bool DrawCode()
     {
         TokenList tokens;
 
@@ -4272,12 +4270,12 @@ public class Edit : ViewView
 
 
 
-        this.TokensVideoOps(tokens);
+        this.DrawTokenList(tokens);
 
 
 
 
-        this.CommentsVideoOps(comments);
+        this.DrawCommentList(comments);
 
 
 
@@ -4289,7 +4287,7 @@ public class Edit : ViewView
 
 
 
-    private bool TokensVideoOps(TokenList tokens)
+    private bool DrawTokenList(TokenList tokens)
     {
         int count;
 
@@ -4315,7 +4313,7 @@ public class Edit : ViewView
             token = tokens.Get(i);
 
 
-            this.TokenVideoOps(i, ref token);
+            this.DrawToken(i, ref token);
 
 
 
@@ -4330,7 +4328,7 @@ public class Edit : ViewView
 
 
 
-    private bool TokenVideoOps(int index, ref Token token)
+    private bool DrawToken(int index, ref Token token)
     {
         TokenType type;
 
@@ -4348,7 +4346,7 @@ public class Edit : ViewView
 
 
 
-        this.TextVideoOps(ref range, ref type.Color);
+        this.DrawText(ref range, ref type.Color);
 
 
 
@@ -4361,7 +4359,7 @@ public class Edit : ViewView
 
 
 
-    private bool CommentsVideoOps(CommentList comments)
+    private bool DrawCommentList(CommentList comments)
     {
         int count;
 
@@ -4387,7 +4385,7 @@ public class Edit : ViewView
             comment = comments.Get(i);
 
 
-            this.CommentVideoOps(ref comment);
+            this.DrawComment(ref comment);
 
 
 
@@ -4404,7 +4402,7 @@ public class Edit : ViewView
 
 
 
-    private bool CommentVideoOps(ref Comment comment)
+    private bool DrawComment(ref Comment comment)
     {
         TextRange range;
 
@@ -4413,7 +4411,7 @@ public class Edit : ViewView
 
 
 
-        this.TextVideoOps(ref range, ref this.CommentTextColor);
+        this.DrawText(ref range, ref this.CommentTextColor);
 
 
 
@@ -4467,7 +4465,7 @@ public class Edit : ViewView
 
 
 
-    private bool TextVideoOps(ref TextRange range, ref DrawColor color)
+    private bool DrawText(ref TextRange range, ref DrawColor color)
     {
         int row;
 
