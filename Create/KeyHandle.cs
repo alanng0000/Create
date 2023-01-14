@@ -74,7 +74,7 @@ class KeyHandle : Handle
 
 
 
-        this.InitHandleMethods();
+        this.InitKeyMethodList();
 
 
 
@@ -83,10 +83,12 @@ class KeyHandle : Handle
         return true;
     }
 
+    
 
 
 
-    private bool InitHandleMethods()
+
+    private bool InitKeyMethodList()
     {
         int count;
 
