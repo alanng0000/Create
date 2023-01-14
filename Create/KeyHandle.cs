@@ -129,7 +129,7 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Keys.Enter, false, false, this.InsertLine);
+        this.SetHandleMethod(this.Keys.Enter, false, false, this.Edit.InsertLine);
 
 
 
@@ -139,7 +139,29 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Keys.Left, this.KeyLeft);
+        this.SetHandleMethod(this.Keys.Left, true, false, this.Edit.SelectLeft);
+
+
+
+
+        this.SetHandleMethod(this.Keys.Right, true, false, this.Edit.SelectRight);
+
+
+
+
+    
+        this.SetHandleMethod(this.Keys.Left, false, false, this.Edit.CaretLeft);
+
+
+        
+        this.SetHandleMethod(this.Keys.Right, false, false, this.Edit.CaretRight);
+
+
+
+
+
+
+
 
 
 
@@ -356,54 +378,6 @@ class KeyHandle : Handle
 
 
 
-    private bool InsertLine()
-    {
-        this.Edit.InsertLine();
-
-
-
-        this.Create.Frame.Update();
-        
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-    private bool KeyLeft()
-    {
-        bool b;
-
-
-        b = this.Shift();
-
-
-        
-        if (b)
-        {
-            this.Edit.SelectLeft();
-        }
-
-        
-
-        if (!b)
-        {
-            this.Edit.CaretLeft();
-        }
-
-
-
-        return true;
-    }
-
-
-
-
 
 
 
@@ -419,14 +393,14 @@ class KeyHandle : Handle
         
         if (b)
         {
-            this.Edit.SelectRight();
+            ();
         }
 
         
 
         if (!b)
         {
-            this.Edit.CaretRight();
+            ();
         }
 
 
@@ -673,6 +647,10 @@ class KeyHandle : Handle
             method();
         }
 
+
+
+
+        this.Frame.Update();
 
 
 
