@@ -529,6 +529,7 @@ public class Edit : ViewView
 
 
 
+
         this.Class.Task = task;
         
 
@@ -3539,8 +3540,15 @@ public class Edit : ViewView
         iter = this.Class.Result.Node.Tree.Iter();
 
 
-        iter.Next();
+        bool b;
 
+        b = iter.Next();
+
+
+        if (!b)
+        {
+            global::System.Console.Write("Edit ExecuteClassNameTraverse iter Next Fail\n");
+        }
 
 
 
