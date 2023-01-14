@@ -28,7 +28,7 @@ class KeyHandle : Handle
 
 
 
-    private ControlKey Keys { get; set; }
+    private ControlKey Key { get; set; }
 
 
 
@@ -37,11 +37,6 @@ class KeyHandle : Handle
 
     private KeyMethod[][][] KeyMethodList { get; set; }
 
-
-
-
-
-    private byte Key { get; set; }
 
 
 
@@ -72,7 +67,7 @@ class KeyHandle : Handle
 
 
 
-        this.Keys = global::System.Control.Key.This;
+        this.Key = global::System.Control.Key.This;
 
 
 
@@ -96,7 +91,7 @@ class KeyHandle : Handle
         int count;
 
 
-        count = this.Keys.Count;
+        count = this.Key.Count;
 
 
 
@@ -129,72 +124,72 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Keys.Enter, false, false, this.Edit.InsertLine);
+        this.SetHandleMethod(this.Key.Enter, false, false, this.Edit.InsertLine);
 
 
 
 
-        this.SetHandleMethod(this.Keys.Backspace, false, false, this.Edit.Backspace);
+        this.SetHandleMethod(this.Key.Backspace, false, false, this.Edit.Backspace);
 
 
 
 
     
-        this.SetHandleMethod(this.Keys.Left, false, false, this.Edit.CaretLeft);
+        this.SetHandleMethod(this.Key.Left, false, false, this.Edit.CaretLeft);
 
 
         
-        this.SetHandleMethod(this.Keys.Right, false, false, this.Edit.CaretRight);
+        this.SetHandleMethod(this.Key.Right, false, false, this.Edit.CaretRight);
 
 
 
-       this.SetHandleMethod(this.Keys.Up, false, false, this.Edit.CaretUp);
+       this.SetHandleMethod(this.Key.Up, false, false, this.Edit.CaretUp);
 
 
         
-        this.SetHandleMethod(this.Keys.Down, false, false, this.Edit.CaretDown);
+        this.SetHandleMethod(this.Key.Down, false, false, this.Edit.CaretDown);
 
 
 
 
 
-        this.SetHandleMethod(this.Keys.Left, true, false, this.Edit.SelectLeft);
+        this.SetHandleMethod(this.Key.Left, true, false, this.Edit.SelectLeft);
 
 
 
-        this.SetHandleMethod(this.Keys.Right, true, false, this.Edit.SelectRight);
+        this.SetHandleMethod(this.Key.Right, true, false, this.Edit.SelectRight);
 
 
 
-        this.SetHandleMethod(this.Keys.Up, true, false, this.Edit.SelectUp);
+        this.SetHandleMethod(this.Key.Up, true, false, this.Edit.SelectUp);
 
 
 
-        this.SetHandleMethod(this.Keys.Down, true, false, this.Edit.SelectDown);
-
-
-
-
-
-        this.SetHandleMethod(this.Keys.Home, false, false, this.Edit.CaretStart);
-
-
-
-        this.SetHandleMethod(this.Keys.End, false, false, this.Edit.CaretEnd);
+        this.SetHandleMethod(this.Key.Down, true, false, this.Edit.SelectDown);
 
 
 
 
-        this.SetHandleMethod(this.Keys.PageUp, false, false, this.Edit.PageUp);
+
+        this.SetHandleMethod(this.Key.Home, false, false, this.Edit.CaretStart);
 
 
 
-        this.SetHandleMethod(this.Keys.PageDown, false, false, this.Edit.PageDown);
+        this.SetHandleMethod(this.Key.End, false, false, this.Edit.CaretEnd);
 
 
 
 
-        this.SetHandleMethod(this.Keys.Tab, false, false, this.Edit.InsertIndent);
+        this.SetHandleMethod(this.Key.PageUp, false, false, this.Edit.PageUp);
+
+
+
+        this.SetHandleMethod(this.Key.PageDown, false, false, this.Edit.PageDown);
+
+
+
+
+        this.SetHandleMethod(this.Key.Tab, false, false, this.Edit.InsertIndent);
 
 
 
@@ -393,7 +388,7 @@ class KeyHandle : Handle
 
     private bool IsControl()
     {
-        return this.Control.Get(this.Keys.Control);
+        return this.Control.Get(this.Key.Control);
     }
 
 
@@ -404,7 +399,7 @@ class KeyHandle : Handle
 
     private bool IsShift()
     {
-        return this.Control.Get(this.Keys.Shift);
+        return this.Control.Get(this.Key.Shift);
     }
 
 
