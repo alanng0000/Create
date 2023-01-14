@@ -112,15 +112,13 @@ class KeyHandle : Handle
 
         while (i < count)
         {
-            this.KeyMethodList[i] = new KeyMethod[2][];
+            byte key;
+
+            key = (byte)i;
 
 
 
-            
-
-
-
-            this.SetKeyMethod(i);            
+            this.SetKeyMethod(key);            
 
 
 
@@ -204,7 +202,48 @@ class KeyHandle : Handle
 
 
 
-    private bool SetKeyMethod(byte key, bool shift, bool control)
+
+    private bool SetKeyMethod(byte key)
+    {
+        int boolCount;
+
+
+        boolCount = 2;
+
+
+
+
+        this.KeyMethodList[key] = new KeyMethod[boolCount][];
+
+
+        this.KeyMethodList[key][this.BoolIndex(false)] = new KeyMethod[boolCount];
+
+
+        this.KeyMethodList[key][this.BoolIndex(true)] = new KeyMethod[boolCount];
+
+
+
+
+        this.SetKeyMethodOne(key, false, false);
+
+
+        this.SetKeyMethodOne(key, true, false);
+
+
+        this.SetKeyMethodOne(key, false, true);
+
+
+        this.SetKeyMethodOne(key, true, true);
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool SetKeyMethodOne(byte key, bool shift, bool control)
     {
         int shiftIndex;
 
