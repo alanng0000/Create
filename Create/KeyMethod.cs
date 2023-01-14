@@ -3,9 +3,13 @@ namespace Create;
 
 
 
-class KeyMethod
+class KeyMethod : Object
 {
     public byte Key { get; set; }
+
+
+
+    public bool Shift { get; set; }
 
 
 
