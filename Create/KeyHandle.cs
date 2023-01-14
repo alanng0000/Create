@@ -34,12 +34,8 @@ class KeyHandle : Handle
 
 
 
-    private delegate bool HandleMethod();
 
-
-
-
-    private HandleMethod[] HandleMethodList { get; set; }
+    private KeyMethod[][][] KeyMethodList { get; set; }
 
 
 
@@ -105,18 +101,42 @@ class KeyHandle : Handle
 
 
 
-        this.HandleMethodList = new HandleMethod[count];
+        this.KeyMethodList = new KeyMethod[count][][];
+
+
+
+        int i;
+
+        i = 0;
+
+
+        while (i < count)
+        {
+            this.KeyMethodList[i] = new KeyMethod[2][];
+
+
+
+            
+
+
+
+            this.SetKeyMethod(i);            
+
+
+
+            i = i + 1;
+        }
 
 
 
 
 
-        this.SetHandleMethod(this.Keys.Enter, this.InsertLine);
+        this.SetHandleMethod(this.Keys.Enter, false, this.InsertLine);
 
 
 
 
-        this.SetHandleMethod(this.Keys.Backspace, this.Edit.Backspace);
+        this.SetHandleMethod(this.Keys.Backspace, false, this.Edit.Backspace);
 
 
 
@@ -138,25 +158,25 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Keys.Home, this.Edit.CaretStart);
+        this.SetHandleMethod(this.Keys.Home, false, this.Edit.CaretStart);
 
 
 
-        this.SetHandleMethod(this.Keys.End, this.Edit.CaretEnd);
-
-
-
-
-        this.SetHandleMethod(this.Keys.PageUp, this.Edit.PageUp);
-
-
-
-        this.SetHandleMethod(this.Keys.PageDown, this.Edit.PageDown);
+        this.SetHandleMethod(this.Keys.End, false, this.Edit.CaretEnd);
 
 
 
 
-        this.SetHandleMethod(this.Keys.Tab, this.Edit.InsertIndent);
+        this.SetHandleMethod(this.Keys.PageUp, false, this.Edit.PageUp);
+
+
+
+        this.SetHandleMethod(this.Keys.PageDown, false, this.Edit.PageDown);
+
+
+
+
+        this.SetHandleMethod(this.Keys.Tab, false, this.Edit.InsertIndent);
 
 
 
@@ -168,7 +188,7 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(vKey, this.InsertText);
+        this.SetHandleMethod(vKey, true, this.InsertText);
 
 
 
@@ -181,6 +201,84 @@ class KeyHandle : Handle
         return true;
     }
 
+
+
+
+    private bool SetKeyMethod(byte key, bool shift, bool control)
+    {
+        int shiftIndex;
+
+        shiftIndex = this.BoolIndex(shift);
+
+
+
+        int controlIndex;
+
+        controlIndex = this.BoolIndex(control);
+
+
+
+        this.KeyMethodList[key][shiftIndex][controlIndex] = this.CreateKeyMethod(key, shift, control);
+
+
+
+        return true;
+    }
+
+
+
+
+
+    private KeyMethod CreateKeyMethod(byte key, bool shift, bool control)
+    {
+        KeyMethod method;
+
+
+        method = new KeyMethod();
+
+
+        method.Init();
+
+
+        method.Key = key;
+
+
+        method.Shift = shift;
+
+
+        method.Control = control;
+
+
+
+
+        KeyMethod ret;
+
+        ret = method;
+
+
+        return ret;
+    }
+
+
+
+
+
+
+    private int BoolIndex(bool b)
+    {
+        int k;
+
+        k = 0;
+
+
+        if (b)
+        {
+            k = 1;
+        }
+
+
+        return k;
+    }
 
 
 
@@ -349,7 +447,7 @@ class KeyHandle : Handle
         
         if (b)
         {
-            this.Edit.SelectDown();
+            
         }
 
         
@@ -367,6 +465,21 @@ class KeyHandle : Handle
 
 
 
+    private bool SelectDown()
+    {
+        this.Edit.SelectDown();
+
+
+
+        this.Frame.Update();
+
+
+
+        return true;
+    }
+
+
+
 
 
 
@@ -374,14 +487,6 @@ class KeyHandle : Handle
 
     private bool InsertText()
     {
-        if (!this.ControlKey())
-        {
-            return true;
-        }
-
-
-
-
         this.Edit.InsertText(this.Create.Text);
 
 
@@ -424,15 +529,46 @@ class KeyHandle : Handle
 
 
 
-    private bool SetHandleMethod(byte key, HandleMethod method)
+    private bool SetHandleMethod(byte key, bool control, HandleMethod method)
     {
-        this.HandleMethodList[key] = method;
+        int controlIndex;
+
+        controlIndex = this.ControlIndex(control);
+
+
+
+        this.KeyMethodList[key][controlIndex].Handle = method;
 
 
         return true;
     }
 
 
+
+
+
+    private HandleMethod GetHandleMethod(byte key, bool control)
+    {
+        int controlIndex;
+
+        controlIndex = this.ControlIndex(control);
+
+
+
+
+        HandleMethod method;
+        
+        method = this.KeyMethodList[key][controlIndex].Handle;
+
+
+
+
+        HandleMethod ret;
+
+        ret = method;
+
+        return ret;
+    }
 
 
 
@@ -467,12 +603,6 @@ class KeyHandle : Handle
 
 
 
-        
-
-
-        this.Key = key;
-
-
 
 
 
@@ -481,7 +611,7 @@ class KeyHandle : Handle
 
 
 
-        method = this.HandleMethodList[key];
+        method = this.GetHandleMethod(key, this.ControlKey());
 
 
 
