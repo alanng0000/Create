@@ -270,6 +270,8 @@ public class Edit : ViewView
         this.CharRange = new Range();
 
 
+        this.CharRange.Init();
+        
 
 
 
