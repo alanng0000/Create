@@ -528,6 +528,15 @@ public class Edit : ViewView
 
 
 
+        task.Out = null;
+
+        
+
+
+
+        this.Class.ErrorWrite = false;
+
+
 
 
         this.Class.Task = task;
