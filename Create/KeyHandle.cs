@@ -139,16 +139,6 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Keys.Left, true, false, this.Edit.SelectLeft);
-
-
-
-
-        this.SetHandleMethod(this.Keys.Right, true, false, this.Edit.SelectRight);
-
-
-
-
     
         this.SetHandleMethod(this.Keys.Left, false, false, this.Edit.CaretLeft);
 
@@ -158,22 +148,30 @@ class KeyHandle : Handle
 
 
 
+       this.SetHandleMethod(this.Keys.Up, false, false, this.Edit.CaretUp);
+
+
+        
+        this.SetHandleMethod(this.Keys.Down, false, false, this.Edit.CaretDown);
 
 
 
 
 
-
-
-        this.SetHandleMethod(this.Keys.Right, this.KeyRight);
-
-
-
-        this.SetHandleMethod(this.Keys.Up, this.KeyUp);
+        this.SetHandleMethod(this.Keys.Left, true, false, this.Edit.SelectLeft);
 
 
 
-        this.SetHandleMethod(this.Keys.Down, this.KeyDown);
+        this.SetHandleMethod(this.Keys.Right, true, false, this.Edit.SelectRight);
+
+
+
+        this.SetHandleMethod(this.Keys.Up, true, false, this.Edit.SelectUp);
+
+
+
+        this.SetHandleMethod(this.Keys.Down, true, false, this.Edit.SelectDown);
+
 
 
 
@@ -202,13 +200,9 @@ class KeyHandle : Handle
 
 
 
-        byte vKey;
-
-        vKey = this.LetterToKey('V');
 
 
-
-        this.SetHandleMethod(vKey, false, true, this.InsertText);
+        this.SetHandleMethod(this.LetterKey('V'), false, true, this.InsertText);
 
 
 
@@ -347,7 +341,7 @@ class KeyHandle : Handle
 
 
 
-    private byte LetterToKey(char oc)
+    private byte LetterKey(char oc)
     {
         ulong u;
 
@@ -382,130 +376,9 @@ class KeyHandle : Handle
 
 
 
-    private bool KeyRight()
-    {
-        bool b;
-
-
-        b = this.Shift();
-
-
-        
-        if (b)
-        {
-            ();
-        }
-
-        
-
-        if (!b)
-        {
-            ();
-        }
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-
-    private bool KeyUp()
-    {
-        bool b;
-
-
-        b = this.Shift();
-
-
-        
-        if (b)
-        {
-            this.Edit.SelectUp();
-        }
-
-        
-
-        if (!b)
-        {
-            this.Edit.CaretUp();
-        }
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-
-
-    private bool KeyDown()
-    {
-        bool b;
-
-
-        b = this.Shift();
-
-
-        
-        if (b)
-        {
-            
-        }
-
-        
-
-        if (!b)
-        {
-            this.Edit.CaretDown();
-        }
-
-
-
-        return true;
-    }
-
-
-
-
-    private bool SelectDown()
-    {
-        this.Edit.SelectDown();
-
-
-
-        this.Frame.Update();
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-
     private bool InsertText()
     {
         this.Edit.InsertText(this.Create.Text);
-
-
-
-
-        this.Frame.Update();
 
 
 
