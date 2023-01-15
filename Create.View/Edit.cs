@@ -3654,7 +3654,7 @@ public class Edit : ViewView
 
         
         
-        this.CaretVideoOps();
+        this.DrawCaret();
         
 
         
@@ -4620,7 +4620,7 @@ public class Edit : ViewView
 
 
 
-    private bool CaretVideoOps()
+    private bool DrawCaret()
     {
         Pos pos;
 
