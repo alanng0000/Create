@@ -3677,10 +3677,10 @@ public class Edit : ViewView
 
     private bool SetCode()
     {
-        CodeList codes;
+        CodeList codeList;
 
 
-        codes = this.Class.Result.Token.Code;
+        codeList = this.Class.Result.Token.Code;
 
 
 
@@ -3688,7 +3688,7 @@ public class Edit : ViewView
 
         int u;
 
-        u = codes.Count;
+        u = codeList.Count;
 
 
 
@@ -3700,7 +3700,7 @@ public class Edit : ViewView
 
 
 
-        this.Code = (Code)codes.Get(0);
+        this.Code = (Code)codeList.Get(0);
 
 
 
