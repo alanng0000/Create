@@ -3057,8 +3057,16 @@ public class Edit : ViewView
 
 
 
+            this.Line = this.Text.Line.Get(this.PosA.Row);
 
-            this.RemoveChar();
+
+
+            this.CharRange = this.IndexRange(this.PosA.Col);
+
+
+
+
+            this.RemoveCharList();
 
 
 
@@ -3094,16 +3102,9 @@ public class Edit : ViewView
 
 
 
-    private bool RemoveChar()
+    private bool RemoveCharList()
     {
-        Line line;
-
-
-        line = this.Text.Line.Get(this.PosA.Row);
-
-
-
-        line.Char.Remove(this.PosA.Col);
+        this.Line.Char.RemoveRange(this.CharRange);
 
 
 
@@ -3302,8 +3303,28 @@ public class Edit : ViewView
 
 
 
+        int start;
 
-        this.AddCharsToLine(dest, source, sourceIndex, count);
+        start = sourceIndex;
+
+
+
+        int end;
+
+        end = start + count;
+
+
+
+
+        Range range;
+
+        range = this.Range(start, end);
+
+
+
+
+        dest.Char.AddRange(source.Char.Data, range);
+
 
 
 
@@ -3341,6 +3362,29 @@ public class Edit : ViewView
 
 
 
+    private Range Range(int start, int end)
+    {
+        RangeInfra infra;
+
+        infra = RangeInfra.This;
+
+
+        return infra.Range(start, end);
+    }
+
+
+
+
+
+
+    private Range IndexRange(int index)
+    {
+        return this.Range(index, index + 1);
+    }
+
+
+
+
 
 
     private bool ExecuteClass()
@@ -3351,7 +3395,6 @@ public class Edit : ViewView
 
         return true;
     }
-
 
 
 
@@ -3448,21 +3491,30 @@ public class Edit : ViewView
 
 
 
-        this.AddCharsToLine(dest, source, sourceIndex, count);
 
+
+        int start;
+
+        start = sourceIndex;
+
+
+
+        int end;
+
+        end = start + count;
 
 
 
 
         Range range;
 
-        range = new Range();
+        range = this.Range(start, end);
 
 
-        range.Start = sourceIndex;
 
 
-        range.End = sourceIndex + count;
+        dest.Char.AddRange(source.Char.Data, range);
+        
         
 
         
@@ -3474,53 +3526,6 @@ public class Edit : ViewView
         return true;
     }
 
-
-
-
-
-
-
-    private bool AddCharsToLine(Line dest, Line source, int sourceIndex, int count)
-    {
-        Chars destChars;
-
-        destChars = dest.Char;
-
-
-
-        Chars sourceChars;
-
-        sourceChars = source.Char;
-
-
-
-
-        int i;
-
-
-        i = 0;
-
-
-        while (i < count)
-        {
-            char o;
-            
-            o = sourceChars.Get(sourceIndex + i);
-
-
-
-            destChars.Add(o);
-
-
-
-            i = i + 1;
-        }
-
-
-
-
-        return true;
-    }
 
 
 
