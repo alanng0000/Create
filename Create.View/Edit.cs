@@ -860,7 +860,7 @@ public class Edit : ViewView
 
 
 
-            line.Char.AddRange(charList, range);
+            line.Char.Add(charList, range);
 
 
 
@@ -2953,7 +2953,7 @@ public class Edit : ViewView
 
     private bool AddNewCharList()
     {
-        this.Line.Char.AddRange(this.Chars, this.CharRange);
+        this.Line.Char.Add(this.Chars, this.CharRange);
 
 
 
@@ -3358,7 +3358,7 @@ public class Edit : ViewView
 
 
 
-        dest.Char.AddRange(source.Char.Data, range);
+        dest.Char.Add(source.Char.Data, range);
 
 
 
@@ -3563,7 +3563,7 @@ public class Edit : ViewView
 
 
 
-        dest.Char.AddRange(source.Char.Data, range);
+        dest.Char.Add(source.Char.Data, range);
 
         
 
