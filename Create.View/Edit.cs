@@ -24,12 +24,6 @@ public class Edit : ViewView
 
 
 
-    private RangeInfra RangeInfra { get; set; }
-
-
-
-
-
     private Infra Infra { get; set; }
 
 
@@ -287,10 +281,6 @@ public class Edit : ViewView
 
 
 
-        this.InitRangeInfra();
-
-
-
 
         this.InitClass();
 
@@ -421,21 +411,6 @@ public class Edit : ViewView
         return true;
     }
 
-
-
-
-
-    private bool InitRangeInfra()
-    {
-        this.RangeInfra = new RangeInfra();
-
-
-        this.RangeInfra.Init();
-
-
-
-        return true;
-    }
 
 
 
@@ -2842,13 +2817,14 @@ public class Edit : ViewView
 
 
 
+        
 
 
 
         int k;
 
 
-        k = this.RangeInfra.Count(this.CharRange);
+        k = this.CountRange(this.CharRange);
 
 
 
@@ -3184,7 +3160,7 @@ public class Edit : ViewView
         int k;
 
 
-        k = this.RangeInfra.Count(this.CharRange);
+        k = this.CountRange(this.CharRange);
 
 
 
@@ -3383,6 +3359,21 @@ public class Edit : ViewView
     {
         return this.Range(index, index + 1);
     }
+
+
+
+
+
+    private int CountRange(Range range)
+    {
+        RangeInfra infra;
+
+        infra = RangeInfra.This;
+
+
+        return infra.Count(range);
+    }
+
 
 
 
