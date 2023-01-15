@@ -2826,7 +2826,7 @@ public class Edit : ViewView
 
         if (b)
         {
-            this.InsertNewChars();
+            this.InsertNewCharList();
         }
         
 
@@ -2834,7 +2834,7 @@ public class Edit : ViewView
 
         if (!b)
         {
-            this.AddNewChars();
+            this.AddNewCharList();
         }
         
 
@@ -2890,7 +2890,7 @@ public class Edit : ViewView
 
 
 
-    private bool InsertNewChars()
+    private bool InsertNewCharList()
     {
         int index;
 
@@ -2916,7 +2916,7 @@ public class Edit : ViewView
 
 
 
-    private bool AddNewChars()
+    private bool AddNewCharList()
     {
         this.Line.Char.AddRange(this.Chars, this.CharRange);
 
@@ -3161,7 +3161,7 @@ public class Edit : ViewView
 
         if (b)
         {
-            this.InsertNewChars();
+            this.InsertNewCharList();
         }
         
 
@@ -3169,7 +3169,7 @@ public class Edit : ViewView
 
         if (!b)
         {
-            this.AddNewChars();
+            this.AddNewCharList();
         }
         
 
