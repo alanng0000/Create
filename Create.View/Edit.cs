@@ -1066,12 +1066,6 @@ public class Edit : ViewView
 
 
             this.MoveCaretCol();
-
-
-
-
-
-            this.CaretUpDownCol = this.Caret.Pos.Value.Col;
         }
         
         
@@ -1176,12 +1170,6 @@ public class Edit : ViewView
 
 
             this.MoveCaretCol();
-
-
-
-
-
-            this.CaretUpDownCol = this.Caret.Pos.Value.Col;
         }
 
 
