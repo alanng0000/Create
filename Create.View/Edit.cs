@@ -4433,15 +4433,54 @@ public class Edit : ViewView
 
 
 
+
+        int right;
+
+        right = this.DrawSize.Width;
+
+
+
+
+        int down;
+        
+        down = this.DrawSize.Height;
+
+
+
+
+        int width;
+
+        width = right - left;
+
+
+
+
+        int height;
+
+        height = down - up;
+
+
+
+
+
         DrawPos pos;
 
         pos = this.Infra.CreatePos(left, up);
 
 
 
+
+        DrawSize size;
+
+        size = this.Infra.CreateSize(width, height);
+
+
+
+
+
         DrawRect destRect;
 
-        destRect = this.Infra.CreateRect(pos, this.DrawSize);
+        destRect = this.Infra.CreateRect(pos, size);
 
 
 
