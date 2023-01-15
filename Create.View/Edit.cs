@@ -3139,7 +3139,7 @@ public class Edit : ViewView
 
     private bool RemoveCharList()
     {
-        this.Line.Char.RemoveRange(this.CharRange);
+        this.Line.Char.Remove(this.CharRange);
 
 
 
@@ -3568,7 +3568,7 @@ public class Edit : ViewView
         
 
         
-        source.Char.RemoveRange(range);
+        source.Char.Remove(range);
         
 
 
