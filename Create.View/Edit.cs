@@ -815,7 +815,7 @@ public class Edit : ViewView
 
         char[] charList;
 
-        charList = new char[1];
+        charList = this.OneChars;
 
 
 
