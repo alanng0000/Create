@@ -16,12 +16,15 @@ class Door : Akt
 
     public Bool Kk(Int a)
     {
-        Console console;
+        A a;
 
 
-        console : global Console;
+        a : new A;
 
 
-        console.Write("aabb");
+        a.Init();
+
+
+        a.H("aabb");
     }
 }
