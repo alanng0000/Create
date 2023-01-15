@@ -2936,7 +2936,7 @@ public class Edit : ViewView
 
 
 
-        this.Line.Char.InsertRange(index, this.Chars, this.CharRange);
+        this.Line.Char.Insert(index, this.Chars, this.CharRange);
 
 
 
