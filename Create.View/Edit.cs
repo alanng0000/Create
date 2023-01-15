@@ -369,17 +369,13 @@ public class Edit : ViewView
 
 
 
-
-        this.AddNewLine();
-
-
-
-
         string[] lineData;
+
 
         lineData = File.ReadAllLines("Demo");
 
         
+
 
         this.SetText(lineData);
 
@@ -754,21 +750,10 @@ public class Edit : ViewView
 
     private bool SetText(string[] lineData)
     {
-        Line line;
+        Text text;
 
-        line = this.Text.Line.Get(0);
-
-
-
-
-        string s;
-
-
-        char[] ca;
-
-
-
-        Range range;
+        text = this.Text;
+        
 
 
 
@@ -778,37 +763,105 @@ public class Edit : ViewView
 
 
 
+        int i;
+
+        i = 0;
+
+
+
+        while (i < count)
+        {
+            string s;
+
+            s = lineData[i];
+
+
+
+            Line line;
+
+            line = this.CreateTextLine(s);
+
+
+
+            text.Line.Add(line);
+
+
+
+            i = i + 1;
+        }
+
+        
+
+        return true;
+    }
+
+
+
+
+
+
+
+
+    private Line CreateTextLine(string s)
+    {
+        Line line;
+
+        line = new Line();
+
+        line.Init();
+
+
+
+
+        char[] charList;
+
+        charList = new char[1];
+
+
+
+
+        char oc;
+
+
+
+
+        RangeInfra rangeInfra;
+
+        rangeInfra = RangeInfra.This;
+
+
+
+
+        Range range;
+
+
+        range = rangeInfra.Range(0, charList.Length);
+
+
+
+
+        int count;
+
+        count = s.Length;
+        
+
 
         int i;
 
         i = 0;
 
+
         while (i < count)
         {
-            if (!(i == 0))
-            {
-                line = new Line();
-
-                line.Init();
+            oc = s[i];
 
 
-                this.Text.Line.Add(line);
-            }
+            charList[0] = oc;
 
 
 
-            s = lineData[i];
+            line.Char.AddRange(charList, range);
 
-
-            ca = s.ToCharArray();
-
-
-
-            range = this.Range(0, ca.Length);
-
-            
-
-            line.Char.AddRange(ca, range);            
 
 
 
@@ -816,11 +869,15 @@ public class Edit : ViewView
         }
 
 
-        
 
-        return true;
+        Line ret;
+
+
+        ret = line;
+
+
+        return ret;
     }
-
 
 
 
