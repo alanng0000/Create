@@ -4175,12 +4175,12 @@ public class Edit : ViewView
 
 
 
-    private bool DrawTokenList(TokenList tokens)
+    private bool DrawTokenList(TokenList tokenList)
     {
         int count;
 
 
-        count = tokens.Count;
+        count = tokenList.Count;
 
 
 
@@ -4198,7 +4198,7 @@ public class Edit : ViewView
 
         while (i < count)
         {
-            token = tokens.Get(i);
+            token = tokenList.Get(i);
 
 
             this.DrawToken(i, ref token);
