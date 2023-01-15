@@ -385,13 +385,13 @@ public class Edit : ViewView
 
 
 
-        string s;
+        string[] lineData;
 
-        s = File.ReadAllText("Demo");
+        lineData = File.ReadAllLines("Demo");
 
         
 
-        this.SetText(s);
+        this.SetText(lineData);
 
 
 
@@ -777,28 +777,30 @@ public class Edit : ViewView
 
 
 
-    private bool SetText(string s)
+    private bool SetText(string[] lineData)
     {
         Line line;
-
 
         line = this.Text.Line.Get(0);
 
 
 
 
+        string s;
+
+
+        char[] ca;
+
+
+
+        Range range;
+
+
+
         int count;
 
+        count = lineData.Length;
 
-        count = s.Length;
-
-
-
-        char oc;
-
-
-
-        bool b;
 
 
 
@@ -806,21 +808,11 @@ public class Edit : ViewView
 
         i = 0;
 
-
         while (i < count)
         {
-            oc = s[i];
-
-
-
-            b = (oc == '\n');
-
-
-
-            if (b)
+            if (!(i == 0))
             {
                 line = new Line();
-
 
                 line.Init();
 
@@ -830,15 +822,25 @@ public class Edit : ViewView
 
 
 
-            if (!b)
-            {
-                line.Char.Add(oc);
-            }
+            s = lineData[i];
+
+
+            ca = s.ToCharArray();
+
+
+
+            range = this.Range(0, ca.Length);
+
+            
+
+            line.Char.AddRange(ca, range);            
 
 
 
             i = i + 1;
         }
+
+
         
 
         return true;
@@ -3514,7 +3516,7 @@ public class Edit : ViewView
 
 
         dest.Char.AddRange(source.Char.Data, range);
-        
+
         
 
         
