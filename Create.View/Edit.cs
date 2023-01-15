@@ -4140,30 +4140,30 @@ public class Edit : ViewView
 
     private bool DrawCode()
     {
-        TokenList tokens;
+        TokenList tokenList;
 
 
-        tokens = this.Code.Token;
-
-
-
-
-
-        CommentList comments;
-
-
-        comments = this.Code.Comment;
+        tokenList = this.Code.Token;
 
 
 
 
 
-        this.DrawTokenList(tokens);
+        CommentList commentList;
+
+
+        commentList = this.Code.Comment;
 
 
 
 
-        this.DrawCommentList(comments);
+
+        this.DrawTokenList(tokenList);
+
+
+
+
+        this.DrawCommentList(commentList);
 
 
 
