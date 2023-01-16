@@ -1,5 +1,6 @@
 class Door : Akt
 {
+    # Name of Door
     public String Name
     {
         get
@@ -16,6 +17,12 @@ class Door : Akt
 
     public Bool Kk(Int a)
     {
+        Int e;
+
+        e : 100100303;
+        
+
+
         A a;
 
 
