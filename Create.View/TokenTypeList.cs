@@ -48,7 +48,10 @@ class TokenTypeList : Object
         this.Keyword = this.AddType(infra.CreateColor(0xff, 0, 0, 0xff));
 
 
-        this.String = this.AddType(infra.CreateColor(0xff, 0x90, 0x00, 0x00));
+        this.Int = this.AddType(infra.CreateColor(0xff, 0x80, 0x00, 0x00));
+
+
+        this.String = this.AddType(infra.CreateColor(0xff, 0x80, 0x00, 0x00));
 
 
         this.ClassName = this.AddType(infra.CreateColor(0xff, 0x00, 0x80, 0x80));
@@ -70,6 +73,11 @@ class TokenTypeList : Object
 
 
     public TokenType Keyword { get; private set; }
+
+
+
+
+    public TokenType Int { get; private set; }
 
 
 
