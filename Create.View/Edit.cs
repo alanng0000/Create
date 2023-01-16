@@ -2622,7 +2622,34 @@ public class Edit : ViewView
 
 
 
-        this.MoveRemainCharsToNewLine();
+        this.AddLineChars();
+
+
+
+
+        this.Line = this.Text.Line.Get(this.PosA.Row);
+
+
+
+
+        int start;
+
+        start = this.PosA.Col;
+
+
+
+        int end;
+
+        end = start + this.Count;
+
+
+
+        this.CharRange = this.Range(start, end);        
+
+
+
+
+        this.RemoveCharList();
 
 
 
@@ -3492,81 +3519,6 @@ public class Edit : ViewView
 
         return ret;
     }
-
-
-
-
-
-
-
-
-
-    private bool MoveRemainCharsToNewLine()
-    {
-        Line dest;
-
-        dest = this.Text.Line.Get(this.PosB.Row);
-
-
-
-
-        Line source;
-
-        source = this.Text.Line.Get(this.PosA.Row);
-
-
-
-
-        int sourceIndex;
-
-        sourceIndex = this.PosA.Col;
-
-
-
-
-        int count;
-
-        count = this.Count;
-
-
-
-
-
-
-
-        int start;
-
-        start = sourceIndex;
-
-
-
-        int end;
-
-        end = start + count;
-
-
-
-
-        Range range;
-
-        range = this.Range(start, end);
-
-
-
-
-        dest.Char.Add(source.Char.Data, range);
-
-        
-
-        
-        source.Char.Remove(range);
-        
-
-
-
-        return true;
-    }
-
 
 
 
