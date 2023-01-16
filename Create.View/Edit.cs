@@ -283,7 +283,7 @@ public class Edit : ViewView
 
 
 
-        this.InitIndentSpaces();
+        this.InitIndentSpace();
 
 
 
@@ -603,7 +603,7 @@ public class Edit : ViewView
 
 
 
-    private bool InitIndentSpaces()
+    private bool InitIndentSpace()
     {
         this.IndentWidth = 4;
 
