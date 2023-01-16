@@ -175,7 +175,7 @@ public class Edit : ViewView
 
 
 
-    private char[] IndentSpaces { get; set; }
+    private char[] IndentSpace { get; set; }
 
 
 
@@ -610,7 +610,7 @@ public class Edit : ViewView
 
 
 
-        this.IndentSpaces = new char[this.IndentWidth];
+        this.IndentSpace = new char[this.IndentWidth];
 
 
 
@@ -618,7 +618,7 @@ public class Edit : ViewView
         int count;
 
 
-        count = this.IndentSpaces.Length;
+        count = this.IndentSpace.Length;
 
 
 
@@ -630,7 +630,7 @@ public class Edit : ViewView
 
         while (i < count)
         {
-            this.IndentSpaces[i] = ' ';
+            this.IndentSpace[i] = ' ';
 
 
             i = i + 1;
@@ -3185,7 +3185,7 @@ public class Edit : ViewView
 
 
 
-        this.Char = this.IndentSpaces;
+        this.Char = this.IndentSpace;
 
 
 
