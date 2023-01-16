@@ -615,6 +615,14 @@ public class Edit : ViewView
 
 
 
+        Constant constant;
+
+
+        constant = Constant.This;
+
+
+
+
         int count;
 
 
@@ -630,7 +638,7 @@ public class Edit : ViewView
 
         while (i < count)
         {
-            this.IndentSpace[i] = ' ';
+            this.IndentSpace[i] = constant.Space;
 
 
             i = i + 1;
