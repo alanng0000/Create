@@ -17,6 +17,8 @@ public class Create : Object
 
 
 
+    private Control Control { get; set; }
+
 
 
 
@@ -37,6 +39,18 @@ public class Create : Object
 
         this.Frame.Init();
 
+
+
+
+        this.Control = new Control();
+
+
+        this.Control.Init();
+
+
+
+
+        this.Frame.Control = this.Control;
 
 
 
@@ -71,7 +85,7 @@ public class Create : Object
 
 
 
-        Control.This.KeyInput.Handle.AddHandle(keyHandle);
+        this.Control.KeyInput.Handle.AddHandle(keyHandle);
 
 
 
@@ -93,7 +107,7 @@ public class Create : Object
 
 
 
-        Control.This.CharInput.Handle.AddHandle(charHandle);
+        this.Control.CharInput.Handle.AddHandle(charHandle);
 
 
 
