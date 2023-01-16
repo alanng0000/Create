@@ -3952,10 +3952,6 @@ public class Edit : ViewView
 
 
 
-
-
-
-
         Line firstLine;
 
 
