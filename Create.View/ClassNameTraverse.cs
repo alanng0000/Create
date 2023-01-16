@@ -13,13 +13,6 @@ class ClassNameTraverse : Traverse
 
 
 
-    public override bool Init()
-    {
-        return true;
-    }
-
-
-
 
     public override bool ExecuteClassName(ClassName className)
     {
