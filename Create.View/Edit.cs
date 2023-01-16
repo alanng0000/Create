@@ -2594,8 +2594,6 @@ public class Edit : ViewView
 
 
 
-
-
         this.PosA = pos;
 
 
@@ -2610,33 +2608,13 @@ public class Edit : ViewView
 
 
 
-        int k;
+
+        Line line;
+
+        line = this.Text.Line.Get(this.PosA.Row);
 
 
-        k = this.Text.Line.Get(this.PosA.Row).Char.Count;
-
-
-
-        int count;
-        
-
-        count = k - this.PosA.Col;
-
-
-
-        this.Count = count;
-
-
-
-
-
-        this.AddLineChars();
-
-
-
-
-        this.Line = this.Text.Line.Get(this.PosA.Row);
-
+        this.Char = line.Char.Data;
 
 
 
@@ -2645,14 +2623,31 @@ public class Edit : ViewView
         start = this.PosA.Col;
 
 
-
         int end;
 
-        end = start + this.Count;
+        end = line.Char.Count;
 
 
 
-        this.CharRange = this.Range(start, end);        
+
+        this.CharRange = this.Range(start, end);
+
+
+
+
+        this.Line = this.Text.Line.Get(this.PosB.Row);
+
+
+
+
+
+        this.AddNewCharList();
+
+
+
+
+
+        this.Line = this.Text.Line.Get(this.PosA.Row);    
 
 
 
