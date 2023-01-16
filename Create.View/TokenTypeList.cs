@@ -48,10 +48,10 @@ class TokenTypeList : Object
         this.Keyword = this.AddType(infra.CreateColor(0xff, 0, 0, 0xff));
 
 
-        this.String = this.AddType(infra.CreateColor(0xff, 0xa3, 0x15, 0x15));
+        this.String = this.AddType(infra.CreateColor(0xff, 0x90, 0x00, 0x00));
 
 
-        this.ClassName = this.AddType(infra.CreateColor(0xff, 0x26, 0x7f, 0x99));
+        this.ClassName = this.AddType(infra.CreateColor(0xff, 0x00, 0x80, 0x80));
 
 
 
