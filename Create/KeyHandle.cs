@@ -61,7 +61,7 @@ class KeyHandle : Handle
 
 
 
-        this.Control = Control.This;
+        this.Control = this.Create.Control;
 
 
 

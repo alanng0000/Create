@@ -11,13 +11,15 @@ public class Create : Object
 
 
 
+    internal Control Control { get; set; }
+
+
+
+
 
     internal Text Text { get; set; }
 
 
-
-
-    private Control Control { get; set; }
 
 
 
