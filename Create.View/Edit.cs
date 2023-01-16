@@ -153,13 +153,13 @@ public class Edit : ViewView
 
 
 
-    private char[] OneChars { get; set; }
+    private char[] CharOneList { get; set; }
 
 
 
 
 
-    private char[] Chars { get; set; }
+    private char[] Char { get; set; }
 
 
 
@@ -247,7 +247,7 @@ public class Edit : ViewView
 
 
 
-        this.OneChars = new char[1];
+        this.CharOneList = new char[1];
 
 
 
@@ -806,7 +806,7 @@ public class Edit : ViewView
 
         char[] charList;
 
-        charList = this.OneChars;
+        charList = this.CharOneList;
 
 
 
@@ -2842,13 +2842,13 @@ public class Edit : ViewView
 
 
 
-        this.OneChars[0] = oc;
+        this.CharOneList[0] = oc;
 
 
 
 
 
-        this.Chars = this.OneChars;
+        this.Char = this.CharOneList;
 
 
 
@@ -2856,7 +2856,7 @@ public class Edit : ViewView
         this.CharRange.Start = 0;
 
 
-        this.CharRange.End = this.CharRange.Start + this.Chars.Length;
+        this.CharRange.End = this.CharRange.Start + this.Char.Length;
 
 
 
@@ -2954,7 +2954,7 @@ public class Edit : ViewView
 
 
 
-        this.Line.Char.Insert(index, this.Chars, this.CharRange);
+        this.Line.Char.Insert(index, this.Char, this.CharRange);
 
 
 
@@ -2971,7 +2971,7 @@ public class Edit : ViewView
 
     private bool AddNewCharList()
     {
-        this.Line.Char.Add(this.Chars, this.CharRange);
+        this.Line.Char.Add(this.Char, this.CharRange);
 
 
 
@@ -3185,7 +3185,7 @@ public class Edit : ViewView
 
 
 
-        this.Chars = this.IndentSpaces;
+        this.Char = this.IndentSpaces;
 
 
 
