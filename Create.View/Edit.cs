@@ -3875,6 +3875,20 @@ public class Edit : ViewView
 
         if (!b)
         {
+            b = this.IsInt(ref token.Range);
+
+
+            if (b)
+            {
+                type = this.TokenType.Int;
+            }
+        }
+
+
+
+
+        if (!b)
+        {
             b = this.IsString(ref token.Range);
 
 
@@ -4563,6 +4577,51 @@ public class Edit : ViewView
 
         return true;
     }
+
+
+
+
+
+
+
+    private bool IsInt(ref TextRange range)
+    {
+        Pos pos;
+
+        pos = new Pos();
+
+        pos.Init();
+
+        pos.Row = range.Row;
+
+        pos.Col = range.Range.Start;
+
+
+
+
+        char oc;
+        
+
+        oc = this.TextInfra.Char(pos);
+
+
+
+        bool b;
+        
+        b = this.TextInfra.IsDigit(oc);
+
+
+        
+        if (!b)
+        {
+            return false;
+        }
+
+
+        return true;
+    }
+
+    
 
 
 
