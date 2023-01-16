@@ -48,11 +48,6 @@ public class Edit : ViewView
 
 
 
-    internal TokenTypeList TokenType { get; set; }
-
-
-
-
 
     private Font Font { get; set; }
 
@@ -220,10 +215,6 @@ public class Edit : ViewView
 
         this.Infra = Infra.This;
 
-
-
-    
-        this.TokenType = TokenTypeList.This;
 
 
 
@@ -3864,11 +3855,18 @@ public class Edit : ViewView
 
 
 
+        TokenTypeList typeList;
+
+
+        typeList = TokenTypeList.This;
+
+
+
 
         TokenType type;
 
 
-        type = this.TokenType.Default;
+        type = typeList.Default;
 
 
 
@@ -3880,7 +3878,7 @@ public class Edit : ViewView
 
             if (b)
             {
-                type = this.TokenType.Int;
+                type = typeList.Int;
             }
         }
 
@@ -3894,7 +3892,7 @@ public class Edit : ViewView
 
             if (b)
             {
-                type = this.TokenType.String;
+                type = typeList.String;
             }
         }
 
@@ -3908,7 +3906,7 @@ public class Edit : ViewView
 
             if (b)
             {
-                type = this.TokenType.Keyword;
+                type = typeList.Keyword;
             }
         }
 
