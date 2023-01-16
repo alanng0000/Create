@@ -37,10 +37,16 @@ class ClassNameTraverse : Traverse
         index = className.Range.Start;
 
 
+
+
+        TokenTypeList typeList;
+
+        typeList = TokenTypeList.This;
+
         
 
 
-        this.Edit.SetTokenType(index, this.Edit.TokenType.ClassName);
+        this.Edit.SetTokenType(index, typeList.ClassName);
 
 
 
