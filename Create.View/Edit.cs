@@ -3081,7 +3081,7 @@ public class Edit : ViewView
 
 
 
-            this.RemoveLinesRange();
+            this.RemoveLineList();
 
 
 
@@ -3344,7 +3344,7 @@ public class Edit : ViewView
 
 
 
-    private bool RemoveLinesRange()
+    private bool RemoveLineList()
     {
         Range range;
 
