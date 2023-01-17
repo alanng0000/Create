@@ -2790,6 +2790,11 @@ public class Edit : ViewView
 
 
 
+        this.LineOneList[0] = line;
+
+
+
+
         this.Text.Line.Insert(index, line);
 
 
@@ -4489,10 +4494,10 @@ public class Edit : ViewView
 
 
 
-        DrawCharSpan charSpan;
+        CharSpan charSpan;
 
 
-        charSpan = new DrawCharSpan();
+        charSpan = new CharSpan();
 
 
         charSpan.Init();
