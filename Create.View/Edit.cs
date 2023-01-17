@@ -4579,13 +4579,13 @@ public class Edit : ViewView
 
     private bool IsKeyword(ref TextRange range)
     {
-        Keywords keywords;
+        KeywordList keywordList;
 
-        keywords = Keywords.Instance;
+        keywordList = KeywordList.Instance;
 
 
 
-        return this.StringListContain(keywords.All, ref range);
+        return this.StringListContain(keywordList.All, ref range);
     }
 
 
