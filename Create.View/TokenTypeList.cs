@@ -42,6 +42,12 @@ class TokenTypeList : Object
 
 
 
+        
+        this.All = new TokenType[5];
+
+
+
+
         this.Default = this.AddType(infra.CreateColor(0xff, 0, 0, 0));
 
 
@@ -62,6 +68,13 @@ class TokenTypeList : Object
         return true;
     }
 
+
+
+
+    public TokenType[] All
+    {
+        get; private set;
+    }
 
 
 
@@ -93,14 +106,7 @@ class TokenTypeList : Object
 
 
 
-
-
-
     private ulong Count { get; set; }
-
-
-
-
 
 
 
@@ -131,6 +137,11 @@ class TokenTypeList : Object
 
         this.Count = this.Count + 1;
 
+
+
+
+
+        this.All[type.Intent] = type;
 
 
 
