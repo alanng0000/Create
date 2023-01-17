@@ -3343,67 +3343,6 @@ public class Edit : ViewView
 
 
 
-    private bool AddLineChars()
-    {
-        Line dest;
-
-        dest = this.Text.Line.Get(this.PosB.Row);
-
-
-
-
-        Line source;
-
-        source = this.Text.Line.Get(this.PosA.Row);
-
-
-
-
-        int sourceIndex;
-
-        sourceIndex = this.PosA.Col;
-
-
-
-
-        int count;
-
-        count = this.Count;
-
-
-
-
-        int start;
-
-        start = sourceIndex;
-
-
-
-        int end;
-
-        end = start + count;
-
-
-
-
-        Range range;
-
-        range = this.Range(start, end);
-
-
-
-
-        dest.Char.Add(source.Char.Data, range);
-
-
-
-
-        return true;
-    }
-
-
-
-
 
     private bool RemoveLinesRange()
     {
