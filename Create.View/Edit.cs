@@ -766,12 +766,6 @@ public class Edit : ViewView
 
 
 
-        Line[] lineList;
-
-        lineList = this.LineOneList;
-
-
-
 
         RangeInfra rangeInfra;
 
@@ -783,8 +777,7 @@ public class Edit : ViewView
         Range range;
 
 
-        range = rangeInfra.Range(0, lineList.Length);
-
+        range = rangeInfra.Range(0, this.LineOneList.Length);
 
 
 
@@ -816,11 +809,11 @@ public class Edit : ViewView
 
 
 
-            lineList[0] = line;
+            this.SetLineOneList(line);
 
 
 
-            text.Line.Add(lineList, range);
+            text.Line.Add(this.LineOneList, range);
 
 
 
@@ -850,12 +843,6 @@ public class Edit : ViewView
 
 
 
-        char[] charList;
-
-        charList = this.CharOneList;
-
-
-
 
         char oc;
 
@@ -872,7 +859,7 @@ public class Edit : ViewView
         Range range;
 
 
-        range = rangeInfra.Range(0, charList.Length);
+        range = rangeInfra.Range(0, this.CharOneList.Length);
 
 
 
@@ -893,11 +880,12 @@ public class Edit : ViewView
             oc = s[i];
 
 
-            charList[0] = oc;
+
+            this.SetCharOneList(oc);
 
 
 
-            line.Char.Add(charList, range);
+            line.Char.Add(this.CharOneList, range);
 
 
 
