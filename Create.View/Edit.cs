@@ -3491,15 +3491,9 @@ public class Edit : ViewView
         iter = this.Class.Result.Node.Tree.Iter();
 
 
-        bool b;
 
-        b = iter.Next();
+        iter.Next();
 
-
-        if (!b)
-        {
-            global::System.Console.Write("Edit ExecuteClassNameTraverse iter Next Fail\n");
-        }
 
 
 
