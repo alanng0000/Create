@@ -42,7 +42,7 @@ public class Edit : ViewView
 
 
 
-    private TokenType[] TokenListType { get; set; }
+    internal TokenListType TokenListType { get; set; }
 
 
 
@@ -267,6 +267,15 @@ public class Edit : ViewView
 
 
         this.LineOneList = new Line[1];
+
+
+
+
+        this.TokenListType = new TokenListType();
+
+
+        this.TokenListType.Init();
+
 
 
 
@@ -3744,7 +3753,7 @@ public class Edit : ViewView
 
 
 
-        this.TokenListType = new TokenType[count];
+        this.TokenListType.SetCount(count);
 
 
 
@@ -3889,7 +3898,8 @@ public class Edit : ViewView
 
 
 
-        this.SetTokenType(index, type);
+
+        this.TokenListType.Set(index, type);
 
 
 
@@ -4259,7 +4269,7 @@ public class Edit : ViewView
     {
         TokenType type;
 
-        type = this.GetTokenType(index);
+        type = this.TokenListType.Get(index);
 
 
 
@@ -4360,32 +4370,6 @@ public class Edit : ViewView
         return true;
     }
 
-
-
-
-
-
-
-
-
-    private TokenType GetTokenType(int index)
-    {
-        return this.TokenListType[index];
-    }
-
-
-
-
-
-
-
-    internal bool SetTokenType(int index, TokenType type)
-    {
-        this.TokenListType[index] = type;
-
-
-        return true;
-    }
 
 
 

@@ -47,7 +47,7 @@ class ClassNameTraverse : Traverse
         
 
 
-        this.Edit.SetTokenType(index, typeList.ClassName);
+        this.Edit.TokenListType.Set(index, typeList.ClassName);
 
 
 
