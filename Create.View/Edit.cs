@@ -169,6 +169,11 @@ public class Edit : ViewView
 
 
 
+    private Line[] LineOneList { get; set; }
+
+
+
+
 
     private int IndentWidth { get; set; }
 
@@ -257,6 +262,11 @@ public class Edit : ViewView
 
         this.CharRange.Init();
 
+
+
+
+
+        this.LineOneList = new Line[1];
 
 
 
@@ -756,6 +766,30 @@ public class Edit : ViewView
 
 
 
+        Line[] lineList;
+
+        lineList = this.LineOneList;
+
+
+
+
+        RangeInfra rangeInfra;
+
+        rangeInfra = RangeInfra.This;
+
+
+
+
+        Range range;
+
+
+        range = rangeInfra.Range(0, lineList.Length);
+
+
+
+
+
+
         int count;
 
         count = lineData.Length;
@@ -782,7 +816,11 @@ public class Edit : ViewView
 
 
 
-            text.Line.Add(line);
+            lineList[0] = line;
+
+
+
+            text.Line.Add(lineList, range);
 
 
 
