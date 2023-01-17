@@ -336,23 +336,30 @@ class KeyHandle : Handle
 
 
 
+    private int LetterIndex(char oc)
+    {
+        int a;
+
+        a = oc - 'A';
+
+
+        return a;
+    }
+
+
 
 
     private byte LetterKey(char oc)
     {
-        ulong u;
+        int index;
 
-
-        u = (ulong)oc;
-
+        index = this.LetterIndex(oc);
 
 
 
         byte o;
 
-
-        o = (byte)u;
-
+        o = this.Key.LetterKey(index);
 
 
 
