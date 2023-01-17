@@ -2585,6 +2585,30 @@ public class Edit : ViewView
 
 
 
+    private bool SetLineOneList(Line line)
+    {
+        this.LineOneList[0] = line;
+
+
+        return true;
+    }
+
+
+
+
+    private bool SetCharOneList(char oc)
+    {
+        this.CharOneList[0] = oc;
+
+
+        return true;
+    }
+
+
+
+
+
+
 
     public bool InsertLine()
     {
@@ -2754,7 +2778,19 @@ public class Edit : ViewView
 
 
 
-        this.Text.Line.Add(line);
+        this.SetLineOneList(line);
+
+
+
+
+        Range range;
+
+        range = this.Range(0, this.LineOneList.Length);
+
+
+
+
+        this.Text.Line.Add(this.LineOneList, range);
         
 
 
@@ -2790,12 +2826,19 @@ public class Edit : ViewView
 
 
 
-        this.LineOneList[0] = line;
+        this.SetLineOneList(line);
 
 
 
 
-        this.Text.Line.Insert(index, line);
+        Range range;
+
+        range = this.Range(0, this.LineOneList.Length);
+
+
+
+
+        this.Text.Line.Insert(index, this.LineOneList, range);
 
 
 
