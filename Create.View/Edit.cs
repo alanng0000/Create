@@ -3402,7 +3402,7 @@ public class Edit : ViewView
 
 
 
-        this.Text.Line.RemoveRange(range);
+        this.Text.Line.Remove(range);
 
 
 
