@@ -3031,17 +3031,15 @@ public class Edit : ViewView
 
 
 
-            Line u;
 
-            u = this.Text.Line.Get(this.PosB.Row);
+            this.Line = this.Text.Line.Get(this.PosB.Row);
 
 
 
             int k;
 
 
-            k = u.Char.Count;
-
+            k = this.Line.Char.Count;
 
 
 
@@ -3052,11 +3050,27 @@ public class Edit : ViewView
 
 
 
-            this.Count = line.Char.Count;
+            this.Char = line.Char.Data;
 
 
 
-            this.AddLineChars();
+            int start;
+
+            start = this.PosA.Col;
+
+
+            int end;
+
+            end = line.Char.Count;
+            
+
+
+            this.CharRange = this.Range(start, end);
+
+
+
+
+            this.AddNewCharList();
 
 
 
