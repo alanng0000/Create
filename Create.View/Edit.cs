@@ -3686,7 +3686,7 @@ public class Edit : ViewView
 
 
         
-        this.SetNodeTokensTypes();
+        this.SetNodeTokenListType();
 
 
 
@@ -4283,7 +4283,7 @@ public class Edit : ViewView
 
 
 
-    private bool SetNodeTokensTypes()
+    private bool SetNodeTokenListType()
     {
         this.ExecuteClassNameTraverse();
 
