@@ -145,7 +145,7 @@ class KeyHandle : Handle
 
 
 
-       this.SetHandleMethod(this.Key.Up, false, false, this.Edit.CaretUp);
+        this.SetHandleMethod(this.Key.Up, false, false, this.Edit.CaretUp);
 
 
         
