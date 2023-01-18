@@ -3488,6 +3488,17 @@ public class Edit : ViewView
 
 
 
+    private bool RemoveCharList()
+    {
+        this.Line.Char.Remove(this.CharRange);
+
+
+
+        return true;
+    }
+
+
+
 
 
     private bool ReplaceCharList()
@@ -3528,16 +3539,6 @@ public class Edit : ViewView
 
 
 
-
-
-    private bool RemoveCharList()
-    {
-        this.Line.Char.Remove(this.CharRange);
-
-
-
-        return true;
-    }
 
     
 
