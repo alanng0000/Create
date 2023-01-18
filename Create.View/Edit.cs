@@ -168,6 +168,11 @@ public class Edit : ViewView
 
 
 
+    private Line[] LineData { get; set; }
+
+
+
+
     private Line[] LineOneList { get; set; }
     
 
@@ -3100,7 +3105,14 @@ public class Edit : ViewView
         count = uRowCount;
 
 
-        if (midRowCount < uRowCount)
+
+        bool b;
+
+
+        b = (midRowCount < uRowCount);
+
+
+        if (b)
         {
             count = midRowCount;
         }
@@ -3238,6 +3250,10 @@ public class Edit : ViewView
 
 
 
+        if (b)
+        {
+            
+        }
 
 
 
@@ -3783,6 +3799,26 @@ public class Edit : ViewView
     }
 
 
+
+
+    private bool InsertLineList()
+    {
+        int index;
+
+
+        index = this.PosA.Row;
+
+
+
+
+        this.Text.Line.Insert(index, this.LineData, this.LineRange);
+
+
+
+
+
+        return true;
+    }
 
 
 
