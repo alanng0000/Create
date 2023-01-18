@@ -3059,7 +3059,7 @@ public class Edit : ViewView
 
 
 
-    public bool Backspace()
+    public bool RemoveText()
     {
         Pos pos;
 
