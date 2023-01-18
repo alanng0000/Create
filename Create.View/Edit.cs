@@ -2906,45 +2906,6 @@ public class Edit : ViewView
 
 
 
-        this.Line = this.Text.Line.Get(this.PosA.Row);
-        
-
-
-        int start;
-
-        start = this.PosA.Col;
-
-
-        int end;
-
-        end = this.Line.Char.Count;
-
-
-
-        this.CharRange = this.Range(start, end);
-
-
-
-        this.RemoveCharList();
-
-
-
-
-        this.Char = firstLine.Char.Data;
-
-
-        start = 0;
-
-        end = firstLine.Char.Count;
-
-
-        this.CharRange = this.Range(start, end);
-
-
-
-        this.AddCharList();
-
-
 
 
 
@@ -2954,7 +2915,8 @@ public class Edit : ViewView
 
 
 
-        
+        int start;
+
         start = 0;
 
 
@@ -2969,6 +2931,7 @@ public class Edit : ViewView
         u = lastLine.Char.Count;
 
 
+        int end;
 
         end = u;
 
