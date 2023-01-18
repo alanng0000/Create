@@ -2871,11 +2871,15 @@ public class Edit : ViewView
 
     public bool ReplaceText(Text text)
     {
-        this.PosA = this.Select.Start.Value;
+        Pos startPos;
+
+        startPos = this.Select.Start.Value;
 
 
 
-        this.PosB = this.Select.End.Value;
+        Pos endPos;
+
+        endPos = this.Select.End.Value;
 
 
 
@@ -2999,24 +3003,25 @@ public class Edit : ViewView
             start = 0;
 
 
+
             int endCol;
 
             endCol = this.Line.Char.Count;
 
 
-            int u;
+            int uEndCol;
 
-            u = line.Char.Count;
+            uEndCol = line.Char.Count;
 
             
 
-            end = u;
+            end = uEndCol;
 
 
 
             bool ba;
             
-            ba = (endCol < u);
+            ba = (endCol < uEndCol);
 
 
             if (ba)
@@ -3036,10 +3041,6 @@ public class Edit : ViewView
 
 
 
-            pos = this.PosA;
-
-
-
 
             this.PosA.Col = 0;
 
@@ -3055,7 +3056,7 @@ public class Edit : ViewView
             {
                 start = endCol;
 
-                end = u;
+                end = uEndCol;
 
 
                 this.CharRange = this.Range(start, end);
@@ -3073,7 +3074,7 @@ public class Edit : ViewView
 
             if (!ba)
             {
-                start = u;
+                start = uEndCol;
 
                 end = endCol;
 
@@ -3084,12 +3085,6 @@ public class Edit : ViewView
 
                 this.RemoveCharList();
             }
-
-
-
-
-
-            this.PosA = pos;
 
 
 
