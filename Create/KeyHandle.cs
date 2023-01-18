@@ -199,7 +199,7 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.LetterKey('V'), false, true, this.InsertText);
+        this.SetHandleMethod(this.LetterKey('V'), false, true, this.ReplaceText);
 
 
 
@@ -377,9 +377,9 @@ class KeyHandle : Handle
 
 
 
-    private bool InsertText()
+    private bool ReplaceText()
     {
-        this.Edit.InsertText(this.Create.Text);
+        this.Edit.ReplaceText(this.Create.Text);
 
 
 

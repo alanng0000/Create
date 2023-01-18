@@ -2840,7 +2840,7 @@ public class Edit : ViewView
 
 
 
-    public bool InsertText(Text text)
+    public bool ReplaceText(Text text)
     {
         this.PosA = this.Select.Start.Value;
 
@@ -2969,9 +2969,59 @@ public class Edit : ViewView
 
 
 
+        this.Char = lastLine.Char.Data;
+
+
 
         this.CharRange = this.Range(start, end);
         
+
+
+        Pos pos;
+
+        pos = this.PosA;
+
+
+
+
+        this.PosA.Col = 0;
+
+
+
+        this.ReplaceCharList();
+
+
+
+
+
+        if (ba)
+        {
+            start = endCol;
+
+            end = u;
+
+
+            this.CharRange = this.Range(start, end);
+
+
+
+
+        }
+
+
+
+
+
+
+        this.PosA = pos;
+
+
+
+
+
+
+
+
 
 
 
