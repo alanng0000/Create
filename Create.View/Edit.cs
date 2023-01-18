@@ -3252,9 +3252,9 @@ public class Edit : ViewView
 
         if (b)
         {
-            int rowStart;
+            int uStart;
 
-            rowStart = uRowRange.Start + count;
+            uStart = uRowRange.Start + count;
 
 
 
@@ -3283,7 +3283,7 @@ public class Edit : ViewView
 
                 int uRow;
 
-                uRow = rowStart + i;
+                uRow = uStart + i;
 
 
 
@@ -3351,6 +3351,22 @@ public class Edit : ViewView
         }
 
 
+
+
+        if (!b)
+        {
+            start = midRowRange.Start + count;
+
+
+            end = midRowRange.End;
+
+
+            this.LineRange = this.Range(start, end);
+
+
+
+            this.RemoveLineList();
+        }
 
 
 
