@@ -2141,19 +2141,6 @@ public class Edit : ViewView
 
 
 
-
-
-
-    private bool CheckSelectEmpty()
-    {
-        return this.CheckPosEqual(this.Select.Start.Value, this.Select.End.Value);
-    }
-
-
-
-
-
-
     private bool CheckPosEqual(Pos a, Pos b)
     {
         return (a.Row == b.Row) & (a.Col == b.Col);
