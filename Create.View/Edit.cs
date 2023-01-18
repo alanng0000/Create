@@ -835,8 +835,12 @@ public class Edit : ViewView
             this.SetLineOneList(line);
 
 
+            int index;
 
-            text.Line.Add(this.LineOneList, range);
+            index = text.Line.Count;
+
+
+            text.Line.Insert(index, this.LineOneList, range);
 
 
 
@@ -3514,20 +3518,6 @@ public class Edit : ViewView
     }
 
 
-
-
-
-
-    private bool AddCharList()
-    {
-        this.Line.Char.Add(this.Char, this.CharRange);
-
-
-
-
-
-        return true;
-    }
 
 
 
