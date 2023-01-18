@@ -3422,11 +3422,18 @@ public class Edit : ViewView
 
 
 
+        int start;
 
-        this.CharRange.Start = 0;
+        start = 0;
 
 
-        this.CharRange.End = this.CharRange.Start + this.Char.Length;
+        int end;
+
+        end = this.Char.Length;
+
+
+
+        this.CharRange = this.Range(start, end);
 
 
 
@@ -3438,33 +3445,12 @@ public class Edit : ViewView
 
 
 
-        bool b;
-        
-
-        b = this.CheckColIndex(this.Line, this.PosA.Col);
-        
-        
-
-
-        if (b)
-        {
-            this.InsertCharList();
-        }
-        
-
-
-
-        if (!b)
-        {
-            this.AddCharList();
-        }
+        this.InsertCharList();
         
 
 
 
         
-
-
 
         int k;
 
