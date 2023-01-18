@@ -169,7 +169,13 @@ public class Edit : ViewView
 
 
 
+    private Range LineRange;
+
+
+
+
     private Line[] LineOneList { get; set; }
+    
 
 
 
@@ -256,6 +262,10 @@ public class Edit : ViewView
 
 
 
+        this.LineOneList = new Line[1];
+
+
+
 
         this.CharRange = new Range();
 
@@ -265,8 +275,13 @@ public class Edit : ViewView
 
 
 
+        this.LineRange = new Range();
 
-        this.LineOneList = new Line[1];
+
+        this.LineRange.Init();
+
+
+
 
 
 
@@ -2871,15 +2886,6 @@ public class Edit : ViewView
 
 
 
-        int middleStartRow;
-
-        middleStartRow = 1;
-
-
-
-        int middleEndRow;
-
-        middleEndRow = lastRow;
 
 
 
@@ -3024,6 +3030,51 @@ public class Edit : ViewView
 
 
 
+
+
+        
+        int midStartRow;
+
+        midStartRow = 1;
+
+
+
+        int midEndRow;
+
+        midEndRow = lastRow;
+
+
+
+        Range midRowRange;
+
+        midRowRange = this.Range(midStartRow, midEndRow);
+
+
+
+
+        int uStartRow;
+
+        uStartRow = this.PosA.Row + 1;
+
+
+        int uEndRow;
+
+        uEndRow = this.PosB.Row - 1;
+
+
+
+
+        Range uRowRange;
+
+        uRowRange = this.Range(uStartRow, uEndRow);
+
+
+
+
+        int midRowCount;
+
+        midRowCount = this.CountRange(midRowRange);
+    
 
 
 
