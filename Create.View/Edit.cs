@@ -3580,26 +3580,8 @@ public class Edit : ViewView
 
 
 
-        bool b;
+        this.InsertCharList();
         
-
-        b = this.CheckColIndex(this.Line, this.PosA.Col);
-        
-        
-
-
-        if (b)
-        {
-            this.InsertCharList();
-        }
-        
-
-
-
-        if (!b)
-        {
-            this.AddCharList();
-        }
         
 
 
