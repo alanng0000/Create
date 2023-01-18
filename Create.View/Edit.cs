@@ -147,12 +147,6 @@ public class Edit : ViewView
 
 
 
-    private int Count { get; set; }
-
-
-
-
-
     private char[] CharOneList { get; set; }
 
 
@@ -3357,7 +3351,7 @@ public class Edit : ViewView
 
             
 
-            this.Count = 1;
+            this.LineRange = this.IndexRange(this.PosA.Row);
 
 
 
@@ -3626,20 +3620,7 @@ public class Edit : ViewView
 
     private bool RemoveLineList()
     {
-        Range range;
-
-
-        range = new Range();
-
-
-        range.Start = this.PosA.Row;
-
-
-        range.End = range.Start + this.Count;
-
-
-
-        this.Text.Line.Remove(range);
+        this.Text.Line.Remove(this.LineRange);
 
 
 
