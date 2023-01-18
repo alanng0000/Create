@@ -3145,7 +3145,7 @@ public class Edit : ViewView
 
 
 
-            u = lastLine.Char.Count;
+            u = line.Char.Count;
 
 
 
@@ -3165,7 +3165,7 @@ public class Edit : ViewView
 
 
 
-            this.Char = lastLine.Char.Data;
+            this.Char = line.Char.Data;
 
 
 
