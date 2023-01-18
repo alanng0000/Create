@@ -2842,56 +2842,69 @@ public class Edit : ViewView
 
     public bool InsertText(Text text)
     {
-        int rowCount;
-
-
-        rowCount = text.Line.Count;
+        this.PosA = this.Select.Start.Value;
 
 
 
-        bool b;
+        Line firstLine;
 
-
-        b = (rowCount == 1);
-
-
-
-        if (b)
-        {
-            Line line;
-
-
-            line = text.Line.Get(0);
+        firstLine = text.Line.Get(0);
 
 
 
-            int charCount;
+        int lastRow;
 
-
-            charCount = line.Char.Count;
-
-
-
-            int selectRowCount;
-
-
-            selectRowCount = this.Select.End.Value.Row - this.Select.Start.Value.Row + 1;
+        lastRow = text.Line.Count - 1;
 
 
 
-            if (rowCount < selectRowCount)
-            {
-                int u;
+        Line lastLine;
 
-                u = selectRowCount - rowCount;
-
-
-                
-            }
-        }
+        lastLine = text.Line.Get(lastRow);
 
 
 
+
+        int middleStartRow;
+
+        middleStartRow = 1;
+
+
+
+        int middleEndRow;
+
+        middleEndRow = lastRow;
+
+
+
+
+
+
+        this.Line = this.Text.Line.Get(this.PosA.Row);
+        
+
+
+        int start;
+
+        start = this.PosA.Col;
+
+
+        int end;
+
+        end = this.Line.Char.Count;
+
+
+
+        this.CharRange = this.Range(start, end);
+
+
+
+        this.RemoveCharList();
+
+
+
+
+        
 
 
 
