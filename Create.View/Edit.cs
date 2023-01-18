@@ -2712,8 +2712,11 @@ public class Edit : ViewView
 
 
 
+        this.PosA.Col = this.Line.Char.Count;
 
-        this.AddCharList();
+
+
+        this.InsertCharList();
 
 
 
