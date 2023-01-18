@@ -3067,7 +3067,7 @@ public class Edit : ViewView
 
         int midRowCount;
 
-        midRowCount = this.CountRange(midRowRange);
+        midRowCount = this.Count(midRowRange);
     
 
 
@@ -3151,7 +3151,7 @@ public class Edit : ViewView
         int k;
 
 
-        k = this.CountRange(this.CharRange);
+        k = this.Count(this.CharRange);
 
 
 
@@ -3526,7 +3526,7 @@ public class Edit : ViewView
         int k;
 
 
-        k = this.CountRange(this.CharRange);
+        k = this.Count(this.CharRange);
 
 
 
@@ -3656,7 +3656,7 @@ public class Edit : ViewView
 
 
 
-    private int CountRange(Range range)
+    private int Count(Range range)
     {
         RangeInfra infra;
 
