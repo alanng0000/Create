@@ -3138,6 +3138,31 @@ public class Edit : ViewView
 
 
 
+    private bool ReplaceCharList()
+    {
+        int index;
+
+
+        index = this.PosA.Col;
+
+
+
+
+
+        this.Line.Char.Replace(index, this.Char, this.CharRange);
+
+
+
+
+
+
+        return true;
+    }
+
+
+
+
+
 
     public bool RemoveText()
     {
