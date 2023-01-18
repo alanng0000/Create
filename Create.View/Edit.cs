@@ -2967,8 +2967,6 @@ public class Edit : ViewView
         int end;
 
 
-        Pos pos;
-
 
 
         int i;
@@ -3178,7 +3176,6 @@ public class Edit : ViewView
             k = thisRowRange.End;
 
 
-            pos = this.PosA;
 
 
             this.PosA.Row = k;
@@ -3194,11 +3191,6 @@ public class Edit : ViewView
 
 
             this.InsertLineList();
-
-
-
-            
-            this.PosA = pos;
         }
 
 
