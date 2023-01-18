@@ -3081,7 +3081,7 @@ public class Edit : ViewView
 
 
 
-            this.PosA.Col = startCol;
+            this.PosA.Col = thisStartCol;
 
 
 
