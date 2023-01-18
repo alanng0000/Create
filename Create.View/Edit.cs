@@ -3093,9 +3093,9 @@ public class Edit : ViewView
 
             if (ba)
             {
-                start = thisEndCol;
+                start = thisCount;
 
-                end = uEndCol;
+                end = uCount;
 
 
                 this.CharRange = this.Range(start, end);
