@@ -131,7 +131,7 @@ class KeyHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.Backspace, false, false, this.Edit.RemoveText);
+        this.SetHandleMethod(this.Key.Backspace, false, false, this.Edit.BackSpace);
 
 
 

@@ -3433,7 +3433,7 @@ public class Edit : ViewView
 
 
 
-    public bool RemoveText()
+    public bool BackSpace()
     {
         Pos pos;
 
