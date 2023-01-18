@@ -3008,10 +3008,18 @@ public class Edit : ViewView
 
 
 
-            start = 0;
 
 
-            
+            int thisStartCol;
+
+            thisStartCol = 0;
+
+
+            if (thisStartCol < startCol)
+            {
+                thisStartCol = startCol;
+            }
+
 
 
             int thisEndCol;
@@ -3019,24 +3027,45 @@ public class Edit : ViewView
             thisEndCol = this.Line.Char.Count;
 
 
-            int uEndCol;
+            if (endCol < thisEndCol)
+            {
+                thisEndCol = endCol;
+            }
 
-            uEndCol = line.Char.Count;
+
+
+
+
+            int thisCount;
+
+            thisCount = thisEndCol - thisStartCol;
+
+
+
+
+            int uCount;
+
+            uCount = line.Char.Count;
 
             
 
-            end = uEndCol;
+
+
+            start = 0;
+
+
+            end = uCount;
 
 
 
             bool ba;
             
-            ba = (thisEndCol < uEndCol);
+            ba = (thisCount < uCount);
 
 
             if (ba)
             {
-                end = thisEndCol;
+                end = thisCount;
             }
 
 
@@ -3052,7 +3081,7 @@ public class Edit : ViewView
 
 
 
-            this.PosA.Col = 0;
+            this.PosA.Col = startCol;
 
 
 
