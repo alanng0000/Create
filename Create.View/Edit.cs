@@ -3014,6 +3014,21 @@ public class Edit : ViewView
 
 
 
+        if (!ba)
+        {
+            start = u;
+
+            end = endCol;
+
+
+            this.CharRange = this.Range(start, end);
+
+
+
+            this.RemoveCharList();
+        }
+
+
 
 
 
@@ -3053,7 +3068,7 @@ public class Edit : ViewView
 
         int uEndRow;
 
-        uEndRow = this.PosB.Row - 1;
+        uEndRow = this.PosB.Row;
 
 
 
@@ -3069,6 +3084,18 @@ public class Edit : ViewView
 
         midRowCount = this.Count(midRowRange);
     
+
+
+
+        int uRowCount;
+
+        uRowCount = this.Count(uRowRange);
+
+
+
+
+
+
 
 
 
