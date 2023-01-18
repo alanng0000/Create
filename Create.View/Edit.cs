@@ -3005,7 +3005,11 @@ public class Edit : ViewView
 
 
 
+            this.PosA.Col = endCol;
 
+
+
+            this.InsertNewCharList();
         }
 
 
