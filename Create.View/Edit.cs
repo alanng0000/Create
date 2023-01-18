@@ -2979,6 +2979,13 @@ public class Edit : ViewView
 
 
 
+        Range range;
+
+        range = this.Range(startCol, endCol);
+
+
+
+
         int i;
 
         i = 0;
@@ -3010,124 +3017,7 @@ public class Edit : ViewView
 
 
 
-            int thisStartCol;
 
-            thisStartCol = 0;
-
-
-            if (thisStartCol < startCol)
-            {
-                thisStartCol = startCol;
-            }
-
-
-
-            int thisEndCol;
-
-            thisEndCol = this.Line.Char.Count;
-
-
-            if (endCol < thisEndCol)
-            {
-                thisEndCol = endCol;
-            }
-
-
-
-
-
-            int thisCount;
-
-            thisCount = thisEndCol - thisStartCol;
-
-
-
-
-            int uCount;
-
-            uCount = line.Char.Count;
-
-            
-
-
-
-            start = 0;
-
-
-            end = uCount;
-
-
-
-            bool ba;
-            
-            ba = (thisCount < uCount);
-
-
-            if (ba)
-            {
-                end = thisCount;
-            }
-
-
-
-
-            this.Char = line.Char.Data;
-
-
-
-            this.CharRange = this.Range(start, end);
-            
-
-
-
-
-            this.PosA.Col = thisStartCol;
-
-
-
-            this.ReplaceCharList();
-
-
-
-
-
-            if (ba)
-            {
-                start = thisCount;
-
-
-                end = uCount;
-
-
-
-                this.CharRange = this.Range(start, end);
-
-
-
-                this.PosA.Col = thisEndCol;
-
-
-
-                this.InsertCharList();
-            }
-
-
-
-            if (!ba)
-            {
-                start = thisStartCol + uCount;
-
-
-                end = thisEndCol;
-
-
-
-                this.CharRange = this.Range(start, end);
-
-
-
-                this.RemoveCharList();
-            }
 
 
 
@@ -3263,6 +3153,139 @@ public class Edit : ViewView
     }
 
 
+
+
+
+
+    private bool ReplaceLine(Line destLine, Range destRange, Line sourceLine)
+    {
+        int thisStartCol;
+
+        thisStartCol = 0;
+
+
+        if (thisStartCol < destRange.Start)
+        {
+            thisStartCol = destRange.Start;
+        }
+
+
+
+        int thisEndCol;
+
+        thisEndCol = destLine.Char.Count;
+
+
+        if (destRange.End < thisEndCol)
+        {
+            thisEndCol = destRange.End;
+        }
+
+
+
+
+
+        int thisCount;
+
+        thisCount = thisEndCol - thisStartCol;
+
+
+
+
+        int uCount;
+
+        uCount = sourceLine.Char.Count;
+
+        
+
+
+        int start;
+
+        start = 0;
+
+
+        int end;
+
+        end = uCount;
+
+
+
+        bool ba;
+        
+        ba = (thisCount < uCount);
+
+
+        if (ba)
+        {
+            end = thisCount;
+        }
+
+
+
+
+        this.Char = sourceLine.Char.Data;
+
+
+
+        this.CharRange = this.Range(start, end);
+        
+
+
+
+
+        this.PosA.Col = thisStartCol;
+
+
+
+        this.ReplaceCharList();
+
+
+
+
+
+        if (ba)
+        {
+            start = thisCount;
+
+
+            end = uCount;
+
+
+
+            this.CharRange = this.Range(start, end);
+
+
+
+            this.PosA.Col = thisEndCol;
+
+
+
+            this.InsertCharList();
+        }
+
+
+
+        if (!ba)
+        {
+            start = thisStartCol + uCount;
+
+
+            end = thisEndCol;
+
+
+
+            this.CharRange = this.Range(start, end);
+
+
+
+            this.RemoveCharList();
+        }
+
+
+
+
+        return true;
+    }
 
 
 
