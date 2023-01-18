@@ -2846,6 +2846,11 @@ public class Edit : ViewView
 
 
 
+        this.PosB = this.Select.End.Value;
+
+
+
+
 
         Line firstLine;
 
@@ -2918,6 +2923,55 @@ public class Edit : ViewView
 
 
         this.AddNewCharList();
+
+
+
+
+
+        
+
+        this.Line = this.Text.Line.Get(this.PosB.Row);
+
+
+
+        
+        start = 0;
+
+
+
+        int endCol;
+
+        endCol = this.PosB.Col;
+
+
+        int u;
+
+        u = lastLine.Char.Count;
+
+
+
+        end = u;
+
+
+
+
+        bool ba;
+
+
+        ba = (endCol < u);
+
+
+        if (ba)
+        {
+            end = endCol;
+        }
+
+
+
+
+
+        this.CharRange = this.Range(start, end);
+        
 
 
 
