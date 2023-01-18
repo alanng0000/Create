@@ -2968,22 +2968,6 @@ public class Edit : ViewView
 
 
 
-        int startCol;
-
-        startCol = 0;
-
-
-        int endCol;
-
-        endCol = 0;
-
-
-
-        Range range;
-
-        range = this.Range(startCol, endCol);
-
-
 
 
         int i;
