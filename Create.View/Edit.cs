@@ -3682,6 +3682,8 @@ public class Edit : ViewView
 
 
 
+
+
     private bool InsertLineList()
     {
         int index;
@@ -3691,9 +3693,7 @@ public class Edit : ViewView
 
 
 
-
         this.Text.Line.Insert(index, this.LineData, this.LineRange);
-
 
 
 
