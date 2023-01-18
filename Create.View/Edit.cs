@@ -2803,7 +2803,7 @@ public class Edit : ViewView
 
 
 
-        this.Text.Line.Add(this.LineOneList, range);
+        this.Text.Line.Insert(this.Text.Line.Count, this.LineOneList, range);
         
 
 
@@ -3324,7 +3324,13 @@ public class Edit : ViewView
 
 
 
-                this.AddCharList();
+
+                this.PosA.Col = this.Line.Char.Count;
+
+
+
+
+                this.InsertCharList();
 
 
 
