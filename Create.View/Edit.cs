@@ -2846,6 +2846,7 @@ public class Edit : ViewView
 
 
 
+
         Line firstLine;
 
         firstLine = text.Line.Get(0);
@@ -2904,7 +2905,19 @@ public class Edit : ViewView
 
 
 
-        
+        this.Char = firstLine.Char.Data;
+
+
+        start = 0;
+
+        end = firstLine.Char.Count;
+
+
+        this.CharRange = this.Range(start, end);
+
+
+
+        this.AddNewCharList();
 
 
 
