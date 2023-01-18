@@ -3215,12 +3215,12 @@ public class Edit : ViewView
 
 
 
-        bool ba;
+        bool b;
         
-        ba = (destCount < uCount);
+        b = (destCount < uCount);
 
 
-        if (ba)
+        if (b)
         {
             end = destCount;
         }
@@ -3253,7 +3253,7 @@ public class Edit : ViewView
 
 
 
-        if (ba)
+        if (b)
         {
             start = destCount;
 
@@ -3275,7 +3275,7 @@ public class Edit : ViewView
 
 
 
-        if (!ba)
+        if (!b)
         {
             start = destStartCol + uCount;
 
