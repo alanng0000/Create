@@ -3252,6 +3252,81 @@ public class Edit : ViewView
 
         if (b)
         {
+            int rowStart;
+
+            rowStart = uRowRange.Start + count;
+
+
+
+
+            count = uRowCount - midRowCount;
+
+
+
+            Line[] lineList;
+
+            lineList = new Line[count];
+
+
+
+            i = 0;
+
+            while (i < count)
+            {
+                Line line;
+
+                line = new Line();
+
+                line.Init();
+
+
+
+                int uRow;
+
+                uRow = rowStart + i;
+
+
+
+                Line uLine;
+
+                uLine = text.Line.Get(uRow);
+
+
+
+                this.Line = line;
+
+
+                this.Char = uLine.Char.Data;
+
+
+                start = 0;
+
+
+                end = uLine.Char.Count;
+
+
+                this.CharRange = this.Range(start, end);
+
+
+
+                this.AddCharList();
+
+
+
+                lineList[i] = this.Line;
+
+
+
+                i = i + 1;
+            }
+
+
+
+            int k;
+
+            k = midRowRange.End;
+
+
             
         }
 
