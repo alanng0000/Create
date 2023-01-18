@@ -2998,7 +2998,9 @@ public class Edit : ViewView
 
 
 
-            this.Line = this.Text.Line.Get(row);
+            Line destLine;
+            
+            destLine = this.Text.Line.Get(row);
 
 
 
@@ -3008,19 +3010,19 @@ public class Edit : ViewView
 
 
 
-            Line line;
+            Line sourceLine;
 
-            line = text.Line.Get(uRow);
+            sourceLine = text.Line.Get(uRow);
 
 
 
             Range destRange;
 
-            destRange = this.Range(0, this.Line.Char.Count);
+            destRange = this.Range(0, destLine.Char.Count);
 
 
 
-            this.ReplaceLine(this.Line, destRange, line);
+            this.ReplaceLine(destLine, destRange, sourceLine);
 
 
 
