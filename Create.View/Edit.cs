@@ -3014,8 +3014,13 @@ public class Edit : ViewView
 
 
 
+            Range destRange;
+
+            destRange = this.Range(0, this.Line.Char.Count);
 
 
+
+            this.ReplaceLine(this.Line, destRange, line);
 
 
 
@@ -3159,35 +3164,35 @@ public class Edit : ViewView
 
     private bool ReplaceLine(Line destLine, Range destRange, Line sourceLine)
     {
-        int thisStartCol;
+        int destStartCol;
 
-        thisStartCol = 0;
+        destStartCol = 0;
 
 
-        if (thisStartCol < destRange.Start)
+        if (destStartCol < destRange.Start)
         {
-            thisStartCol = destRange.Start;
+            destStartCol = destRange.Start;
         }
 
 
 
-        int thisEndCol;
+        int destEndCol;
 
-        thisEndCol = destLine.Char.Count;
+        destEndCol = destLine.Char.Count;
 
 
-        if (destRange.End < thisEndCol)
+        if (destRange.End < destEndCol)
         {
-            thisEndCol = destRange.End;
+            destEndCol = destRange.End;
         }
 
 
 
 
 
-        int thisCount;
+        int destCount;
 
-        thisCount = thisEndCol - thisStartCol;
+        destCount = destEndCol - destStartCol;
 
 
 
@@ -3212,14 +3217,19 @@ public class Edit : ViewView
 
         bool ba;
         
-        ba = (thisCount < uCount);
+        ba = (destCount < uCount);
 
 
         if (ba)
         {
-            end = thisCount;
+            end = destCount;
         }
 
+
+
+
+
+        this.Line = destLine;
 
 
 
@@ -3232,8 +3242,8 @@ public class Edit : ViewView
 
 
 
+        this.PosA.Col = destStartCol;
 
-        this.PosA.Col = thisStartCol;
 
 
 
@@ -3245,7 +3255,7 @@ public class Edit : ViewView
 
         if (ba)
         {
-            start = thisCount;
+            start = destCount;
 
 
             end = uCount;
@@ -3256,7 +3266,7 @@ public class Edit : ViewView
 
 
 
-            this.PosA.Col = thisEndCol;
+            this.PosA.Col = destEndCol;
 
 
 
@@ -3267,10 +3277,10 @@ public class Edit : ViewView
 
         if (!ba)
         {
-            start = thisStartCol + uCount;
+            start = destStartCol + uCount;
 
 
-            end = thisEndCol;
+            end = destEndCol;
 
 
 
