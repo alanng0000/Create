@@ -2881,177 +2881,37 @@ public class Edit : ViewView
 
 
 
-        Line firstLine;
 
-        firstLine = text.Line.Get(0);
 
 
+        int thisStartRow;
 
-        int lastRow;
+        thisStartRow = this.PosA.Row;
 
-        lastRow = text.Line.Count - 1;
 
 
+        int thisEndRow;
 
-        Line lastLine;
+        thisEndRow = this.PosB.Row + 1;
 
-        lastLine = text.Line.Get(lastRow);
 
 
 
+        Range thisRowRange;
 
-
-
-
-
-
-
-
-
-
-        
-
-        this.Line = this.Text.Line.Get(this.PosB.Row);
-
-
-
-        int start;
-
-        start = 0;
-
-
-
-        int endCol;
-
-        endCol = this.PosB.Col;
-
-
-        int u;
-
-        u = lastLine.Char.Count;
-
-
-        int end;
-
-        end = u;
-
-
-
-
-        bool ba;
-
-
-        ba = (endCol < u);
-
-
-        if (ba)
-        {
-            end = endCol;
-        }
-
-
-
-
-        this.Char = lastLine.Char.Data;
-
-
-
-        this.CharRange = this.Range(start, end);
-        
-
-
-        Pos pos;
-
-        pos = this.PosA;
-
-
-
-
-        this.PosA.Col = 0;
-
-
-
-        this.ReplaceCharList();
-
-
-
-
-
-        if (ba)
-        {
-            start = endCol;
-
-            end = u;
-
-
-            this.CharRange = this.Range(start, end);
-
-
-
-            this.PosA.Col = endCol;
-
-
-
-            this.InsertCharList();
-        }
-
-
-
-        if (!ba)
-        {
-            start = u;
-
-            end = endCol;
-
-
-            this.CharRange = this.Range(start, end);
-
-
-
-            this.RemoveCharList();
-        }
-
-
-
-
-
-        this.PosA = pos;
-
-
-
-
-
-
-
-
-        
-        int midStartRow;
-
-        midStartRow = this.PosA.Row + 1;
-
-
-
-        int midEndRow;
-
-        midEndRow = this.PosB.Row;
-
-
-
-        Range midRowRange;
-
-        midRowRange = this.Range(midStartRow, midEndRow);
+        thisRowRange = this.Range(thisStartRow, thisEndRow);
 
 
 
 
         int uStartRow;
 
-        uStartRow = 1;
+        uStartRow = 0;
 
 
         int uEndRow;
 
-        uEndRow = lastRow;
+        uEndRow = text.Line.Count;
 
 
 
@@ -3063,9 +2923,9 @@ public class Edit : ViewView
 
 
 
-        int midRowCount;
+        int thisRowCount;
 
-        midRowCount = this.Count(midRowRange);
+        thisRowCount = this.Count(thisRowRange);
     
 
 
@@ -3087,14 +2947,23 @@ public class Edit : ViewView
         bool b;
 
 
-        b = (midRowCount < uRowCount);
+        b = (thisRowCount < uRowCount);
 
 
         if (b)
         {
-            count = midRowCount;
+            count = thisRowCount;
         }
 
+
+        
+        int start;
+
+
+        int end;
+
+
+        Pos pos;
 
 
 
@@ -3106,7 +2975,7 @@ public class Edit : ViewView
         {
             int row;
 
-            row = midRowRange.Start + i;
+            row = thisRowRange.Start + i;
 
 
 
@@ -3126,24 +2995,27 @@ public class Edit : ViewView
 
 
 
-            
+
             start = 0;
 
 
+            int endCol;
 
             endCol = this.Line.Char.Count;
 
 
+            int u;
 
             u = line.Char.Count;
 
-
+            
 
             end = u;
 
 
 
-
+            bool ba;
+            
             ba = (endCol < u);
 
 
@@ -3161,6 +3033,7 @@ public class Edit : ViewView
 
             this.CharRange = this.Range(start, end);
             
+
 
 
             pos = this.PosA;
@@ -3221,10 +3094,9 @@ public class Edit : ViewView
 
 
 
-
-
             i = i + 1;
         }
+
 
 
 
@@ -3237,7 +3109,7 @@ public class Edit : ViewView
 
 
 
-            count = uRowCount - midRowCount;
+            count = uRowCount - thisRowCount;
 
 
 
@@ -3308,7 +3180,7 @@ public class Edit : ViewView
 
             int k;
 
-            k = midRowRange.End;
+            k = thisRowRange.End;
 
 
             pos = this.PosA;
@@ -3339,10 +3211,10 @@ public class Edit : ViewView
 
         if (!b)
         {
-            start = midRowRange.Start + count;
+            start = thisRowRange.Start + count;
 
 
-            end = midRowRange.End;
+            end = thisRowRange.End;
 
 
             this.LineRange = this.Range(start, end);
