@@ -835,9 +835,11 @@ public class Edit : ViewView
             this.SetLineOneList(line);
 
 
+
             int index;
 
             index = text.Line.Count;
+
 
 
             text.Line.Insert(index, this.LineOneList, range);
@@ -912,7 +914,13 @@ public class Edit : ViewView
 
 
 
-            line.Char.Add(this.CharOneList, range);
+            int index;
+
+            index = line.Char.Count;
+
+
+
+            line.Char.Insert(index, this.CharOneList, range);
 
 
 
