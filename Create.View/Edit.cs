@@ -3044,13 +3044,13 @@ public class Edit : ViewView
         
         int midStartRow;
 
-        midStartRow = 1;
+        midStartRow = this.PosA.Row + 1;
 
 
 
         int midEndRow;
 
-        midEndRow = lastRow;
+        midEndRow = this.PosB.Row;
 
 
 
@@ -3063,12 +3063,12 @@ public class Edit : ViewView
 
         int uStartRow;
 
-        uStartRow = this.PosA.Row + 1;
+        uStartRow = 1;
 
 
         int uEndRow;
 
-        uEndRow = this.PosB.Row;
+        uEndRow = lastRow;
 
 
 
@@ -3092,6 +3092,149 @@ public class Edit : ViewView
         uRowCount = this.Count(uRowRange);
 
 
+
+    
+
+        int count;
+
+        count = uRowCount;
+
+
+        if (midRowCount < uRowCount)
+        {
+            count = midRowCount;
+        }
+
+
+
+
+        int i;
+
+        i = 0;
+
+        while (i < count)
+        {
+            int row;
+
+            row = midRowRange.Start + i;
+
+
+
+            this.Line = this.Text.Line.Get(row);
+
+
+
+            int uRow;
+
+            uRow = uRowRange.Start + i;
+
+
+
+            Line line;
+
+            line = text.Line.Get(uRow);
+
+
+
+            
+            start = 0;
+
+
+
+            endCol = this.Line.Char.Count;
+
+
+
+            u = lastLine.Char.Count;
+
+
+
+            end = u;
+
+
+
+
+            ba = (endCol < u);
+
+
+            if (ba)
+            {
+                end = endCol;
+            }
+
+
+
+
+            this.Char = lastLine.Char.Data;
+
+
+
+            this.CharRange = this.Range(start, end);
+            
+
+
+            pos = this.PosA;
+
+
+
+
+            this.PosA.Col = 0;
+
+
+
+            this.ReplaceCharList();
+
+
+
+
+
+            if (ba)
+            {
+                start = endCol;
+
+                end = u;
+
+
+                this.CharRange = this.Range(start, end);
+
+
+
+                this.PosA.Col = endCol;
+
+
+
+                this.InsertNewCharList();
+            }
+
+
+
+            if (!ba)
+            {
+                start = u;
+
+                end = endCol;
+
+
+                this.CharRange = this.Range(start, end);
+
+
+
+                this.RemoveCharList();
+            }
+
+
+
+
+
+            this.PosA = pos;
+
+
+
+
+
+
+            i = i + 1;
+        }
 
 
 
