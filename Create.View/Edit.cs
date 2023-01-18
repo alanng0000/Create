@@ -3327,7 +3327,27 @@ public class Edit : ViewView
             k = midRowRange.End;
 
 
+            pos = this.PosA;
+
+
+            this.PosA.Row = k;
+
+
+
+            this.LineData = lineList;
+
+
+
+            this.LineRange = this.Range(0, lineList.Length);
+
+
+
+            this.InsertLineList();
+
+
+
             
+            this.PosA = pos;
         }
 
 
