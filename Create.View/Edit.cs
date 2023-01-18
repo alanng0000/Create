@@ -2701,7 +2701,7 @@ public class Edit : ViewView
 
 
 
-        this.AddNewCharList();
+        this.AddCharList();
 
 
 
@@ -2927,7 +2927,7 @@ public class Edit : ViewView
 
 
 
-        this.AddNewCharList();
+        this.AddCharList();
 
 
 
@@ -3014,7 +3014,7 @@ public class Edit : ViewView
 
 
 
-            this.InsertNewCharList();
+            this.InsertCharList();
         }
 
 
@@ -3215,7 +3215,7 @@ public class Edit : ViewView
 
 
 
-                this.InsertNewCharList();
+                this.InsertCharList();
             }
 
 
@@ -3316,7 +3316,7 @@ public class Edit : ViewView
 
         if (b)
         {
-            this.InsertNewCharList();
+            this.InsertCharList();
         }
         
 
@@ -3324,7 +3324,7 @@ public class Edit : ViewView
 
         if (!b)
         {
-            this.AddNewCharList();
+            this.AddCharList();
         }
         
 
@@ -3381,7 +3381,7 @@ public class Edit : ViewView
 
 
 
-    private bool InsertNewCharList()
+    private bool InsertCharList()
     {
         int index;
 
@@ -3407,7 +3407,7 @@ public class Edit : ViewView
 
 
 
-    private bool AddNewCharList()
+    private bool AddCharList()
     {
         this.Line.Char.Add(this.Char, this.CharRange);
 
@@ -3530,7 +3530,7 @@ public class Edit : ViewView
 
 
 
-            this.AddNewCharList();
+            this.AddCharList();
 
 
 
@@ -3692,7 +3692,7 @@ public class Edit : ViewView
 
         if (b)
         {
-            this.InsertNewCharList();
+            this.InsertCharList();
         }
         
 
@@ -3700,7 +3700,7 @@ public class Edit : ViewView
 
         if (!b)
         {
-            this.AddNewCharList();
+            this.AddCharList();
         }
         
 
