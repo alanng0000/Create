@@ -2967,13 +2967,6 @@ public class Edit : ViewView
 
         if (b)
         {
-            int uStart;
-
-            uStart = uRowRange.Start + thisRowCount;
-
-
-
-
             count = uRowCount - thisRowCount;
 
 
@@ -2998,19 +2991,7 @@ public class Edit : ViewView
 
 
 
-                int uRow;
-
-                uRow = uStart + i;
-
-
-
-                Line uLine;
-
-                uLine = text.Line.Get(uRow);
-
-
-
-                lineList[i] = uLine;
+                lineList[i] = line;
 
 
 
