@@ -3050,10 +3050,10 @@ public class Edit : ViewView
 
 
 
+        count = uRowCount;
 
 
 
-        int i;
 
         i = 0;
 
@@ -3085,13 +3085,46 @@ public class Edit : ViewView
 
             Range destRange;
 
-            destRange = this.Range(0, destLine.Char.Count);
+            destRange = new Range();
+
+
+            bool ba;
+
+            ba = (i == 0);
+
+
+            if (ba)
+            {
+                destRange = this.Range(startPos.Col, destLine.Char.Count);
+            }
+
+
+            bool bb;
+
+            bb = (i == count - 1);
+
+
+            if (bb)
+            {
+                destRange = this.Range(0, endPos.Col);
+            }
+
+
+            if (!ba & !bb)
+            {
+                destRange = this.Range(0, destLine.Char.Count);
+            }
+
+
+            Range sourceRange;
+
+            sourceRange = this.Range(0, sourceLine.Char.Count);
+            
 
 
 
-            this.ReplaceLine(destLine, destRange, sourceLine);
 
-
+            this.ReplaceLine(destLine, destRange, sourceLine, sourceRange);
 
 
 
