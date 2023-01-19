@@ -2944,7 +2944,17 @@ public class Edit : ViewView
 
         int count;
 
-        count = uRowCount;
+        
+
+        
+        int start;
+
+
+        int end;
+
+
+
+        int i;
 
 
 
@@ -2954,17 +2964,109 @@ public class Edit : ViewView
         b = (thisRowCount < uRowCount);
 
 
+
         if (b)
         {
-            count = thisRowCount;
+            int uStart;
+
+            uStart = uRowRange.Start + thisRowCount;
+
+
+
+
+            count = uRowCount - thisRowCount;
+
+
+
+
+            Line[] lineList;
+
+            lineList = new Line[count];
+
+
+
+            
+            i = 0;
+
+            while (i < count)
+            {
+                Line line;
+
+                line = new Line();
+
+                line.Init();
+
+
+
+                int uRow;
+
+                uRow = uStart + i;
+
+
+
+                Line uLine;
+
+                uLine = text.Line.Get(uRow);
+
+
+
+                lineList[i] = uLine;
+
+
+
+                i = i + 1;
+            }
+
+
+
+            int k;
+
+            k = thisRowRange.End;
+
+
+
+
+            this.PosA.Row = k;
+
+
+
+            this.LineData = lineList;
+
+
+
+            this.LineRange = this.Range(0, lineList.Length);
+
+
+
+            this.InsertLineList();
         }
 
 
-        
-        int start;
 
 
-        int end;
+        if (!b)
+        {
+            count = uRowCount;
+
+
+
+            start = thisRowRange.Start + count;
+
+
+            end = thisRowRange.End;
+
+
+            this.LineRange = this.Range(start, end);
+
+
+
+            this.RemoveLineList();
+        }
+
+
+
+
+
 
 
 
@@ -3019,126 +3121,6 @@ public class Edit : ViewView
 
 
 
-        if (b)
-        {
-            int uStart;
-
-            uStart = uRowRange.Start + count;
-
-
-
-
-            count = uRowCount - thisRowCount;
-
-
-
-            Line[] lineList;
-
-            lineList = new Line[count];
-
-
-
-            i = 0;
-
-            while (i < count)
-            {
-                Line line;
-
-                line = new Line();
-
-                line.Init();
-
-
-
-                int uRow;
-
-                uRow = uStart + i;
-
-
-
-                Line uLine;
-
-                uLine = text.Line.Get(uRow);
-
-
-
-                this.Line = line;
-
-
-                this.Char = uLine.Char.Data;
-
-
-                start = 0;
-
-
-                end = uLine.Char.Count;
-
-
-                this.CharRange = this.Range(start, end);
-
-
-
-
-                this.PosA.Col = this.Line.Char.Count;
-
-
-
-
-                this.InsertCharList();
-
-
-
-                lineList[i] = this.Line;
-
-
-
-                i = i + 1;
-            }
-
-
-
-            int k;
-
-            k = thisRowRange.End;
-
-
-
-
-            this.PosA.Row = k;
-
-
-
-            this.LineData = lineList;
-
-
-
-            this.LineRange = this.Range(0, lineList.Length);
-
-
-
-            this.InsertLineList();
-        }
-
-
-
-
-        if (!b)
-        {
-            start = thisRowRange.Start + count;
-
-
-            end = thisRowRange.End;
-
-
-            this.LineRange = this.Range(start, end);
-
-
-
-            this.RemoveLineList();
-        }
-
-
-
 
         return true;
     }
@@ -3148,67 +3130,37 @@ public class Edit : ViewView
 
 
 
-    private bool ReplaceLine(Line destLine, Range destRange, Line sourceLine)
+    private bool ReplaceLine(Line destLine, Range destRange, Line sourceLine, Range sourceRange)
     {
-        int destStartCol;
-
-        destStartCol = 0;
-
-
-        if (destStartCol < destRange.Start)
-        {
-            destStartCol = destRange.Start;
-        }
-
-
-
-        int destEndCol;
-
-        destEndCol = destLine.Char.Count;
-
-
-        if (destRange.End < destEndCol)
-        {
-            destEndCol = destRange.End;
-        }
-
-
-
-
-
         int destCount;
 
-        destCount = destEndCol - destStartCol;
+        destCount = this.Count(destRange);
 
 
 
 
-        int uCount;
+        int sourceCount;
 
-        uCount = sourceLine.Char.Count;
+        sourceCount = this.Count(sourceRange);
 
         
 
 
-        int start;
 
-        start = 0;
+        int replaceCount;
 
-
-        int end;
-
-        end = uCount;
+        replaceCount = sourceCount;
 
 
 
         bool b;
         
-        b = (destCount < uCount);
+        b = (destCount < sourceCount);
 
 
         if (b)
         {
-            end = destCount;
+            replaceCount = destCount;
         }
 
 
@@ -3223,12 +3175,23 @@ public class Edit : ViewView
 
 
 
+        int start;
+
+        start = sourceRange.Start;
+
+
+        int end;
+
+        end = start + replaceCount;
+
+
+
         this.CharRange = this.Range(start, end);
         
 
 
 
-        this.PosA.Col = destStartCol;
+        this.PosA.Col = destRange.Start;
 
 
 
