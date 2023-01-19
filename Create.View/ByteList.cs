@@ -83,10 +83,6 @@ class ByteList : Object
 
 
 
-            SystemArray.Copy(this.Data, 0, d, 0, this.Count);
-
-
-
 
             this.Data = d;
         }
