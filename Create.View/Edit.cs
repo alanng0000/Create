@@ -3205,10 +3205,10 @@ public class Edit : ViewView
 
         if (b)
         {
-            start = destCount;
+            start = sourceRange.Start + replaceCount;
 
 
-            end = uCount;
+            end = sourceRange.End;
 
 
 
@@ -3216,7 +3216,7 @@ public class Edit : ViewView
 
 
 
-            this.PosA.Col = destEndCol;
+            this.PosA.Col = destRange.End;
 
 
 
