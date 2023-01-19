@@ -3227,10 +3227,10 @@ public class Edit : ViewView
 
         if (!b)
         {
-            start = destStartCol + uCount;
+            start = destRange.Start + replaceCount;
 
 
-            end = destEndCol;
+            end = destRange.End;
 
 
 
