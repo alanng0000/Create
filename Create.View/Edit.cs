@@ -3180,6 +3180,7 @@ public class Edit : ViewView
         start = sourceRange.Start;
 
 
+
         int end;
 
         end = start + replaceCount;
