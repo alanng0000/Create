@@ -4954,14 +4954,10 @@ public class Edit : ViewView
 
 
 
-
     private int DrawHeight(int row)
     {
         return this.LineHeight * row;
     }
-
-
-
 
 
 
