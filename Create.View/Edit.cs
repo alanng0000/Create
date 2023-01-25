@@ -4654,16 +4654,23 @@ public class Edit : ViewView
 
 
 
+        DrawInfra infra;
+
+        infra = DrawInfra.This;
+
+
+
+
         DrawPos pos;
 
-        pos = this.Infra.CreatePos(left, up);
+        pos = infra.CreatePos(left, up);
 
 
 
 
         DrawSize size;
 
-        size = this.Infra.CreateSize(width, height);
+        size = infra.CreateSize(width, height);
 
 
 
@@ -4671,7 +4678,7 @@ public class Edit : ViewView
 
         DrawRect destRect;
 
-        destRect = this.Infra.CreateRect(pos, size);
+        destRect = infra.CreateRect(pos, size);
 
 
 
@@ -4963,7 +4970,12 @@ public class Edit : ViewView
 
     private bool InitTextColor()
     {
-        this.CommentTextColor = this.Infra.CreateColor(0xff, 0x00, 0x80, 0x00);
+        DrawInfra infra;
+
+        infra = DrawInfra.This;
+
+
+        this.CommentTextColor = infra.CreateColor(0xff, 0x00, 0x80, 0x00);
 
 
 
@@ -4977,12 +4989,9 @@ public class Edit : ViewView
 
     private bool InitTextBrush()
     {
-        ViewConstant constant;
+        this.TextBrush = new DrawColorBrush();
 
-        constant = ViewConstant.This;
-
-
-        this.TextBrush = this.Infra.CreateColorBrush(constant.BlackColor);
+        this.TextBrush.Init();
 
 
         return true;
@@ -4995,8 +5004,28 @@ public class Edit : ViewView
 
     private bool InitCaretBrush()
     {
-        this.CaretBrush = this.Infra.CreateColorBrush(this.Infra.CreateColor(0xff, 0, 0, 0));
+        DrawInfra infra;
 
+        infra = DrawInfra.This;
+
+
+
+
+        DrawColorBrush brush;
+
+
+        brush = new DrawColorBrush();
+        
+
+        brush.Init();
+
+        
+        brush.Color = infra.CreateColor(0xff, 0, 0, 0);
+
+
+
+
+        this.CaretBrush = brush;
 
 
 
@@ -5011,7 +5040,26 @@ public class Edit : ViewView
 
     private bool InitSelectBrush()
     {
-        this.SelectBrush = this.Infra.CreateColorBrush(this.Infra.CreateColor(0xff, 0xad, 0xd6, 0xff));
+        DrawInfra infra;
+
+        infra = DrawInfra.This;
+
+
+
+        DrawColorBrush brush;
+
+
+        brush = new DrawColorBrush();
+        
+
+        brush.Init();
+
+        
+        brush.Color = infra.CreateColor(0xff, 0xad, 0xd6, 0xff);
+
+
+
+        this.SelectBrush = brush;
 
 
 
