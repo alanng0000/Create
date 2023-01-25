@@ -36,9 +36,9 @@ class TokenTypeList : Object
 
 
 
-        Infra infra;
+        DrawInfra infra;
 
-        infra = Infra.This;
+        infra = DrawInfra.This;
 
 
 
