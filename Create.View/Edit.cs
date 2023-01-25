@@ -59,6 +59,8 @@ public class Edit : ViewView
 
 
 
+    private DrawSize CharDestSize;
+
 
 
 
@@ -353,6 +355,11 @@ public class Edit : ViewView
 
 
         this.LineHeight = 19;
+
+
+
+
+        this.CharDestSize = infra.CreateSize(2 * this.CharWidth, 2 * this.LineHeight);
 
 
         
@@ -4689,11 +4696,8 @@ public class Edit : ViewView
             int kb;
 
 
-            kb = start - this.ScrollPos.Col;
-
-
-            kb = kb + i;
-
+            kb = index - this.ScrollPos.Col;
+            
 
 
 
@@ -4705,21 +4709,6 @@ public class Edit : ViewView
 
 
             left = left - 1;
-            
-
-
-
-
-            int right;
-
-            right = this.DrawSize.Width;
-
-
-
-
-            int width;
-
-            width = right - left;
 
 
 
@@ -4732,17 +4721,10 @@ public class Edit : ViewView
 
 
 
-            DrawSize size;
-
-            size = infra.CreateSize(width, height);
-
-
-
-
 
             DrawRect destRect;
 
-            destRect = infra.CreateRect(pos, size);
+            destRect = infra.CreateRect(pos, this.CharDestSize);
 
 
 
