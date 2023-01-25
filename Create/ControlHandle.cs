@@ -461,6 +461,9 @@ class ControlHandle : Handle
         {
             return this.Control.CapLock;
         }
+        set
+        {
+        }
     }
 
 
