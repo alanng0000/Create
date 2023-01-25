@@ -200,10 +200,7 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.Tab, true, false, false, this.Edit.InsertIndent);
-
-
-
+        this.SetHandleMethod(this.Key.LetterH, true, false, true, this.Edit.InsertIndent);
 
 
 
