@@ -4702,12 +4702,12 @@ public class Edit : ViewView
 
 
 
-        
+        this.TextBrush.Color = color;
 
 
 
 
-        this.DrawOp.Text(charSpan, destRect, this.Font, color);
+        this.DrawOp.Text(charSpan, destRect, this.Font, this.TextBrush);
 
 
 
