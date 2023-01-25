@@ -49,10 +49,6 @@ class Infra : Object
         importList.Init();
 
 
-        this.ImportList = importList;
-
-
-
 
         Constant constant;
 
@@ -60,16 +56,17 @@ class Infra : Object
 
 
 
-        this.AddImport(constant.SystemObjectName);
+        importList.Add(this.CreateImport(constant.SystemObjectName));
 
 
-        this.AddImport(constant.SystemBoolName);
+
+        importList.Add(this.CreateImport(constant.SystemBoolName));
 
 
-        this.AddImport(constant.SystemIntName);
+        importList.Add(this.CreateImport(constant.SystemIntName));
 
 
-        this.AddImport(constant.SystemStringName);
+        importList.Add(this.CreateImport(constant.SystemStringName));
 
 
 
@@ -118,27 +115,6 @@ class Infra : Object
     }
 
 
-
-
-
-
-    private PortImportList ImportList { get; set; }
-
-
-
-
-    private bool AddImport(string varClass)
-    {
-        PortImport import;
-
-        import = this.CreateImport(varClass);
-
-
-        this.ImportList.Add(import);
-
-
-        return true;
-    }
 
 
 
