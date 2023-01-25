@@ -59,7 +59,7 @@ public class Edit : ViewView
 
 
 
-    private DrawSize CharDestSize;
+    private DrawRect CharDestRect;
 
 
 
@@ -359,7 +359,14 @@ public class Edit : ViewView
 
 
 
-        this.CharDestSize = infra.CreateSize(2 * this.CharWidth, 2 * this.LineHeight);
+        DrawSize destSize;
+
+        destSize = infra.CreateSize(2 * this.CharWidth, 2 * this.LineHeight);
+
+
+
+        this.CharDestRect = infra.CreateRect(infra.CreatePos(0, 0), destSize);
+
 
 
         
@@ -4596,15 +4603,6 @@ public class Edit : ViewView
 
 
 
-        int start;
-        
-        
-        start = range.Range.Start;
-
-
-
-
-
         int ka;
 
 
@@ -4642,16 +4640,21 @@ public class Edit : ViewView
 
 
 
+        this.CharDestRect.Pos.Up = up;
+
+
+
+
+
         this.TextBrush.Color = color;
 
 
 
 
-
-        DrawRect destRect;
-
-
-        destRect = infra.CreateRect(infra.CreatePos(0, up), this.CharDestSize);
+        int start;
+        
+        
+        start = range.Range.Start;
 
 
 
@@ -4663,7 +4666,9 @@ public class Edit : ViewView
 
         int count;
 
+
         count = this.Count(range.Range);
+
 
 
 
@@ -4704,13 +4709,13 @@ public class Edit : ViewView
 
 
 
-            destRect.Pos.Left = left;
+            this.CharDestRect.Pos.Left = left;
 
         
 
 
             
-            this.DrawOp.Text(this.CharSpan, destRect, this.Font, this.TextBrush);
+            this.DrawOp.Text(this.CharSpan, this.CharDestRect, this.Font, this.TextBrush);
 
 
 
