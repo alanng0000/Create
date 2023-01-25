@@ -645,10 +645,6 @@ class ControlHandle : Handle
 
 
 
-        global::System.Console.Write("ControlHandle Execute Key Index: " + key.Index + "\n");
-
-
-
 
         return true;
     }
