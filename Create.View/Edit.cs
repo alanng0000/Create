@@ -37,6 +37,12 @@ public class Edit : ViewView
 
 
 
+    internal TokenListType TokenListType { get; set; }
+
+
+
+
+
 
     private Font Font { get; set; }
 
@@ -256,12 +262,29 @@ public class Edit : ViewView
 
 
 
-        this.CharRange = this.Range(0, 0);
+        this.CharRange = new Range();
+
+
+        this.CharRange.Init();
 
 
 
 
-        this.LineRange = this.Range(0, 0);
+        this.LineRange = new Range();
+
+
+        this.LineRange.Init();
+
+
+
+
+
+
+
+        this.TokenListType = new TokenListType();
+
+
+        this.TokenListType.Init();
 
 
 
@@ -3910,6 +3933,36 @@ public class Edit : ViewView
 
 
 
+    private bool SetTokenListType()
+    {
+        int count;
+
+
+        count = this.Code.Token.Count;
+
+
+
+        this.TokenListType.SetCount(count);
+
+
+
+
+        this.SetTokenTokenListType();
+
+
+
+        
+        this.SetNodeTokenListType();
+
+
+
+
+        return true;
+    }
+
+
+
+
 
 
     private bool SetTokenTokenListType()
@@ -3967,7 +4020,7 @@ public class Edit : ViewView
 
 
 
-    private TokenType GetTokenTokenType(ref Token token)
+    private bool SetTokenTokenType(int index, ref Token token)
     {
         bool b;
 
@@ -4034,12 +4087,13 @@ public class Edit : ViewView
 
 
 
-        TokenType ret;
 
-        ret = type;
+        this.TokenListType.Set(index, type);
 
 
-        return ret;
+
+
+        return true;
     }
 
 
@@ -4391,8 +4445,7 @@ public class Edit : ViewView
             token = tokenList.Get(i);
 
 
-
-            this.DrawToken(ref token);
+            this.DrawToken(i, ref token);
 
 
 
@@ -4407,17 +4460,25 @@ public class Edit : ViewView
 
 
 
-    private bool DrawToken(ref Token token)
+    private bool DrawToken(int index, ref Token token)
     {
         TokenType type;
 
-        type = this.GetTokenTokenType(ref token);
+        type = this.TokenListType.Get(index);
 
 
 
 
 
-        this.DrawText(ref token.Range, ref type.Color);
+
+        TextRange range;
+
+
+        range = token.Range;
+
+
+
+        this.DrawText(ref range, ref type.Color);
 
 
 
@@ -4475,7 +4536,14 @@ public class Edit : ViewView
 
     private bool DrawComment(ref Comment comment)
     {
-        this.DrawText(ref comment.Range, ref this.CommentTextColor);
+        TextRange range;
+
+
+        range = comment.Range;
+
+
+
+        this.DrawText(ref range, ref this.CommentTextColor);
 
 
 
