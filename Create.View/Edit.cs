@@ -262,20 +262,12 @@ public class Edit : ViewView
 
 
 
-        this.CharRange = new Range();
-
-
-        this.CharRange.Init();
+        this.CharRange = this.Range(0, 0);
 
 
 
 
-        this.LineRange = new Range();
-
-
-        this.LineRange.Init();
-
-
+        this.LineRange = this.Range(0, 0);
 
 
 
