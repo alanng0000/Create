@@ -24,7 +24,6 @@ global using Font = System.Draw.Font;
 global using FontFamily = System.Draw.FontFamily;
 global using FontStyle = System.Draw.FontStyle;
 global using ViewView = System.View.View;
-global using ViewConstant = System.View.Constant;
 global using Source = Class.Infra.Source;
 global using SourceArray = Class.Infra.SourceArray;
 global using Constant = Class.Infra.Constant;
