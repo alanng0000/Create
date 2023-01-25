@@ -35,7 +35,7 @@ class ControlHandle : Handle
 
 
 
-    private KeyMethod[][][] KeyMethodList { get; set; }
+    private KeyMethod[][][][] KeyMethodList { get; set; }
 
 
 
@@ -98,7 +98,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList = new KeyMethod[count][][];
+        this.KeyMethodList = new KeyMethod[count][][][];
 
 
 
@@ -115,7 +115,7 @@ class ControlHandle : Handle
 
 
 
-            this.SetKeyMethod(key);            
+            this.InitKeyMethodArrayKey(key);            
 
 
 
@@ -216,7 +216,7 @@ class ControlHandle : Handle
 
 
 
-    private bool SetKeyMethod(ControlKey key)
+    private bool InitKeyMethodArrayKey(ControlKey key)
     {
         int keyIndex;
 
@@ -232,27 +232,54 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[keyIndex] = new KeyMethod[boolCount][];
+        this.KeyMethodList[keyIndex] = new KeyMethod[boolCount][][];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(false)] = new KeyMethod[boolCount];
+        this.KeyMethodList[keyIndex][this.BoolIndex(false)] = new KeyMethod[boolCount][];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(true)] = new KeyMethod[boolCount];
+        this.KeyMethodList[keyIndex][this.BoolIndex(true)] = new KeyMethod[boolCount][];
+
+
+
+        this.KeyMethodList[keyIndex][this.BoolIndex(false)][this.BoolIndex(false)] = new KeyMethod[boolCount];
+
+
+        this.KeyMethodList[keyIndex][this.BoolIndex(true)][this.BoolIndex(false)] = new KeyMethod[boolCount];
+
+
+        this.KeyMethodList[keyIndex][this.BoolIndex(false)][this.BoolIndex(true)] = new KeyMethod[boolCount];
+
+
+        this.KeyMethodList[keyIndex][this.BoolIndex(true)][this.BoolIndex(true)] = new KeyMethod[boolCount];
 
 
 
 
-        this.SetKeyMethodOne(key, false, false);
 
 
-        this.SetKeyMethodOne(key, true, false);
+        this.InitKeyMethodOne(key, false, false, false);
 
 
-        this.SetKeyMethodOne(key, false, true);
+        this.InitKeyMethodOne(key, true, false, false);
 
 
-        this.SetKeyMethodOne(key, true, true);
+        this.InitKeyMethodOne(key, false, true, false);
+
+
+        this.InitKeyMethodOne(key, true, true, false);
+
+
+        this.InitKeyMethodOne(key, false, false, true);
+
+
+        this.InitKeyMethodOne(key, true, false, true);
+
+
+        this.InitKeyMethodOne(key, false, true, true);
+
+
+        this.InitKeyMethodOne(key, true, true, true);
 
 
 
@@ -262,11 +289,19 @@ class ControlHandle : Handle
 
 
 
-    private bool SetKeyMethodOne(ControlKey key, bool shift, bool control)
+
+
+    private bool InitKeyMethodOne(ControlKey key, bool capLock, bool shift, bool control)
     {
         int keyIndex;
 
         keyIndex = key.Index;
+
+
+
+        int capLockIndex;
+
+        capLockIndex = this.BoolIndex(capLock);
 
 
 
@@ -282,7 +317,9 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[keyIndex][shiftIndex][controlIndex] = this.CreateKeyMethod(key, shift, control);
+
+        this.KeyMethodList[keyIndex][capLockIndex][shiftIndex][controlIndex] = this.CreateKeyMethod(key, capLock, shift, control);
+
 
 
 
@@ -293,7 +330,8 @@ class ControlHandle : Handle
 
 
 
-    private KeyMethod CreateKeyMethod(ControlKey key, bool shift, bool control)
+
+    private KeyMethod CreateKeyMethod(ControlKey key, bool capLock, bool shift, bool control)
     {
         KeyMethod method;
 
@@ -305,6 +343,9 @@ class ControlHandle : Handle
 
 
         method.Key = key;
+
+
+        method.CapLock = capLock;
 
 
         method.Shift = shift;
