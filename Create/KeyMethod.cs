@@ -9,7 +9,7 @@ class KeyMethod : Object
 
 
 
-    public bool CapLock { get; set; }
+    public bool Tab { get; set; }
     
 
 

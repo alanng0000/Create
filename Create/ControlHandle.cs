@@ -300,7 +300,7 @@ class ControlHandle : Handle
 
 
 
-    private bool InitKeyMethodOne(ControlKey key, bool capLock, bool shift, bool control)
+    private bool InitKeyMethodOne(ControlKey key, bool tab, bool shift, bool control)
     {
         int keyIndex;
 
@@ -308,9 +308,9 @@ class ControlHandle : Handle
 
 
 
-        int capLockIndex;
+        int tabIndex;
 
-        capLockIndex = this.BoolIndex(capLock);
+        tabIndex = this.BoolIndex(tab);
 
 
 
@@ -327,7 +327,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[keyIndex][capLockIndex][shiftIndex][controlIndex] = this.CreateKeyMethod(key, capLock, shift, control);
+        this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex] = this.CreateKeyMethod(key, tab, shift, control);
 
 
 
@@ -340,7 +340,7 @@ class ControlHandle : Handle
 
 
 
-    private KeyMethod CreateKeyMethod(ControlKey key, bool capLock, bool shift, bool control)
+    private KeyMethod CreateKeyMethod(ControlKey key, bool tab, bool shift, bool control)
     {
         KeyMethod method;
 
@@ -354,7 +354,7 @@ class ControlHandle : Handle
         method.Key = key;
 
 
-        method.CapLock = capLock;
+        method.Tab = tab;
 
 
         method.Shift = shift;
@@ -490,7 +490,7 @@ class ControlHandle : Handle
 
 
 
-    private bool SetHandleMethod(ControlKey key, bool capLock, bool shift, bool control, HandleMethod method)
+    private bool SetHandleMethod(ControlKey key, bool tab, bool shift, bool control, HandleMethod method)
     {
         int keyIndex;
 
@@ -498,9 +498,9 @@ class ControlHandle : Handle
 
 
 
-        int capLockIndex;
+        int tabIndex;
 
-        capLockIndex = this.BoolIndex(capLock);
+        tabIndex = this.BoolIndex(tab);
 
 
 
@@ -517,7 +517,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[keyIndex][capLockIndex][shiftIndex][controlIndex].Handle = method;
+        this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex].Handle = method;
 
 
         return true;
@@ -527,7 +527,7 @@ class ControlHandle : Handle
 
 
 
-    private HandleMethod GetHandleMethod(ControlKey key, bool capLock, bool shift, bool control)
+    private HandleMethod GetHandleMethod(ControlKey key, bool tab, bool shift, bool control)
     {
         int keyIndex;
 
@@ -535,9 +535,9 @@ class ControlHandle : Handle
 
 
 
-        int capLockIndex;
+        int tabIndex;
 
-        capLockIndex = this.BoolIndex(capLock);
+        tabIndex = this.BoolIndex(tab);
 
 
 
@@ -556,7 +556,7 @@ class ControlHandle : Handle
 
         HandleMethod method;
         
-        method = this.KeyMethodList[keyIndex][capLockIndex][shiftIndex][controlIndex].Handle;
+        method = this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex].Handle;
 
 
 
@@ -588,9 +588,11 @@ class ControlHandle : Handle
 
 
 
+
         bool state;
 
         state = o.State;
+
 
 
 
@@ -598,19 +600,19 @@ class ControlHandle : Handle
         {
             if (key == this.Key.Tab)
             {
-                this.IsTab = this.ToggleState(this.IsTab);
+                this.IsTab = this.Toggle(this.IsTab);
             }
 
 
             if (key == this.Key.Shift)
             {
-                this.IsShift = this.ToggleState(this.IsShift);
+                this.IsShift = this.Toggle(this.IsShift);
             }
 
 
             if (key == this.Key.Control)
             {
-                this.IsControl = this.ToggleState(this.IsControl);
+                this.IsControl = this.Toggle(this.IsControl);
             }
 
 
@@ -649,12 +651,12 @@ class ControlHandle : Handle
 
         return true;
     }
-    
 
 
 
 
-    private bool ToggleState(bool state)
+
+    private bool Toggle(bool state)
     {
         return !state;
     }
