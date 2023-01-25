@@ -4640,6 +4640,8 @@ public class Edit : ViewView
 
 
         
+        up = up + 1;
+        
 
 
 
