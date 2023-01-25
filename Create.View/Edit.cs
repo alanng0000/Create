@@ -3910,36 +3910,6 @@ public class Edit : ViewView
 
 
 
-    private bool SetTokenListType()
-    {
-        int count;
-
-
-        count = this.Code.Token.Count;
-
-
-
-        this.TokenListType.SetCount(count);
-
-
-
-
-        this.SetTokenTokenListType();
-
-
-
-        
-        this.SetNodeTokenListType();
-
-
-
-
-        return true;
-    }
-
-
-
-
 
 
     private bool SetTokenTokenListType()
@@ -3997,7 +3967,7 @@ public class Edit : ViewView
 
 
 
-    private bool SetTokenTokenType(int index, ref Token token)
+    private TokenType GetTokenTokenType(ref Token token)
     {
         bool b;
 
@@ -4064,13 +4034,12 @@ public class Edit : ViewView
 
 
 
+        TokenType ret;
 
-        this.TokenListType.Set(index, type);
+        ret = type;
 
 
-
-
-        return true;
+        return ret;
     }
 
 
@@ -4422,7 +4391,8 @@ public class Edit : ViewView
             token = tokenList.Get(i);
 
 
-            this.DrawToken(i, ref token);
+
+            this.DrawToken(ref token);
 
 
 
@@ -4437,25 +4407,17 @@ public class Edit : ViewView
 
 
 
-    private bool DrawToken(int index, ref Token token)
+    private bool DrawToken(ref Token token)
     {
         TokenType type;
 
-        type = this.TokenListType.Get(index);
+        type = this.GetTokenTokenType(ref token);
 
 
 
 
 
-
-        TextRange range;
-
-
-        range = token.Range;
-
-
-
-        this.DrawText(ref range, ref type.Color);
+        this.DrawText(ref token.Range, ref type.Color);
 
 
 
