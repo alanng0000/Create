@@ -342,13 +342,15 @@ public class Edit : ViewView
 
 
 
-        this.InitTextColor();
+        this.InitCommentColor();
 
+
+
+        this.InitTextBrush();
 
 
 
         this.InitCaretBrush();
-
 
 
 
@@ -4995,7 +4997,7 @@ public class Edit : ViewView
 
 
 
-    private bool InitTextColor()
+    private bool InitCommentColor()
     {
         DrawInfra infra;
 
