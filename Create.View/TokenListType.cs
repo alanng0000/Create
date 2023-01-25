@@ -98,15 +98,5 @@ class TokenListType : Object
 
 
 
-    private bool CheckIndex(int index)
-    {
-        return !(index < 0) & index < this.Count;
-    }
-
-
-
-
-
-
     private ByteList ByteList { get; set; }
 }
