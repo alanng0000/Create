@@ -4924,11 +4924,17 @@ public class Edit : ViewView
 
 
 
+        DrawInfra infra;
+
+        infra = DrawInfra.This;
+
+
+
+
         DrawRect rect;
 
 
-
-        rect = this.Infra.CreateRect(this.Infra.CreatePos(left, up), this.Infra.CreateSize(width, height));
+        rect = infra.CreateRect(infra.CreatePos(left, up), infra.CreateSize(width, height));
 
 
 
