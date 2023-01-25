@@ -4693,7 +4693,7 @@ public class Edit : ViewView
 
 
 
-        this.DrawOp.Text(charSpan, this.Font, color, destRect);
+        this.DrawOp.Text(charSpan, destRect, this.Font, color);
 
 
 
