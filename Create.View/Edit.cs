@@ -366,6 +366,11 @@ public class Edit : ViewView
         
 
 
+        this.CharSpan = new CharSpan();
+
+
+        this.CharSpan.Init();
+
 
 
 
@@ -4576,17 +4581,6 @@ public class Edit : ViewView
 
 
 
-
-        int col;
-        
-        
-        col = range.Range.Start;
-
-
-
-
-
-
         Line line;
 
 
@@ -4603,6 +4597,13 @@ public class Edit : ViewView
 
 
 
+        int start;
+        
+        
+        start = range.Range.Start;
+
+
+
 
 
         int ka;
@@ -4610,24 +4611,6 @@ public class Edit : ViewView
 
         ka = row - this.ScrollPos.Row;
 
-
-
-
-
-        int kb;
-
-
-        kb = col - this.ScrollPos.Col;
-
-
-
-
-
-
-        int left;
-
-
-        left = this.DrawWidth(kb);
 
 
 
@@ -4641,14 +4624,7 @@ public class Edit : ViewView
 
         
         up = up + 1;
-        
 
-
-
-
-        int right;
-
-        right = this.DrawSize.Width;
 
 
 
@@ -4657,12 +4633,6 @@ public class Edit : ViewView
         
         down = this.DrawSize.Height;
 
-
-
-
-        int width;
-
-        width = right - left;
 
 
 
@@ -4675,6 +4645,8 @@ public class Edit : ViewView
 
 
 
+
+
         DrawInfra infra;
 
         infra = DrawInfra.This;
@@ -4682,43 +4654,10 @@ public class Edit : ViewView
 
 
 
-        DrawPos pos;
-
-        pos = infra.CreatePos(left, up);
 
 
+        this.CharSpan.Array = data;
 
-
-        DrawSize size;
-
-        size = infra.CreateSize(width, height);
-
-
-
-
-
-        DrawRect destRect;
-
-        destRect = infra.CreateRect(pos, size);
-
-
-
-
-
-        CharSpan charSpan;
-
-
-        charSpan = new CharSpan();
-
-
-        charSpan.Init();
-
-
-
-        charSpan.Array = data;
-
-
-        charSpan.Range = range.Range;
 
 
 
@@ -4728,7 +4667,97 @@ public class Edit : ViewView
 
 
 
-        this.DrawOp.Text(charSpan, destRect, this.Font, this.TextBrush);
+        int index;
+
+
+
+
+        int count;
+
+        count = this.Count(range.Range);
+
+
+
+        int i;
+
+        i = 0;
+
+        while (i < count)
+        {
+            index = start + i;
+
+
+            
+            this.CharSpan.Range = this.IndexRange(index);
+
+
+
+
+
+            int kb;
+
+
+            kb = start - this.ScrollPos.Col;
+
+
+            kb = kb + i;
+
+
+
+
+
+            int left;
+
+
+            left = this.DrawWidth(kb);
+
+
+
+
+            int right;
+
+            right = this.DrawSize.Width;
+
+
+
+
+            int width;
+
+            width = right - left;
+
+
+
+
+
+            DrawPos pos;
+
+            pos = infra.CreatePos(left, up);
+
+
+
+
+            DrawSize size;
+
+            size = infra.CreateSize(width, height);
+
+
+
+
+
+            DrawRect destRect;
+
+            destRect = infra.CreateRect(pos, size);
+
+
+
+            
+            this.DrawOp.Text(this.CharSpan, destRect, this.Font, this.TextBrush);
+
+
+
+
+            i = i + 1;
+        }
 
 
 
@@ -4737,6 +4766,11 @@ public class Edit : ViewView
         return true;
     }
 
+
+
+
+
+    private CharSpan CharSpan;
 
 
 
