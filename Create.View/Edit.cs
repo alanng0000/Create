@@ -4475,14 +4475,7 @@ public class Edit : ViewView
 
     private bool DrawComment(ref Comment comment)
     {
-        TextRange range;
-
-
-        range = comment.Range;
-
-
-
-        this.DrawText(ref range, ref this.CommentTextColor);
+        this.DrawText(ref comment.Range, ref this.CommentTextColor);
 
 
 
