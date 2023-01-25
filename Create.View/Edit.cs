@@ -5158,7 +5158,7 @@ public class Edit : ViewView
 
     private bool InitCharSize()
     {
-        this.CharWidth = 8;
+        this.CharWidth = 9;
 
 
 
