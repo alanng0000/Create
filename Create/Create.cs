@@ -73,43 +73,22 @@ public class Create : Object
 
     private bool InitControlHandle()
     {
-        KeyHandle keyHandle;
+        ControlHandle controlHandle;
 
 
-        keyHandle = new KeyHandle();
+        controlHandle = new ControlHandle();
 
 
-        keyHandle.Create = this;
+        controlHandle.Create = this;
 
 
-        keyHandle.Init();
+        controlHandle.Init();
         
 
 
 
-        this.Control.KeyInput.Handle.AddHandle(keyHandle);
+        this.Control.Input.Handle.AddHandle(controlHandle);
 
-
-
-
-
-
-
-        CharHandle charHandle;
-
-
-        charHandle = new CharHandle();
-
-
-        charHandle.Create = this;
-
-
-        charHandle.Init();
-        
-
-
-
-        this.Control.CharInput.Handle.AddHandle(charHandle);
 
 
 

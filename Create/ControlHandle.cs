@@ -3,7 +3,7 @@ namespace Create;
 
 
 
-class KeyHandle : Handle
+class ControlHandle : Handle
 {
     public Create Create { get; set; }
 
@@ -28,7 +28,7 @@ class KeyHandle : Handle
 
 
 
-    private ControlKey Key { get; set; }
+    private ControlKeyList Key { get; set; }
 
 
 
@@ -67,7 +67,7 @@ class KeyHandle : Handle
 
 
 
-        this.Key = global::System.Control.Key.This;
+        this.Key = this.Control.Key;
 
 
 
