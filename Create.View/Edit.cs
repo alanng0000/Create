@@ -4712,6 +4712,10 @@ public class Edit : ViewView
             left = this.DrawWidth(kb);
 
 
+            left = left - 1;
+            
+
+
 
 
             int right;
