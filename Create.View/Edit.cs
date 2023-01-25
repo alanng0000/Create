@@ -4639,9 +4639,6 @@ public class Edit : ViewView
         up = this.DrawHeight(ka);
 
 
-
-        up = up - 1;
-
         
 
 
@@ -5133,7 +5130,7 @@ public class Edit : ViewView
         font.Family = fontFamily;
 
 
-        font.Size = 14;
+        font.Size = 13;
 
         
         font.Style = fontStyle;
