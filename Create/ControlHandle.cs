@@ -416,8 +416,14 @@ class ControlHandle : Handle
 
 
 
-    private bool SetHandleMethod(byte key, bool shift, bool control, HandleMethod method)
+    private bool SetHandleMethod(ControlKey key, bool shift, bool control, HandleMethod method)
     {
+        int keyIndex;
+
+        keyIndex = key.Index;
+
+
+
         int shiftIndex;
 
         shiftIndex = this.BoolIndex(shift);
@@ -431,7 +437,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[key][shiftIndex][controlIndex].Handle = method;
+        this.KeyMethodList[keyIndex][shiftIndex][controlIndex].Handle = method;
 
 
         return true;
@@ -441,8 +447,14 @@ class ControlHandle : Handle
 
 
 
-    private HandleMethod GetHandleMethod(byte key, bool shift, bool control)
+    private HandleMethod GetHandleMethod(ControlKey key, bool shift, bool control)
     {
+        int keyIndex;
+
+        keyIndex = key.Index;
+
+
+
         int shiftIndex;
 
         shiftIndex = this.BoolIndex(shift);
@@ -458,7 +470,7 @@ class ControlHandle : Handle
 
         HandleMethod method;
         
-        method = this.KeyMethodList[key][shiftIndex][controlIndex].Handle;
+        method = this.KeyMethodList[keyIndex][shiftIndex][controlIndex].Handle;
 
 
 
