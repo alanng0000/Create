@@ -37,12 +37,6 @@ public class Edit : ViewView
 
 
 
-    internal TokenListType TokenListType { get; set; }
-
-
-
-
-
 
     private Font Font { get; set; }
 
@@ -262,29 +256,12 @@ public class Edit : ViewView
 
 
 
-        this.CharRange = new Range();
-
-
-        this.CharRange.Init();
+        this.CharRange = this.Range(0, 0);
 
 
 
 
-        this.LineRange = new Range();
-
-
-        this.LineRange.Init();
-
-
-
-
-
-
-
-        this.TokenListType = new TokenListType();
-
-
-        this.TokenListType.Init();
+        this.LineRange = this.Range(0, 0);
 
 
 
