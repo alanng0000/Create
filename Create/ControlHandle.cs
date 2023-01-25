@@ -464,15 +464,9 @@ class ControlHandle : Handle
 
 
 
-    private bool IsCapLock
+    private bool IsTab
     {
-        get
-        {
-            return this.Control.CapLock;
-        }
-        set
-        {
-        }
+        get; set;
     }
 
 
@@ -602,15 +596,21 @@ class ControlHandle : Handle
 
         if (!state)
         {
+            if (key == this.Key.Tab)
+            {
+                this.IsTab = this.ToggleState(this.IsTab);
+            }
+
+
             if (key == this.Key.Shift)
             {
-                this.IsShift = !this.IsShift;
+                this.IsShift = this.ToggleState(this.IsShift);
             }
 
 
             if (key == this.Key.Control)
             {
-                this.IsControl = !this.IsControl;
+                this.IsControl = this.ToggleState(this.IsControl);
             }
 
 
@@ -628,7 +628,7 @@ class ControlHandle : Handle
 
 
 
-        method = this.GetHandleMethod(key, this.IsCapLock, this.IsShift, this.IsControl);
+        method = this.GetHandleMethod(key, this.IsTab, this.IsShift, this.IsControl);
 
 
 
@@ -648,5 +648,13 @@ class ControlHandle : Handle
 
 
         return true;
+    }
+
+
+
+
+    private bool ToggleState(bool state)
+    {
+        return !state;
     }
 }
