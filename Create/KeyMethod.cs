@@ -9,6 +9,10 @@ class KeyMethod : Object
 
 
 
+    public bool CapLock { get; set; }
+    
+
+
     public bool Shift { get; set; }
 
 
