@@ -496,7 +496,7 @@ class ControlHandle : Handle
 
 
 
-        byte key;
+        ControlKey key;
 
         key = o.Key;
 
