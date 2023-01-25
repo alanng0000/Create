@@ -173,25 +173,34 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.Home, false, false, this.Edit.CaretStart);
+        this.SetHandleMethod(this.Key.LetterA, false, false, true, this.Edit.CaretStart);
 
 
 
-        this.SetHandleMethod(this.Key.End, false, false, this.Edit.CaretEnd);
-
-
-
-
-        this.SetHandleMethod(this.Key.PageUp, false, false, this.Edit.PageUp);
-
-
-
-        this.SetHandleMethod(this.Key.PageDown, false, false, this.Edit.PageDown);
+        this.SetHandleMethod(this.Key.LetterD, false, false, true, this.Edit.CaretEnd);
 
 
 
 
-        this.SetHandleMethod(this.Key.Tab, false, false, this.Edit.InsertIndent);
+        this.SetHandleMethod(this.Key.LetterJ, false, false, false, this.Edit.ScrollLeft);
+
+
+
+        this.SetHandleMethod(this.Key.LetterL, false, false, false, this.Edit.ScrollRight);
+
+
+
+        this.SetHandleMethod(this.Key.LetterI, false, false, false, this.Edit.ScrollUp);
+
+
+
+        this.SetHandleMethod(this.Key.LetterK, false, false, false, this.Edit.ScrollDown);
+
+
+
+
+
+        this.SetHandleMethod(this.Key.Tab, true, false, false, this.Edit.InsertIndent);
 
 
 
@@ -199,7 +208,7 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.LetterKey('V'), false, true, this.ReplaceText);
+        this.SetHandleMethod(this.Key.LetterV, true, false, true, this.ReplaceText);
 
 
 

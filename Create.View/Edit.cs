@@ -2350,9 +2350,23 @@ public class Edit : ViewView
 
 
 
+    public bool ScrollLeft()
+    {
+        return true;
+    }
 
 
-    public bool PageUp()
+
+    public bool ScrollRight()
+    {
+        return true;
+    }
+
+
+
+
+
+    public bool ScrollUp()
     {
         this.CaretSelectValue();
 
@@ -2450,7 +2464,7 @@ public class Edit : ViewView
 
 
 
-    public bool PageDown()
+    public bool ScrollDown()
     {
         this.CaretSelectValue();
 
