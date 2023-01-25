@@ -455,10 +455,28 @@ class ControlHandle : Handle
 
 
 
-
-    private bool IsControl()
+    private bool IsCapLock
     {
-        return this.Control.Get(this.Key.Control.Index);
+        get
+        {
+            return this.Control.CapLock;
+        }
+    }
+
+
+
+
+    private bool IsControl
+    {
+        get; set;
+    }
+
+
+
+
+    private bool IsShift
+    {
+        get; set;
     }
 
 
@@ -466,22 +484,17 @@ class ControlHandle : Handle
 
 
 
-
-    private bool IsShift()
-    {
-        return this.Control.Get(this.Key.Shift.Index);
-    }
-
-
-
-
-
-
-    private bool SetHandleMethod(ControlKey key, bool shift, bool control, HandleMethod method)
+    private bool SetHandleMethod(ControlKey key, bool capLock, bool shift, bool control, HandleMethod method)
     {
         int keyIndex;
 
         keyIndex = key.Index;
+
+
+
+        int capLockIndex;
+
+        capLockIndex = this.BoolIndex(capLock);
 
 
 
@@ -498,7 +511,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[keyIndex][shiftIndex][controlIndex].Handle = method;
+        this.KeyMethodList[keyIndex][capLockIndex][shiftIndex][controlIndex].Handle = method;
 
 
         return true;
@@ -508,11 +521,17 @@ class ControlHandle : Handle
 
 
 
-    private HandleMethod GetHandleMethod(ControlKey key, bool shift, bool control)
+    private HandleMethod GetHandleMethod(ControlKey key, bool capLock, bool shift, bool control)
     {
         int keyIndex;
 
         keyIndex = key.Index;
+
+
+
+        int capLockIndex;
+
+        capLockIndex = this.BoolIndex(capLock);
 
 
 
@@ -531,7 +550,7 @@ class ControlHandle : Handle
 
         HandleMethod method;
         
-        method = this.KeyMethodList[keyIndex][shiftIndex][controlIndex].Handle;
+        method = this.KeyMethodList[keyIndex][capLockIndex][shiftIndex][controlIndex].Handle;
 
 
 
@@ -571,6 +590,19 @@ class ControlHandle : Handle
 
         if (!state)
         {
+            if (key == this.Key.Shift)
+            {
+                this.IsShift = !this.IsShift;
+            }
+
+
+            if (key == this.Key.Control)
+            {
+                this.IsControl = !this.IsControl;
+            }
+
+
+
             return true;
         }
 
@@ -584,7 +616,7 @@ class ControlHandle : Handle
 
 
 
-        method = this.GetHandleMethod(key, this.IsShift(), this.IsControl());
+        method = this.GetHandleMethod(key, this.IsCapLock, this.IsShift, this.IsControl);
 
 
 
