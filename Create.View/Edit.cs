@@ -4614,7 +4614,6 @@ public class Edit : ViewView
 
 
 
-
         int up;
 
 
@@ -4623,23 +4622,6 @@ public class Edit : ViewView
 
         
         up = up + 1;
-
-
-
-
-
-        int down;
-        
-        down = this.DrawSize.Height;
-
-
-
-
-
-        int height;
-
-        height = down - up;
-
 
 
 
@@ -4654,7 +4636,6 @@ public class Edit : ViewView
 
 
 
-
         this.CharSpan.Array = data;
 
 
@@ -4662,6 +4643,15 @@ public class Edit : ViewView
 
 
         this.TextBrush.Color = color;
+
+
+
+
+
+        DrawRect destRect;
+
+
+        destRect = infra.CreateRect(infra.CreatePos(0, up), this.CharDestSize);
 
 
 
@@ -4714,18 +4704,9 @@ public class Edit : ViewView
 
 
 
-            DrawPos pos;
+            destRect.Pos.Left = left;
 
-            pos = infra.CreatePos(left, up);
-
-
-
-
-
-            DrawRect destRect;
-
-            destRect = infra.CreateRect(pos, this.CharDestSize);
-
+        
 
 
             
