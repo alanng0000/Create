@@ -72,7 +72,7 @@ public class Edit : ViewView
 
 
 
-    private DrawBrush TextBrush { get; set; }
+    private DrawColorBrush TextBrush { get; set; }
 
 
     
@@ -4698,6 +4698,11 @@ public class Edit : ViewView
 
 
         charSpan.Range = range.Range;
+
+
+
+
+        
 
 
 
