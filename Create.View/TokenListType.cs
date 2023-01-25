@@ -100,7 +100,7 @@ class TokenListType : Object
 
     private bool CheckIndex(int index)
     {
-        return index < this.Count;
+        return !(index < 0) & index < this.Count;
     }
 
 
