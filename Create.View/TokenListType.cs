@@ -75,9 +75,15 @@ class TokenListType : Object
 
     public bool Set(int index, TokenType tokenType)
     {
+        InfraConvert convert;
+
+        convert = InfraConvert.This;
+
+
+
         byte ob;
 
-        ob = this.Byte(tokenType.Intent);
+        ob = convert.Byte(tokenType.Intent);
 
 
 
@@ -85,16 +91,6 @@ class TokenListType : Object
 
 
         return true;
-    }
-
-
-
-
-
-
-    private byte Byte(ulong a)
-    {
-        return (byte)a;
     }
 
 

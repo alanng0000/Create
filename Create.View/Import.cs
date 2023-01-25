@@ -1,6 +1,7 @@
 global using Object = System.Infra.Object;
 global using Range = System.Infra.Range;
 global using RangeInfra = System.Infra.RangeInfra;
+global using InfraConvert = System.Infra.Convert;
 global using List = System.List.List;
 global using ListIter = System.List.ListIter;
 global using GenericListByte = System.List.GenericList<byte>;
