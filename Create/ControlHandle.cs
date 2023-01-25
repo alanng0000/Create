@@ -126,48 +126,48 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.Enter, false, false, this.Edit.InsertLine);
+        this.SetHandleMethod(this.Key.Enter, false, false, false, this.Edit.InsertLine);
 
 
 
 
-        this.SetHandleMethod(this.Key.Backspace, false, false, this.Edit.BackSpace);
+        this.SetHandleMethod(this.Key.Backspace, false, false, false, this.Edit.BackSpace);
 
 
 
 
     
-        this.SetHandleMethod(this.Key.Left, false, false, this.Edit.CaretLeft);
+        this.SetHandleMethod(this.Key.LetterA, false, false, false, this.Edit.CaretLeft);
 
 
         
-        this.SetHandleMethod(this.Key.Right, false, false, this.Edit.CaretRight);
+        this.SetHandleMethod(this.Key.LetterD, false, false, false, this.Edit.CaretRight);
 
 
 
-        this.SetHandleMethod(this.Key.Up, false, false, this.Edit.CaretUp);
+        this.SetHandleMethod(this.Key.LetterW, false, false, false, this.Edit.CaretUp);
 
 
         
-        this.SetHandleMethod(this.Key.Down, false, false, this.Edit.CaretDown);
+        this.SetHandleMethod(this.Key.LetterS, false, false, false, this.Edit.CaretDown);
 
 
 
 
 
-        this.SetHandleMethod(this.Key.Left, true, false, this.Edit.SelectLeft);
+        this.SetHandleMethod(this.Key.LetterA, false, true, false, this.Edit.SelectLeft);
 
 
 
-        this.SetHandleMethod(this.Key.Right, true, false, this.Edit.SelectRight);
+        this.SetHandleMethod(this.Key.LetterD, false, true, false, this.Edit.SelectRight);
 
 
 
-        this.SetHandleMethod(this.Key.Up, true, false, this.Edit.SelectUp);
+        this.SetHandleMethod(this.Key.LetterW, false, true, false, this.Edit.SelectUp);
 
 
 
-        this.SetHandleMethod(this.Key.Down, true, false, this.Edit.SelectDown);
+        this.SetHandleMethod(this.Key.LetterS, false, true, false, this.Edit.SelectDown);
 
 
 
