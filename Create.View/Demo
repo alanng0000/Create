@@ -1,3 +1,8 @@
+MMMMMAAAAkkktttTTyyygggLLLHHHHjjjj
+
+
+
+
 class Door : Akt
 {
     # Name of Door
@@ -22,7 +27,7 @@ class Door : Akt
         e : 100100303;
         
 
-        MMMMMAAAAkkktttTTyyygggLLLHHHHjjjj
+
 
 
         A a;
