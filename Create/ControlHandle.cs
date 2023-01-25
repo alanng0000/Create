@@ -109,7 +109,13 @@ class ControlHandle : Handle
 
         while (i < count)
         {
-            this.SetKeyMethod(i);            
+            ControlKey key;
+
+            key = this.Key.Get(i);
+
+
+
+            this.SetKeyMethod(key);            
 
 
 
