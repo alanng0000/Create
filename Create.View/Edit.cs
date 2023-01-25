@@ -24,11 +24,6 @@ public class Edit : ViewView
 
 
 
-    private Infra Infra { get; set; }
-
-
-
-
 
     private ClassClass Class { get; set; }
 
@@ -225,14 +220,13 @@ public class Edit : ViewView
 
         
 
-        this.Infra = Infra.This;
+        DrawInfra infra;
+
+        infra = DrawInfra.This;
 
 
 
-
-
-
-        this.DrawSize = this.Infra.CreateSize(this.Size.Width, this.Size.Height);
+        this.DrawSize = infra.CreateSize(this.Size.Width, this.Size.Height);
 
 
 
@@ -560,7 +554,13 @@ public class Edit : ViewView
 
     private bool ExecutePort()
     {
-        this.Port = this.Infra.CreatePort();
+        Infra infra;
+
+        infra = Infra.This;
+
+
+
+        this.Port = infra.CreatePort();
 
 
 
@@ -4330,9 +4330,15 @@ public class Edit : ViewView
 
 
 
+        DrawInfra infra;
+
+        infra = DrawInfra.This;
+
+
+
         DrawRect rect;
 
-        rect = this.Infra.CreateRect(this.Infra.CreatePos(left, up), this.Infra.CreateSize(width, height));
+        rect = infra.CreateRect(infra.CreatePos(left, up), infra.CreateSize(width, height));
 
 
 
