@@ -72,10 +72,12 @@ public class Edit : ViewView
 
 
 
+    private DrawBrush TextBrush { get; set; }
+
+
     
 
     private DrawBrush CaretBrush { get; set; }
-
 
 
 
@@ -4969,6 +4971,22 @@ public class Edit : ViewView
         return true;
     }
 
+
+
+
+
+    private bool InitTextBrush()
+    {
+        ViewConstant constant;
+
+        constant = ViewConstant.This;
+
+
+        this.TextBrush = this.Infra.CreateColorBrush(constant.BlackColor);
+
+
+        return true;
+    }
 
 
 
