@@ -109,13 +109,7 @@ class ControlHandle : Handle
 
         while (i < count)
         {
-            byte key;
-
-            key = (byte)i;
-
-
-
-            this.SetKeyMethod(key);            
+            this.SetKeyMethod(i);            
 
 
 
@@ -216,23 +210,29 @@ class ControlHandle : Handle
 
 
 
-    private bool SetKeyMethod(byte key)
+    private bool SetKeyMethod(ControlKey key)
     {
+        int keyIndex;
+
+        keyIndex = key.Index;
+
+
+
         int boolCount;
 
 
-        boolCount = 2;
+        boolCount = this.BoolCount;
 
 
 
 
-        this.KeyMethodList[key] = new KeyMethod[boolCount][];
+        this.KeyMethodList[keyIndex] = new KeyMethod[boolCount][];
 
 
-        this.KeyMethodList[key][this.BoolIndex(false)] = new KeyMethod[boolCount];
+        this.KeyMethodList[keyIndex][this.BoolIndex(false)] = new KeyMethod[boolCount];
 
 
-        this.KeyMethodList[key][this.BoolIndex(true)] = new KeyMethod[boolCount];
+        this.KeyMethodList[keyIndex][this.BoolIndex(true)] = new KeyMethod[boolCount];
 
 
 
@@ -256,8 +256,14 @@ class ControlHandle : Handle
 
 
 
-    private bool SetKeyMethodOne(byte key, bool shift, bool control)
+    private bool SetKeyMethodOne(ControlKey key, bool shift, bool control)
     {
+        int keyIndex;
+
+        keyIndex = key.Index;
+
+
+
         int shiftIndex;
 
         shiftIndex = this.BoolIndex(shift);
@@ -270,7 +276,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[key][shiftIndex][controlIndex] = this.CreateKeyMethod(key, shift, control);
+        this.KeyMethodList[keyIndex][shiftIndex][controlIndex] = this.CreateKeyMethod(key, shift, control);
 
 
 
@@ -281,7 +287,7 @@ class ControlHandle : Handle
 
 
 
-    private KeyMethod CreateKeyMethod(byte key, bool shift, bool control)
+    private KeyMethod CreateKeyMethod(ControlKey key, bool shift, bool control)
     {
         KeyMethod method;
 
@@ -349,7 +355,7 @@ class ControlHandle : Handle
 
 
 
-    private byte LetterKey(char oc)
+    private ControlKey LetterKey(char oc)
     {
         int index;
 
@@ -357,13 +363,13 @@ class ControlHandle : Handle
 
 
 
-        byte o;
+        ControlKey o;
 
         o = this.Key.LetterKey(index);
 
 
 
-        byte ret;
+        ControlKey ret;
 
         ret = o;
 
@@ -391,13 +397,21 @@ class ControlHandle : Handle
 
 
 
+    private int BoolCount
+    {
+        get
+        {
+            return 2;
+        }
+    }
+
 
 
 
 
     private bool IsControl()
     {
-        return this.Control.Get(this.Key.Control);
+        return this.Control.Get(this.Key.Control.Index);
     }
 
 
@@ -408,7 +422,7 @@ class ControlHandle : Handle
 
     private bool IsShift()
     {
-        return this.Control.Get(this.Key.Shift);
+        return this.Control.Get(this.Key.Shift.Index);
     }
 
 

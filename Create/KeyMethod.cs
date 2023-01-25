@@ -5,7 +5,7 @@ namespace Create;
 
 class KeyMethod : Object
 {
-    public byte Key { get; set; }
+    public ControlKey Key { get; set; }
 
 
 
