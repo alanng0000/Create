@@ -5132,7 +5132,7 @@ public class Edit : ViewView
         font.Family = fontFamily;
 
 
-        font.Size = 13;
+        font.Size = 14;
 
         
         font.Style = fontStyle;
