@@ -69,6 +69,12 @@ public class Edit : ViewView
 
 
 
+    private Size VisibleSize;
+
+
+
+
+
     private DrawColorBrush TextBrush { get; set; }
 
 
@@ -355,6 +361,11 @@ public class Edit : ViewView
 
 
         this.LineHeight = 19;
+
+
+
+
+        this.InitVisibleSize();
 
 
 
@@ -5158,6 +5169,40 @@ public class Edit : ViewView
     {
         this.CharWidth = 9;
 
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool InitVisibleSize()
+    {
+        int row;
+
+        row = this.DrawSize.Height / this.LineHeight;
+
+
+
+        int col;
+
+        col = this.DrawSize.Width / this.CharWidth;
+
+
+
+
+        this.VisibleSize = new Size();
+
+
+        this.VisibleSize.Init();
+
+
+        this.VisibleSize.Width = col;
+
+
+        this.VisibleSize.Height = row;
 
 
 
