@@ -1058,6 +1058,14 @@ public class Edit : ViewView
 
 
 
+        this.PosA = this.Caret.Pos.Value;
+
+
+
+        this.ScrollVisible();
+
+
+
 
 
 
@@ -1142,6 +1150,13 @@ public class Edit : ViewView
 
 
 
+
+
+        this.PosA = this.Caret.Pos.Value;
+
+
+
+        this.ScrollVisible();
 
 
 
@@ -1238,6 +1253,12 @@ public class Edit : ViewView
 
 
 
+
+        this.PosA = this.Caret.Pos.Value;
+
+
+
+        this.ScrollVisible();
 
 
 
@@ -1342,6 +1363,14 @@ public class Edit : ViewView
 
 
 
+        this.PosA = this.Caret.Pos.Value;
+
+
+
+        this.ScrollVisible();
+
+
+
 
 
         return true;
@@ -1392,6 +1421,14 @@ public class Edit : ViewView
         this.CaretUpDownCol = this.Caret.Pos.Value.Col;
 
 
+
+
+
+        this.PosA = this.Caret.Pos.Value;
+
+
+
+        this.ScrollVisible();
 
 
 
@@ -1450,6 +1487,14 @@ public class Edit : ViewView
 
 
 
+
+
+        this.PosA = this.Caret.Pos.Value;
+
+
+
+        this.ScrollVisible();
+        
 
 
 
