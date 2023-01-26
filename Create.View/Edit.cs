@@ -2511,9 +2511,9 @@ public class Edit : ViewView
 
 
 
-        if (this.MaxColCount < col)
+        if (!(col < this.MaxColCount))
         {
-            col = this.MaxColCount;
+            col = this.MaxColCount - 1;
         }
 
 
