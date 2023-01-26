@@ -2465,13 +2465,68 @@ public class Edit : ViewView
 
     public bool ScrollLeft()
     {
+        int col;
+
+
+        col = this.ScrollPos.Col;
+
+
+        col = col - 25;
+
+
+
+        if (col < 0)
+        {
+            col = 0;
+        }
+
+
+
+
+
+        this.ScrollToCol(col);
+
+
+
+
+
+
         return true;
     }
 
 
 
+
+
+
     public bool ScrollRight()
     {
+        int col;
+
+
+        col = this.ScrollPos.Col;
+
+
+        col = col + 25;
+
+
+
+        if (this.MaxColCount < col)
+        {
+            col = this.MaxColCount;
+        }
+
+
+
+
+
+        this.ScrollToCol(col);
+
+
+
+
+
+
         return true;
     }
 
@@ -2481,12 +2536,6 @@ public class Edit : ViewView
 
     public bool ScrollUp()
     {
-        this.CaretSelectValue();
-
-
-
-
-
         int row;
 
 
@@ -2505,60 +2554,8 @@ public class Edit : ViewView
 
 
 
+
         this.ScrollToRow(row);
-
-
-
-
-
-
-        this.PosA.Row = row;
-
-
-        this.PosA.Col = 0;
-
-
-
-
-        this.MoveCaretRow();
-
-
-
-
-
-
-        this.PosA.Row = this.Caret.Pos.Value.Row;
-
-
-
-        this.PosA.Col = this.CaretUpDownCol;
-
-
-
-
-        this.Line = this.Text.Line.Get(this.PosA.Row);
-
-
-
-
-        bool b;
-
-
-        b = this.CheckInsertCol();
-
-
-        if (!b)
-        {
-            this.Caret.Pos.Value.Col = this.Line.Char.Count;
-        }
-
-
-
-        if (b)
-        {
-            this.Caret.Pos.Value.Col = this.PosA.Col;
-        }
-
 
 
 
@@ -2575,16 +2572,8 @@ public class Edit : ViewView
 
 
 
-
-
     public bool ScrollDown()
     {
-        this.CaretSelectValue();
-
-
-
-
-
         int row;
 
 
@@ -2604,64 +2593,7 @@ public class Edit : ViewView
 
 
 
-
-
         this.ScrollToRow(row);
-
-
-
-
-
-
-
-        this.PosA.Row = row;
-
-
-        this.PosA.Col = 0;
-
-
-
-
-        this.MoveCaretRow();
-
-
-
-
-
-
-        this.PosA.Row = this.Caret.Pos.Value.Row;
-
-
-
-        this.PosA.Col = this.CaretUpDownCol;
-
-
-
-
-        this.Line = this.Text.Line.Get(this.PosA.Row);
-
-
-
-
-        bool b;
-
-
-        b = this.CheckInsertCol();
-
-
-        if (!b)
-        {
-            this.Caret.Pos.Value.Col = this.Line.Char.Count;
-        }
-
-
-
-        if (b)
-        {
-            this.Caret.Pos.Value.Col = this.PosA.Col;
-        }
-
-
 
 
 
@@ -2688,6 +2620,21 @@ public class Edit : ViewView
 
         return true;
     }
+
+
+
+
+
+    private bool ScrollToCol(int col)
+    {
+        this.ScrollPos.Col = col;
+
+
+
+
+        return true;
+    }
+
 
 
 
