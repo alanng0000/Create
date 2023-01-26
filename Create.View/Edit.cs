@@ -2604,6 +2604,51 @@ public class Edit : ViewView
 
 
 
+    private bool ScrollVisible()
+    {
+        bool b;
+
+
+        b = false;
+
+
+        if (this.PosA.Row < this.ScrollPos.Row)
+        {
+            this.ScrollPos.Row = this.PosA.Row;
+
+
+            b = true;
+        }
+
+
+
+        if (!b)
+        {
+            int scrollDown;
+
+            scrollDown = this.ScrollPos.Row + this.VisibleSize.Height;
+
+
+
+            if (!(this.PosA.Row < scrollDown))
+            {
+                scrollDown = this.PosA.Row + 1;
+
+
+                this.ScrollPos.Row = scrollDown - this.VisibleSize.Height;
+            }
+        }
+
+
+
+        return true;
+    }
+
+
+
+
+
+
 
     private bool CheckRowIndex(int row)
     {
