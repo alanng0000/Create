@@ -74,6 +74,10 @@ public class Edit : ViewView
 
 
 
+    private int MaxColCount { get; set; }
+
+
+
 
     private DrawColorBrush TextBrush { get; set; }
 
