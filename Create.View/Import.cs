@@ -52,5 +52,4 @@ global using Traverse = Class.Check.Traverse;
 global using Task = Class.Task;
 global using TaskKindList = Class.TaskKindList;
 global using ClassClass  = Class.Class;
-global using SystemArray = System.Array;
 global using File = System.IO.File;
