@@ -2609,7 +2609,9 @@ public class Edit : ViewView
         bool b;
 
 
+
         b = false;
+
 
 
         if (this.PosA.Row < this.ScrollPos.Row)
@@ -2638,6 +2640,41 @@ public class Edit : ViewView
                 this.ScrollPos.Row = scrollDown - this.VisibleSize.Height;
             }
         }
+
+
+
+
+        b = false;
+
+
+
+        if (this.PosA.Col < this.ScrollPos.Col)
+        {
+            this.ScrollPos.Col = this.PosA.Col;
+
+
+            b = true;
+        }
+
+
+
+        if (!b)
+        {
+            int scrollRight;
+
+            scrollRight = this.ScrollPos.Col + this.VisibleSize.Width;
+
+
+
+            if (!(this.PosA.Col < scrollRight))
+            {
+                scrollRight = this.PosA.Col + 1;
+
+
+                this.ScrollPos.Col = scrollRight - this.VisibleSize.Width;
+            }
+        }
+
 
 
 
