@@ -876,6 +876,12 @@ public class Edit : ViewView
 
 
 
+
+            this.MaxColCount = this.Max(this.MaxColCount, line.Char.Count);
+
+
+
+
             i = i + 1;
         }
 
