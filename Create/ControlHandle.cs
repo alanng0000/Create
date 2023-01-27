@@ -155,7 +155,11 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.LetterF, false, false, false, this.Edit.CaretScrollOrigin);
+        this.SetHandleMethod(this.Key.LetterQ, false, false, false, this.Edit.CaretViewRow);
+
+
+
+        this.SetHandleMethod(this.Key.LetterE, false, false, false, this.Edit.CaretViewCol);
 
 
 

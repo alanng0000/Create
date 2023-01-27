@@ -1518,7 +1518,7 @@ public class Edit : ViewView
 
 
 
-    public bool CaretScrollOrigin()
+    public bool CaretViewRow()
     {
         this.CaretSelectValue();
 
@@ -1563,6 +1563,53 @@ public class Edit : ViewView
 
         return true;
     }
+
+
+
+
+
+
+
+    public bool CaretViewCol()
+    {
+        this.CaretSelectValue();
+
+
+
+
+
+
+        this.PosA.Col = this.ScrollPos.Col;
+
+
+
+
+
+        this.MoveCaretCol();
+
+
+
+
+
+        this.CaretUpDownCol = this.Caret.Pos.Value.Col;
+
+
+
+
+
+        this.PosA = this.Caret.Pos.Value;
+
+
+        this.ScrollVisible();
+        
+
+
+
+
+        return true;
+    }
+
+
 
 
 
