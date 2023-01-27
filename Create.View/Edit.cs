@@ -2522,7 +2522,7 @@ public class Edit : ViewView
 
 
 
-    public bool ScrollLeft(int count)
+    public bool MoveLeft(int count)
     {
         int col;
 
@@ -2558,7 +2558,7 @@ public class Edit : ViewView
 
 
 
-    public bool ScrollRight(int count)
+    public bool MoveRight(int count)
     {
         int col;
 
@@ -2593,7 +2593,7 @@ public class Edit : ViewView
 
 
 
-    public bool ScrollUp(int count)
+    public bool MoveUp(int count)
     {
         int row;
 
@@ -2631,7 +2631,7 @@ public class Edit : ViewView
 
 
 
-    public bool ScrollDown(int count)
+    public bool MoveDown(int count)
     {
         int row;
 
