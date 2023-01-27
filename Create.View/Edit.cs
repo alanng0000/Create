@@ -2530,7 +2530,7 @@ public class Edit : ViewView
         col = this.ScrollPos.Col;
 
 
-        col = col - 25;
+        col = col - 1;
 
 
 
@@ -2566,7 +2566,7 @@ public class Edit : ViewView
         col = this.ScrollPos.Col;
 
 
-        col = col + 25;
+        col = col + 1;
 
 
 
@@ -2601,7 +2601,7 @@ public class Edit : ViewView
         row = this.ScrollPos.Row;
 
 
-        row = row - 25;
+        row = row - 1;
 
 
 
@@ -2639,7 +2639,7 @@ public class Edit : ViewView
         row = this.ScrollPos.Row;
 
 
-        row = row + 25;
+        row = row + 1;
 
 
 
