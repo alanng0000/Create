@@ -2522,7 +2522,7 @@ public class Edit : ViewView
 
 
 
-    public bool ScrollLeft()
+    public bool ScrollLeft(int count)
     {
         int col;
 
@@ -2530,7 +2530,7 @@ public class Edit : ViewView
         col = this.ScrollPos.Col;
 
 
-        col = col - 1;
+        col = col - count;
 
 
 
@@ -2558,7 +2558,7 @@ public class Edit : ViewView
 
 
 
-    public bool ScrollRight()
+    public bool ScrollRight(int count)
     {
         int col;
 
@@ -2566,7 +2566,7 @@ public class Edit : ViewView
         col = this.ScrollPos.Col;
 
 
-        col = col + 1;
+        col = col + count;
 
 
 
@@ -2593,7 +2593,7 @@ public class Edit : ViewView
 
 
 
-    public bool ScrollUp()
+    public bool ScrollUp(int count)
     {
         int row;
 
@@ -2601,7 +2601,7 @@ public class Edit : ViewView
         row = this.ScrollPos.Row;
 
 
-        row = row - 1;
+        row = row - count;
 
 
 
@@ -2631,7 +2631,7 @@ public class Edit : ViewView
 
 
 
-    public bool ScrollDown()
+    public bool ScrollDown(int count)
     {
         int row;
 
@@ -2639,7 +2639,7 @@ public class Edit : ViewView
         row = this.ScrollPos.Row;
 
 
-        row = row + 1;
+        row = row + count;
 
 
 
