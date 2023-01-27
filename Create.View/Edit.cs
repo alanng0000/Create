@@ -1518,6 +1518,57 @@ public class Edit : ViewView
 
 
 
+    public bool CaretScrollOrigin()
+    {
+        this.CaretSelectValue();
+
+
+
+
+
+
+        this.PosA = this.ScrollPos;
+
+
+
+
+        this.Line = this.Text.Line.Get(this.PosA.Row);
+
+
+
+        if (!this.CheckInsertCol())
+        {
+            this.PosA.Col = this.Line.Char.Count;
+        }
+
+
+
+
+        
+        this.MoveCaretRow();
+
+
+
+        this.MoveCaretCol();
+
+
+
+
+
+        this.CaretUpDownCol = this.Caret.Pos.Value.Col;
+
+
+
+
+
+
+        return true;
+    }
+
+
+
+
+
 
 
     public bool SelectLeft()

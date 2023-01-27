@@ -155,6 +155,22 @@ class ControlHandle : Handle
 
 
 
+        this.SetHandleMethod(this.Key.LetterF, false, false, false, this.Edit.CaretScrollOrigin);
+
+
+
+
+
+        this.SetHandleMethod(this.Key.LetterA, false, false, true, this.Edit.CaretStart);
+
+
+
+        this.SetHandleMethod(this.Key.LetterD, false, false, true, this.Edit.CaretEnd);
+
+
+
+
+
         this.SetHandleMethod(this.Key.LetterA, false, true, false, this.Edit.SelectLeft);
 
 
@@ -170,14 +186,6 @@ class ControlHandle : Handle
         this.SetHandleMethod(this.Key.LetterS, false, true, false, this.Edit.SelectDown);
 
 
-
-
-
-        this.SetHandleMethod(this.Key.LetterA, false, false, true, this.Edit.CaretStart);
-
-
-
-        this.SetHandleMethod(this.Key.LetterD, false, false, true, this.Edit.CaretEnd);
 
 
 
