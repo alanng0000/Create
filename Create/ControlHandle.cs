@@ -519,7 +519,6 @@ class ControlHandle : Handle
 
 
 
-
     private bool ScrollRight()
     {
         this.Edit.ViewRight(this.ScrollCount);
