@@ -570,7 +570,6 @@ class ControlHandle : Handle
 
 
 
-
     private bool ViewHorzNext()
     {
         this.Edit.ViewRight(this.ViewHorzCount);
