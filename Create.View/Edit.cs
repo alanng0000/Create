@@ -1561,6 +1561,14 @@ public class Edit : ViewView
 
 
 
+        this.PosA = this.Caret.Pos.Value;
+
+
+        this.ScrollVisible();
+        
+
+
+
 
         return true;
     }
