@@ -190,19 +190,19 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.LetterJ, false, false, false, this.ViewLeft);
+        this.SetHandleMethod(this.Key.LetterJ, false, false, false, this.ViewUnitLeft);
 
 
 
-        this.SetHandleMethod(this.Key.LetterL, false, false, false, this.ViewRight);
+        this.SetHandleMethod(this.Key.LetterL, false, false, false, this.ViewUnitRight);
 
 
 
-        this.SetHandleMethod(this.Key.LetterI, false, false, false, this.ViewUp);
+        this.SetHandleMethod(this.Key.LetterI, false, false, false, this.ViewUnitUp);
 
 
 
-        this.SetHandleMethod(this.Key.LetterK, false, false, false, this.ViewDown);
+        this.SetHandleMethod(this.Key.LetterK, false, false, false, this.ViewUnitDown);
 
 
 
@@ -462,7 +462,7 @@ class ControlHandle : Handle
 
 
 
-    private int ScrollCount
+    private int ViewUnitCount
     {
         get
         {
@@ -507,9 +507,9 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewLeft()
+    private bool ViewUnitLeft()
     {
-        this.Edit.ViewLeft(this.ScrollCount);
+        this.Edit.ViewLeft(this.ViewUnitCount);
 
 
 
@@ -519,9 +519,9 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewRight()
+    private bool ViewUnitRight()
     {
-        this.Edit.ViewRight(this.ScrollCount);
+        this.Edit.ViewRight(this.ViewUnitCount);
 
 
 
@@ -531,9 +531,9 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewUp()
+    private bool ViewUnitUp()
     {
-        this.Edit.ViewUp(this.ScrollCount);
+        this.Edit.ViewUp(this.ViewUnitCount);
 
 
 
@@ -543,9 +543,9 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewDown()
+    private bool ViewUnitDown()
     {
-        this.Edit.ViewDown(this.ScrollCount);
+        this.Edit.ViewDown(this.ViewUnitCount);
 
 
 
