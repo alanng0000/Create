@@ -208,19 +208,19 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.LetterJ, false, true, false, this.MoveLeft);
+        this.SetHandleMethod(this.Key.LetterJ, false, true, false, this.ViewHorzPrevious);
 
 
 
-        this.SetHandleMethod(this.Key.LetterL, false, true, false, this.MoveRight);
+        this.SetHandleMethod(this.Key.LetterL, false, true, false, this.ViewHorzNext);
 
 
 
-        this.SetHandleMethod(this.Key.LetterI, false, true, false, this.MoveUp);
+        this.SetHandleMethod(this.Key.LetterI, false, true, false, this.ViewVertPrevious);
 
 
 
-        this.SetHandleMethod(this.Key.LetterK, false, true, false, this.MoveDown);
+        this.SetHandleMethod(this.Key.LetterK, false, true, false, this.ViewVertNext);
 
 
 
@@ -477,7 +477,7 @@ class ControlHandle : Handle
 
 
 
-    private int MoveHorzCount
+    private int ViewHorzCount
     {
         get
         {
@@ -491,7 +491,7 @@ class ControlHandle : Handle
 
 
 
-    private int MoveVertCount
+    private int ViewVertCount
     {
         get
         {
@@ -509,7 +509,7 @@ class ControlHandle : Handle
 
     private bool ScrollLeft()
     {
-        this.Edit.MoveLeft(this.ScrollCount);
+        this.Edit.ViewLeft(this.ScrollCount);
 
 
 
@@ -522,7 +522,7 @@ class ControlHandle : Handle
 
     private bool ScrollRight()
     {
-        this.Edit.MoveRight(this.ScrollCount);
+        this.Edit.ViewRight(this.ScrollCount);
 
 
 
@@ -534,7 +534,7 @@ class ControlHandle : Handle
 
     private bool ScrollUp()
     {
-        this.Edit.MoveUp(this.ScrollCount);
+        this.Edit.ViewUp(this.ScrollCount);
 
 
 
@@ -546,7 +546,7 @@ class ControlHandle : Handle
 
     private bool ScrollDown()
     {
-        this.Edit.MoveDown(this.ScrollCount);
+        this.Edit.ViewDown(this.ScrollCount);
 
 
 
@@ -558,9 +558,9 @@ class ControlHandle : Handle
 
 
 
-    private bool MoveLeft()
+    private bool ViewHorzPrevious()
     {
-        this.Edit.MoveLeft(this.MoveHorzCount);
+        this.Edit.ViewLeft(this.ViewHorzCount);
 
 
 
@@ -571,9 +571,9 @@ class ControlHandle : Handle
 
 
 
-    private bool MoveRight()
+    private bool ViewHorzNext()
     {
-        this.Edit.MoveRight(this.MoveHorzCount);
+        this.Edit.ViewRight(this.ViewHorzCount);
 
 
 
@@ -583,9 +583,9 @@ class ControlHandle : Handle
 
 
 
-    private bool MoveUp()
+    private bool ViewVertPrevious()
     {
-        this.Edit.MoveUp(this.MoveVertCount);
+        this.Edit.ViewUp(this.ViewVertCount);
 
 
 
@@ -595,9 +595,9 @@ class ControlHandle : Handle
 
 
 
-    private bool MoveDown()
+    private bool ViewVertNext()
     {
-        this.Edit.MoveDown(this.MoveVertCount);
+        this.Edit.ViewDown(this.ViewVertCount);
 
 
 
