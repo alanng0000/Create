@@ -509,7 +509,7 @@ class ControlHandle : Handle
 
     private bool ScrollLeft()
     {
-        this.Edit.ScrollLeft(this.ScrollCount);
+        this.Edit.MoveLeft(this.ScrollCount);
 
 
 
@@ -522,7 +522,7 @@ class ControlHandle : Handle
 
     private bool ScrollRight()
     {
-        this.Edit.ScrollRight(this.ScrollCount);
+        this.Edit.MoveRight(this.ScrollCount);
 
 
 
@@ -534,7 +534,7 @@ class ControlHandle : Handle
 
     private bool ScrollUp()
     {
-        this.Edit.ScrollUp(this.ScrollCount);
+        this.Edit.MoveUp(this.ScrollCount);
 
 
 
@@ -546,7 +546,7 @@ class ControlHandle : Handle
 
     private bool ScrollDown()
     {
-        this.Edit.ScrollDown(this.ScrollCount);
+        this.Edit.MoveDown(this.ScrollCount);
 
 
 
@@ -560,7 +560,7 @@ class ControlHandle : Handle
 
     private bool MoveLeft()
     {
-        this.Edit.ScrollLeft(this.MoveHorzCount);
+        this.Edit.MoveLeft(this.MoveHorzCount);
 
 
 
@@ -573,7 +573,7 @@ class ControlHandle : Handle
 
     private bool MoveRight()
     {
-        this.Edit.ScrollRight(this.MoveHorzCount);
+        this.Edit.MoveRight(this.MoveHorzCount);
 
 
 
@@ -585,7 +585,7 @@ class ControlHandle : Handle
 
     private bool MoveUp()
     {
-        this.Edit.ScrollUp(this.MoveVertCount);
+        this.Edit.MoveUp(this.MoveVertCount);
 
 
 
@@ -597,7 +597,7 @@ class ControlHandle : Handle
 
     private bool MoveDown()
     {
-        this.Edit.ScrollDown(this.MoveVertCount);
+        this.Edit.MoveDown(this.MoveVertCount);
 
 
 
