@@ -1527,19 +1527,10 @@ public class Edit : ViewView
 
 
 
-        this.PosA = this.ScrollPos;
+        this.PosA.Row = this.ScrollPos.Row;
 
 
-
-
-        this.Line = this.Text.Line.Get(this.PosA.Row);
-
-
-
-        if (!this.CheckInsertCol())
-        {
-            this.PosA.Col = this.Line.Char.Count;
-        }
+        this.PosA.Col = 0;
 
 
 
