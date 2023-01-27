@@ -190,19 +190,40 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.LetterJ, false, false, false, this.Edit.ScrollLeft);
+        this.SetHandleMethod(this.Key.LetterJ, false, false, false, this.ScrollLeft);
 
 
 
-        this.SetHandleMethod(this.Key.LetterL, false, false, false, this.Edit.ScrollRight);
+        this.SetHandleMethod(this.Key.LetterL, false, false, false, this.ScrollRight);
 
 
 
-        this.SetHandleMethod(this.Key.LetterI, false, false, false, this.Edit.ScrollUp);
+        this.SetHandleMethod(this.Key.LetterI, false, false, false, this.ScrollUp);
 
 
 
-        this.SetHandleMethod(this.Key.LetterK, false, false, false, this.Edit.ScrollDown);
+        this.SetHandleMethod(this.Key.LetterK, false, false, false, this.ScrollDown);
+
+
+
+
+
+        this.SetHandleMethod(this.Key.LetterJ, false, true, false, this.MoveLeft);
+
+
+
+        this.SetHandleMethod(this.Key.LetterL, false, true, false, this.MoveRight);
+
+
+
+        this.SetHandleMethod(this.Key.LetterI, false, true, false, this.MoveUp);
+
+
+
+        this.SetHandleMethod(this.Key.LetterK, false, true, false, this.MoveDown);
+
+
+
 
 
 
@@ -439,6 +460,149 @@ class ControlHandle : Handle
     }
 
 
+
+
+    private int ScrollCount
+    {
+        get
+        {
+            return 1;
+        }
+        set
+        {
+        }
+    }
+
+
+
+
+
+    private int MoveHorzCount
+    {
+        get
+        {
+            return this.Edit.VisibleSize.Width;
+        }
+        set
+        {
+        }
+    }
+
+
+
+
+    private int MoveVertCount
+    {
+        get
+        {
+            return this.Edit.VisibleSize.Height;
+        }
+        set
+        {
+        }
+    }
+
+
+
+
+
+
+    private bool ScrollLeft()
+    {
+        this.Edit.ScrollLeft(this.ScrollCount);
+
+
+
+        return true;
+    }
+
+
+
+
+
+    private bool ScrollRight()
+    {
+        this.Edit.ScrollRight(this.ScrollCount);
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool ScrollUp()
+    {
+        this.Edit.ScrollUp(this.ScrollCount);
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool ScrollDown()
+    {
+        this.Edit.ScrollDown(this.ScrollCount);
+
+
+
+        return true;
+    }
+
+
+
+
+
+
+    private bool MoveLeft()
+    {
+        this.Edit.ScrollLeft(this.MoveHorzCount);
+
+
+
+        return true;
+    }
+
+
+
+
+
+    private bool MoveRight()
+    {
+        this.Edit.ScrollRight(this.MoveHorzCount);
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool MoveUp()
+    {
+        this.Edit.ScrollUp(this.MoveVertCount);
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool MoveDown()
+    {
+        this.Edit.ScrollDown(this.MoveVertCount);
+
+
+
+        return true;
+    }
 
 
 

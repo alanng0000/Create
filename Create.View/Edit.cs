@@ -69,7 +69,7 @@ public class Edit : ViewView
 
 
 
-    private Size VisibleSize;
+    public Size VisibleSize;
 
 
 
