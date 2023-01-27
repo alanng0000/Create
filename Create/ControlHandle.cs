@@ -208,19 +208,19 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.LetterJ, false, true, false, this.ViewHorzPrevious);
+        this.SetHandleMethod(this.Key.LetterJ, false, true, false, this.ViewEntireLeft);
 
 
 
-        this.SetHandleMethod(this.Key.LetterL, false, true, false, this.ViewHorzNext);
+        this.SetHandleMethod(this.Key.LetterL, false, true, false, this.ViewEntireRight);
 
 
 
-        this.SetHandleMethod(this.Key.LetterI, false, true, false, this.ViewVertPrevious);
+        this.SetHandleMethod(this.Key.LetterI, false, true, false, this.ViewEntireUp);
 
 
 
-        this.SetHandleMethod(this.Key.LetterK, false, true, false, this.ViewVertNext);
+        this.SetHandleMethod(this.Key.LetterK, false, true, false, this.ViewEntireDown);
 
 
 
@@ -557,7 +557,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewHorzPrevious()
+    private bool ViewEntireLeft()
     {
         this.Edit.ViewLeft(this.ViewHorzCount);
 
@@ -569,7 +569,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewHorzNext()
+    private bool ViewEntireRight()
     {
         this.Edit.ViewRight(this.ViewHorzCount);
 
@@ -581,7 +581,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewVertPrevious()
+    private bool ViewEntireUp()
     {
         this.Edit.ViewUp(this.ViewVertCount);
 
@@ -593,7 +593,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewVertNext()
+    private bool ViewEntireDown()
     {
         this.Edit.ViewDown(this.ViewVertCount);
 
