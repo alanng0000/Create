@@ -3226,6 +3226,26 @@ public class Edit : ViewView
 
 
 
+            int insertIndex;
+
+            insertIndex = thisRowRange.End - 1;
+
+
+
+            bool ba;
+
+            ba = (thisRowCount == 1);
+
+
+
+            if (ba)
+            {
+                insertIndex = thisRowRange.End;
+            }
+
+
+
+
 
             Line[] lineList;
 
@@ -3255,14 +3275,8 @@ public class Edit : ViewView
 
 
 
-            int k;
 
-            k = thisRowRange.End;
-
-
-
-
-            this.PosA.Row = k;
+            this.PosA.Row = insertIndex;
 
 
 
