@@ -3542,6 +3542,16 @@ public class Edit : ViewView
 
 
 
+                this.Line = lastLine;
+
+
+                this.Value = kk;
+
+
+
+                this.SetCharCount();
+
+
 
 
 
@@ -3559,7 +3569,7 @@ public class Edit : ViewView
 
 
 
-                this.InsertCharList();
+                this.ReplaceCharList();
 
 
 
@@ -3568,7 +3578,7 @@ public class Edit : ViewView
                 this.Line = lastLine;
 
 
-                this.PosA.Col = sourceLastLine.Char.Count;
+                this.PosA.Col = ka;
 
 
                 this.Char = firstLine.Char.Data;
@@ -3578,7 +3588,7 @@ public class Edit : ViewView
 
 
 
-                this.InsertCharList();
+                this.ReplaceCharList();
 
 
 
