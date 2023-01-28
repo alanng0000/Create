@@ -3397,7 +3397,12 @@ public class Edit : ViewView
 
 
 
-                
+
+
+                this.Line = firstLine;
+
+
+                this.RemoveCharList();
             }
         }
 
