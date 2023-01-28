@@ -548,6 +548,50 @@ class ControlHandle : Handle
 
 
 
+    private bool CaretLeft(KeyHandle a)
+    {
+        this.Edit.CaretLeft();
+
+
+        return true;
+    }
+
+
+
+
+    private bool CaretRight(KeyHandle a)
+    {
+        this.Edit.CaretRight();
+
+
+        return true;
+    }
+
+
+
+
+    private bool CaretUp(KeyHandle a)
+    {
+        this.Edit.CaretUp();
+
+
+        return true;
+    }
+
+
+
+
+    private bool CaretDown(KeyHandle a)
+    {
+        this.Edit.CaretDown();
+
+
+        return true;
+    }
+
+
+
+
 
     private bool ViewUnitLeft(KeyHandle a)
     {
