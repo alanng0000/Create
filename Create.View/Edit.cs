@@ -3226,9 +3226,11 @@ public class Edit : ViewView
 
 
 
+
             int insertIndex;
 
             insertIndex = thisRowRange.End - 1;
+
 
 
 
