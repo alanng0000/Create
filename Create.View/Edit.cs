@@ -3322,6 +3322,61 @@ public class Edit : ViewView
 
 
 
+        if (b)
+        {
+            if (ba)
+            {
+                Line firstLine;
+
+                firstLine = this.Text.Line.Get(thisRowRange.Start);
+
+
+
+                int lastRow;
+
+                lastRow = thisRowRange.Start + uRowCount - 1;
+
+
+
+                Line lastLine;
+
+                lastLine = this.Text.Line.Get(lastRow);
+
+
+
+                Range uu;
+
+                uu = this.Range(endPos.Col, firstLine.Char.Count);
+
+
+
+                Line sourceLastLine;
+
+                sourceLastLine = text.Line.Get(uRowRange.End - 1);
+
+
+                int k;
+
+                k = sourceLastLine.Char.Count;
+
+
+
+
+
+                this.Line = lastLine;
+
+
+                this.PosA.Col = 0;
+
+
+
+
+                this.InsertCharList();
+            }
+        }
+
+
+
 
         count = uRowCount;
 
