@@ -12,6 +12,7 @@
         <ProjectReference Include="../../System/System.Control/System.Control.csproj" />
         <ProjectReference Include="../../System/System.Comp/System.Comp.csproj" />
         <ProjectReference Include="../../System/System.View/System.View.csproj" />
+        <ProjectReference Include="../../Class/Class.Infra/Class.Infra.csproj" />
         <ProjectReference Include="../Create.View/Create.View.csproj" />
     </ItemGroup>
 

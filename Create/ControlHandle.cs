@@ -146,9 +146,6 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.Enter, false, false, false, this.Edit.InsertLine);
-
-
 
 
         this.SetHandleMethod(this.Key.Backspace, false, false, false, this.Edit.BackSpace);
@@ -257,6 +254,10 @@ class ControlHandle : Handle
         
         this.InitKeyMethodListInsertChar();
 
+
+
+        
+        this.SetHandleMethod(this.Key.Enter, true, false, false, this.InsertLine);
 
 
 
@@ -788,11 +789,12 @@ class ControlHandle : Handle
 
 
 
-    private bool InsertChar(KeyHandle a)
+    private bool InsertKeyChar(KeyHandle a)
     {
         ControlKeyChar c;
 
         c = a.Key.Char;
+
 
 
 
@@ -809,6 +811,47 @@ class ControlHandle : Handle
 
 
 
+
+        this.InsertChar(oc);
+
+
+
+        
+        return true;
+    }
+
+
+
+
+
+    private bool InsertLine(KeyHandle a)
+    {
+        ClassConstant constant;
+
+
+        constant = ClassConstant.This;
+
+
+
+        char oc;
+
+        oc = constant.NewLine;
+
+
+
+        this.InsertChar(oc);
+
+
+
+        return true;
+    }
+
+
+
+
+
+    private bool InsertChar(char oc)
+    {
         this.CharOneList[0] = oc;
 
 
@@ -823,10 +866,10 @@ class ControlHandle : Handle
 
 
 
-
-        
         return true;
     }
+
+
 
 
 
