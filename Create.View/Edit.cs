@@ -3444,6 +3444,7 @@ public class Edit : ViewView
 
 
                 this.ReplaceCharList();
+                
 
 
 
