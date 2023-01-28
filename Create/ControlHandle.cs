@@ -205,11 +205,11 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.LetterX, false, false, false, this.Edit.CaretStart);
+        this.SetHandleMethod(this.Key.LetterX, false, false, false, this.CaretStart);
 
 
 
-        this.SetHandleMethod(this.Key.LetterC, false, false, false, this.Edit.CaretEnd);
+        this.SetHandleMethod(this.Key.LetterC, false, false, false, this.CaretEnd);
 
 
 
@@ -660,6 +660,28 @@ class ControlHandle : Handle
         return true;
     }
 
+
+
+
+
+    private bool CaretStart(KeyHandle a)
+    {
+        this.Edit.CaretStart();
+
+
+        return true;
+    }
+
+
+
+
+    private bool CaretEnd(KeyHandle a)
+    {
+        this.Edit.CaretEnd();
+
+
+        return true;
+    }
 
 
 
