@@ -41,6 +41,16 @@ class ControlHandle : Handle
 
 
 
+    private Text TextOneChar { get; set; }
+    
+
+
+
+    private char[] CharOneList { get; set; }
+
+
+
+
 
     public override bool Init()
     {
@@ -76,6 +86,11 @@ class ControlHandle : Handle
 
         this.InitKeyMethodList();
 
+
+
+
+        
+        this.InitText();
 
 
 
@@ -646,6 +661,98 @@ class ControlHandle : Handle
 
         return true;
     }
+
+
+
+
+
+    private bool InsertChar(KeyHandle a)
+    {
+        return true;
+    }
+
+
+
+
+
+
+    private bool InitText()
+    {
+        this.InitTextOneChar();
+
+
+
+        this.InitCharOneList();
+
+
+
+        return true;
+    }
+
+
+
+
+
+
+    private bool InitTextOneChar()
+    {
+        this.TextOneChar = new Text();
+
+
+
+
+        TextLine[] a;
+
+        a = new TextLine[1];
+
+
+
+        TextLine line;
+
+        line = new TextLine();
+
+        line.Init();
+
+        line.Char.SetCount(1);
+
+
+
+        a[0] = line;
+
+
+
+        RangeInfra infra;
+
+        infra = RangeInfra.This;
+
+
+
+        Range range;
+
+        range = infra.Range(0, a.Length);
+
+
+
+
+        this.TextOneChar.Line.Insert(0, a, range);
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool InitCharOneList()
+    {
+        this.CharOneList = new char[1];
+
+
+
+        return true;
+    }
+
 
 
 

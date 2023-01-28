@@ -1,5 +1,8 @@
 global using Object = System.Infra.Object;
+global using Range = System.Infra.Range;
+global using RangeInfra = System.Infra.RangeInfra;
 global using Text = System.Text.Text;
+global using TextLine = System.Text.Line;
 global using Control = System.Control.Control;
 global using ControlKey = System.Control.Key;
 global using ControlKeyList = System.Control.KeyList;
