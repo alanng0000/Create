@@ -3302,6 +3302,13 @@ public class Edit : ViewView
 
 
 
+        
+        int startIndex;
+
+        startIndex = 0;
+
+
+
         bool bb;
 
 
@@ -3426,6 +3433,11 @@ public class Edit : ViewView
 
                 
                 this.ReplaceCharList();
+
+
+
+
+                startIndex = startIndex + 1;
             }
 
 
@@ -3555,7 +3567,7 @@ public class Edit : ViewView
 
 
 
-        i = 0;
+        i = startIndex;
 
         while (i < count)
         {
