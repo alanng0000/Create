@@ -3,7 +3,7 @@ namespace Create;
 
 
 
-class KeyMethod : Object
+class KeyHandle : Object
 {
     public ControlKey Key { get; set; }
 

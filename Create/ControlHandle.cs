@@ -35,7 +35,7 @@ class ControlHandle : Handle
 
 
 
-    private KeyMethod[][][][] KeyMethodList { get; set; }
+    private KeyHandle[][][][] KeyMethodList { get; set; }
 
 
 
@@ -98,7 +98,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList = new KeyMethod[count][][][];
+        this.KeyMethodList = new KeyHandle[count][][][];
 
 
 
@@ -245,8 +245,7 @@ class ControlHandle : Handle
 
 
         
-
-
+        this.InitKeyMethodListLetter();
 
 
 
@@ -254,6 +253,53 @@ class ControlHandle : Handle
 
         return true;
     }
+
+
+
+
+
+    private bool InitKeyMethodListLetter()
+    {
+        ControlConstant constant;
+
+        constant = ControlConstant.This;
+
+
+
+        int count;
+
+        count = constant.LetterKeyCount;
+
+
+
+        int i;
+
+        i = 0;
+
+
+        while (i < count)
+        {
+            ControlKey key;
+
+
+            key = this.Control.Key.LetterKey(i);
+
+
+
+
+            this.SetHandleMethod(key, true, false, false, this.ReplaceText);
+
+
+
+
+            i = i + 1;
+        }
+
+
+
+        return true;
+    }
+
 
 
 
@@ -374,12 +420,12 @@ class ControlHandle : Handle
 
 
 
-    private KeyMethod CreateKeyMethod(ControlKey key, bool tab, bool shift, bool control)
+    private KeyHandle CreateKeyMethod(ControlKey key, bool tab, bool shift, bool control)
     {
-        KeyMethod method;
+        KeyHandle method;
 
 
-        method = new KeyMethod();
+        method = new KeyHandle();
 
 
         method.Init();
@@ -399,7 +445,7 @@ class ControlHandle : Handle
 
 
 
-        KeyMethod ret;
+        KeyHandle ret;
 
         ret = method;
 
@@ -443,29 +489,6 @@ class ControlHandle : Handle
     }
 
 
-
-
-    private ControlKey LetterKey(char oc)
-    {
-        int index;
-
-        index = this.LetterIndex(oc);
-
-
-
-        ControlKey o;
-
-        o = this.Key.LetterKey(index);
-
-
-
-        ControlKey ret;
-
-        ret = o;
-
-
-        return ret;
-    }
 
 
 

@@ -3,4 +3,4 @@ namespace Create;
 
 
 
-delegate bool HandleMethod();
+delegate bool HandleMethod(KeyHandle handle);
