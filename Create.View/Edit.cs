@@ -3248,6 +3248,7 @@ public class Edit : ViewView
 
 
 
+
             ba = (thisRowCount == 1);
 
 
@@ -3263,8 +3264,27 @@ public class Edit : ViewView
 
             Line[] lineList;
 
-            lineList = new Line[count];
+            lineList = null;
 
+
+
+            bool bca;
+
+            
+            bca = (count == 1);
+
+
+            if (bca)
+            {
+                lineList = this.LineOneList;
+            }
+            
+
+            if (!bca)
+            {
+                lineList = new Line[count];
+            }
+            
 
 
             
