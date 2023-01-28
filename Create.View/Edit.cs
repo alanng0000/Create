@@ -3150,13 +3150,13 @@ public class Edit : ViewView
 
         int thisStartRow;
 
-        thisStartRow = this.PosA.Row;
+        thisStartRow = startPos.Row;
 
 
 
         int thisEndRow;
 
-        thisEndRow = this.PosB.Row + 1;
+        thisEndRow = endPos.Row + 1;
 
 
 
@@ -3210,6 +3210,7 @@ public class Edit : ViewView
         int start;
 
         start = 0;
+
 
 
         int end;
