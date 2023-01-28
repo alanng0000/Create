@@ -3983,6 +3983,7 @@ public class Edit : ViewView
         this.Line.Char.SetCount(this.Value);
 
 
+
         return true;
     }
 
