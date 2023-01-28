@@ -51,6 +51,11 @@ class ControlHandle : Handle
 
 
 
+    private Range CharOneListRange;
+
+
+
+
 
     public override bool Init()
     {
@@ -302,7 +307,11 @@ class ControlHandle : Handle
 
 
 
-            this.SetHandleMethod(key, true, false, false, this.ReplaceText);
+            this.SetHandleMethod(key, true, false, false, this.InsertChar);
+
+
+
+            this.SetHandleMethod(key, true, true, false, this.InsertChar);
 
 
 
@@ -652,22 +661,45 @@ class ControlHandle : Handle
 
 
 
-    private bool ReplaceText(KeyHandle a)
-    {
-        this.Edit.ReplaceText(this.Create.Text);
-
-
-
-
-        return true;
-    }
-
-
-
 
 
     private bool InsertChar(KeyHandle a)
     {
+        ControlKeyChar c;
+
+        c = a.Key.Char;
+
+
+
+        char oc;
+
+        oc = c.Default;
+
+
+
+        if (a.Shift)
+        {
+            oc = c.Shift;
+        }
+
+
+
+        this.CharOneList[0] = oc;
+
+
+
+        this.TextOneChar.Line.Get(0).Char.Replace(0, this.CharOneList, this.CharOneListRange);
+
+
+
+
+
+        this.Edit.ReplaceText(this.TextOneChar);
+
+
+
+
+        
         return true;
     }
 
@@ -683,6 +715,7 @@ class ControlHandle : Handle
 
 
         this.InitCharOneList();
+
 
 
 
@@ -750,6 +783,18 @@ class ControlHandle : Handle
 
 
 
+
+        RangeInfra infra;
+
+        infra = RangeInfra.This;
+
+
+
+        this.CharOneListRange = infra.Range(0, this.CharOneList.Length);
+
+
+
+
         return true;
     }
 
@@ -797,32 +842,13 @@ class ControlHandle : Handle
 
     private bool SetHandleMethod(ControlKey key, bool tab, bool shift, bool control, HandleMethod method)
     {
-        int keyIndex;
-
-        keyIndex = key.Index;
+        KeyHandle handle;
 
 
-
-        int tabIndex;
-
-        tabIndex = this.BoolIndex(tab);
+        handle = this.GetHandle(key, tab, shift, control);
 
 
-
-        int shiftIndex;
-
-        shiftIndex = this.BoolIndex(shift);
-
-
-
-        int controlIndex;
-
-        controlIndex = this.BoolIndex(control);
-
-
-
-
-        this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex].Handle = method;
+        handle.Handle = method;
 
 
         return true;
