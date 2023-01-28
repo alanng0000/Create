@@ -3344,20 +3344,10 @@ public class Edit : ViewView
 
 
 
-                Range uu;
-
-                uu = this.Range(endPos.Col, firstLine.Char.Count);
-
-
 
                 Line sourceLastLine;
 
                 sourceLastLine = text.Line.Get(uRowRange.End - 1);
-
-
-                int k;
-
-                k = sourceLastLine.Char.Count;
 
 
 
@@ -3369,9 +3359,45 @@ public class Edit : ViewView
                 this.PosA.Col = 0;
 
 
+                this.Char = sourceLastLine.Char.Data;
+
+
+                this.CharRange = this.Range(0, sourceLastLine.Char.Count);
+
 
 
                 this.InsertCharList();
+
+
+
+
+
+                this.Line = lastLine;
+
+
+                this.PosA.Col = sourceLastLine.Char.Count;
+
+
+                this.Char = firstLine.Char.Data;
+
+
+
+                start = endPos.Col;
+
+
+                end = firstLine.Char.Count;
+
+
+
+                this.CharRange = this.Range(start, end);
+
+
+
+                this.InsertCharList();
+
+
+
+                
             }
         }
 
