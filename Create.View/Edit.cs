@@ -3354,9 +3354,11 @@ public class Edit : ViewView
 
 
 
+
             Range destRange;
 
             destRange = new Range();
+
 
 
             bool ba;
@@ -3370,6 +3372,7 @@ public class Edit : ViewView
             }
 
 
+
             bool bb;
 
             bb = (i == count - 1);
@@ -3381,10 +3384,12 @@ public class Edit : ViewView
             }
 
 
+
             if (!ba & !bb)
             {
                 destRange = this.Range(0, destLine.Char.Count);
             }
+
 
 
             Range sourceRange;
