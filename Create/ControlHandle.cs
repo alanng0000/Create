@@ -157,19 +157,39 @@ class ControlHandle : Handle
 
 
     
-        this.SetHandleMethod(this.Key.LetterA, false, false, false, this.Edit.CaretLeft);
+        this.SetHandleMethod(this.Key.LetterA, false, false, false, this.CaretLeft);
 
 
         
-        this.SetHandleMethod(this.Key.LetterD, false, false, false, this.Edit.CaretRight);
+        this.SetHandleMethod(this.Key.LetterD, false, false, false, this.CaretRight);
 
 
 
-        this.SetHandleMethod(this.Key.LetterW, false, false, false, this.Edit.CaretUp);
+        this.SetHandleMethod(this.Key.LetterW, false, false, false, this.CaretUp);
 
 
         
-        this.SetHandleMethod(this.Key.LetterS, false, false, false, this.Edit.CaretDown);
+        this.SetHandleMethod(this.Key.LetterS, false, false, false, this.CaretDown);
+
+
+
+
+
+
+        this.SetHandleMethod(this.Key.LetterA, false, true, false, this.SelectLeft);
+
+
+
+        this.SetHandleMethod(this.Key.LetterD, false, true, false, this.SelectRight);
+
+
+
+        this.SetHandleMethod(this.Key.LetterW, false, true, false, this.SelectUp);
+
+
+
+        this.SetHandleMethod(this.Key.LetterS, false, true, false, this.SelectDown);
+
 
 
 
@@ -191,23 +211,6 @@ class ControlHandle : Handle
 
         this.SetHandleMethod(this.Key.LetterD, false, false, true, this.Edit.CaretEnd);
 
-
-
-
-
-        this.SetHandleMethod(this.Key.LetterA, false, true, false, this.Edit.SelectLeft);
-
-
-
-        this.SetHandleMethod(this.Key.LetterD, false, true, false, this.Edit.SelectRight);
-
-
-
-        this.SetHandleMethod(this.Key.LetterW, false, true, false, this.Edit.SelectUp);
-
-
-
-        this.SetHandleMethod(this.Key.LetterS, false, true, false, this.Edit.SelectDown);
 
 
 
@@ -584,6 +587,51 @@ class ControlHandle : Handle
     private bool CaretDown(KeyHandle a)
     {
         this.Edit.CaretDown();
+
+
+        return true;
+    }
+
+
+
+
+
+    private bool SelectLeft(KeyHandle a)
+    {
+        this.Edit.SelectLeft();
+
+
+        return true;
+    }
+
+
+
+
+    private bool SelectRight(KeyHandle a)
+    {
+        this.Edit.SelectRight();
+
+
+        return true;
+    }
+
+
+
+
+    private bool SelectUp(KeyHandle a)
+    {
+        this.Edit.SelectUp();
+
+
+        return true;
+    }
+
+
+
+
+    private bool SelectDown(KeyHandle a)
+    {
+        this.Edit.SelectDown();
 
 
         return true;
