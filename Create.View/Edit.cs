@@ -3204,8 +3204,12 @@ public class Edit : ViewView
         
         int start;
 
+        start = 0;
+
 
         int end;
+
+        end = 0;
 
 
 
@@ -3294,6 +3298,7 @@ public class Edit : ViewView
 
             this.InsertLineList();
         }
+
 
 
 
@@ -3427,31 +3432,19 @@ public class Edit : ViewView
 
 
 
+            int d;
 
+            d = thisRowCount - uRowCount;
+
+
+
+            start = thisRowRange.Start + 1;
+
+
+
+            end = start + d;
 
             
-            int lastRow;
-
-            lastRow = thisRowRange.End - 1;
-
-
-
-            
-
-            lastLine = this.Text.Line.Get(lastRow);
-
-
-
-
-
-            count = uRowCount;
-
-
-            start = thisRowRange.Start + count;
-
-
-            end = thisRowRange.End;
-
 
             this.LineRange = this.Range(start, end);
 
