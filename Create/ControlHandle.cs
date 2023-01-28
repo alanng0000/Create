@@ -298,11 +298,11 @@ class ControlHandle : Handle
 
 
 
-            this.SetHandleMethod(key, true, false, false, this.InsertChar);
+            this.SetHandleMethod(key, true, false, false, this.InsertKeyChar);
 
 
 
-            this.SetHandleMethod(key, true, true, false, this.InsertChar);
+            this.SetHandleMethod(key, true, true, false, this.InsertKeyChar);
 
 
 
@@ -826,22 +826,8 @@ class ControlHandle : Handle
 
     private bool InsertLine(KeyHandle a)
     {
-        ClassConstant constant;
-
-
-        constant = ClassConstant.This;
-
-
-
-        char oc;
-
-        oc = constant.NewLine;
-
-
-
-        this.InsertChar(oc);
-
-
+       
+        
 
         return true;
     }
