@@ -3220,6 +3220,11 @@ public class Edit : ViewView
 
 
 
+        bool ba;
+
+        ba = false;
+
+
         if (b)
         {
             count = uRowCount - thisRowCount;
@@ -3232,9 +3237,6 @@ public class Edit : ViewView
             insertIndex = thisRowRange.End - 1;
 
 
-
-
-            bool ba;
 
             ba = (thisRowCount == 1);
 
@@ -3361,31 +3363,31 @@ public class Edit : ViewView
 
 
 
-            bool ba;
+            bool bba;
 
-            ba = (i == 0);
+            bba = (i == 0);
 
 
-            if (ba)
+            if (bba)
             {
                 destRange = this.Range(startPos.Col, destLine.Char.Count);
             }
 
 
 
-            bool bb;
+            bool bbb;
 
-            bb = (i == count - 1);
+            bbb = (i == count - 1);
 
 
-            if (bb)
+            if (bbb)
             {
                 destRange = this.Range(0, endPos.Col);
             }
 
 
 
-            if (!ba & !bb)
+            if (!bba & !bbb)
             {
                 destRange = this.Range(0, destLine.Char.Count);
             }
