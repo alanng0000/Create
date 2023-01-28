@@ -195,21 +195,21 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.LetterQ, false, false, false, this.Edit.CaretViewRow);
+        this.SetHandleMethod(this.Key.LetterQ, false, false, false, this.CaretViewRow);
 
 
 
-        this.SetHandleMethod(this.Key.LetterE, false, false, false, this.Edit.CaretViewCol);
+        this.SetHandleMethod(this.Key.LetterE, false, false, false, this.CaretViewCol);
 
 
 
 
 
-        this.SetHandleMethod(this.Key.LetterA, false, false, true, this.Edit.CaretStart);
+        this.SetHandleMethod(this.Key.LetterX, false, false, false, this.Edit.CaretStart);
 
 
 
-        this.SetHandleMethod(this.Key.LetterD, false, false, true, this.Edit.CaretEnd);
+        this.SetHandleMethod(this.Key.LetterC, false, false, false, this.Edit.CaretEnd);
 
 
 
@@ -636,6 +636,30 @@ class ControlHandle : Handle
 
         return true;
     }
+
+
+
+
+
+    private bool CaretViewRow(KeyHandle a)
+    {
+        this.Edit.CaretViewRow();
+
+
+        return true;
+    }
+
+
+
+
+    private bool CaretViewCol(KeyHandle a)
+    {
+        this.Edit.CaretViewCol();
+
+
+        return true;
+    }
+
 
 
 
