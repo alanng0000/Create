@@ -7,6 +7,7 @@ global using Control = System.Control.Control;
 global using ControlKey = System.Control.Key;
 global using ControlKeyList = System.Control.KeyList;
 global using ControlKeyArg = System.Control.KeyArg;
+global using ControlKeyChar = System.Control.KeyChar;
 global using ControlConstant = System.Control.Constant;
 global using Handle = System.Event.Handle;
 global using Edit = Create.View.Edit;
