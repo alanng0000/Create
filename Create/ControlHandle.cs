@@ -251,21 +251,8 @@ class ControlHandle : Handle
 
 
 
-
-
-        this.SetHandleMethod(this.Key.LetterH, true, false, true, this.Edit.InsertIndent);
-
-
-
-
-        this.SetHandleMethod(this.Key.LetterV, true, false, true, this.ReplaceText);
-
-
-
-
-
         
-        this.InitKeyMethodListLetter();
+        this.InitKeyMethodListInsertChar();
 
 
 
@@ -278,7 +265,7 @@ class ControlHandle : Handle
 
 
 
-    private bool InitKeyMethodListLetter()
+    private bool InitKeyMethodListInsertChar()
     {
         ControlConstant constant;
 
@@ -288,7 +275,7 @@ class ControlHandle : Handle
 
         int count;
 
-        count = constant.LetterKeyCount;
+        count = constant.CharKeyCount;
 
 
 
@@ -302,7 +289,7 @@ class ControlHandle : Handle
             ControlKey key;
 
 
-            key = this.Control.Key.LetterKey(i);
+            key = this.Control.Key.Get(i);
 
 
 
