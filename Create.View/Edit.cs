@@ -3297,10 +3297,45 @@ public class Edit : ViewView
 
 
 
+        bool bb;
+
+
 
         if (!b)
         {
-            count = uRowCount;
+            Line lastLine;
+
+            
+            bb = (uRowCount == 1);
+
+
+
+            if (bb)
+            {
+                Line firstLine;
+
+
+                firstLine = this.Text.Line.Get(thisRowRange.Start);
+
+
+
+
+
+                this.Line = firstLine;
+
+
+                this.CharRange = this.Range(startPos.Col, firstLine.Char.Count);
+
+
+
+
+                this.RemoveCharList();
+            }
+
+
+
+
+
 
 
             
@@ -3310,12 +3345,15 @@ public class Edit : ViewView
 
 
 
-            Line lastLine;
+            
 
             lastLine = this.Text.Line.Get(lastRow);
 
 
 
+
+
+            count = uRowCount;
 
 
             start = thisRowRange.Start + count;
