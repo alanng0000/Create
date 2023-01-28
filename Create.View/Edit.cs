@@ -3330,6 +3330,97 @@ public class Edit : ViewView
 
 
                 this.RemoveCharList();
+
+
+
+
+
+                int hh;
+
+                hh = firstLine.Char.Count;
+
+
+
+
+
+                lastLine = this.Text.Line.Get(thisRowRange.End - 1);
+
+
+
+                Range kk;
+
+                kk = this.Range(endPos.Col, lastLine.Char.Count);
+
+
+
+                int k;
+
+                k = this.Count(kk);
+
+
+
+
+
+                Line uFirstLine;
+
+                uFirstLine = text.Line.Get(uRowRange.Start);
+
+
+
+                int uCount;
+
+                uCount = uFirstLine.Char.Count;
+
+
+
+
+
+                int uu;
+
+
+                uu = uCount + k;
+
+
+                uu = uu + hh;
+
+
+
+
+                firstLine.Char.SetCount(uu);
+
+
+
+
+                
+                this.Line = firstLine;
+
+
+                this.PosA.Col = hh;
+
+
+                this.Char = uFirstLine.Char.Data;
+
+
+                this.CharRange = this.Range(0, uCount);
+
+
+
+                this.ReplaceCharList();
+
+
+
+
+                this.PosA.Col = hh + uCount;
+
+
+                this.Char = lastLine.Char.Data;
+
+
+                this.CharRange = kk;
+
+
+                
+                this.ReplaceCharList();
             }
 
 
