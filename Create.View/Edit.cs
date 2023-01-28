@@ -3321,6 +3321,10 @@ public class Edit : ViewView
 
 
 
+        count = uRowCount;
+
+
+
 
         if (b)
         {
@@ -3403,13 +3407,14 @@ public class Edit : ViewView
 
 
                 this.RemoveCharList();
+
+
+
+
+                count = count - 1;
             }
         }
 
-
-
-
-        count = uRowCount;
 
 
 
@@ -3463,7 +3468,7 @@ public class Edit : ViewView
 
             bool bbb;
 
-            bbb = (i == count - 1);
+            bbb = (i == uRowCount - 1);
 
 
             if (bbb)
