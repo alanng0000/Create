@@ -3303,6 +3303,20 @@ public class Edit : ViewView
             count = uRowCount;
 
 
+            
+            int lastRow;
+
+            lastRow = thisRowRange.End - 1;
+
+
+
+            Line lastLine;
+
+            lastLine = this.Text.Line.Get(lastRow);
+
+
+
+
 
             start = thisRowRange.Start + count;
 
