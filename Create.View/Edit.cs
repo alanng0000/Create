@@ -183,7 +183,12 @@ public class Edit : ViewView
 
 
     private Line[] LineOneList { get; set; }
-    
+
+
+
+
+
+    private int Value { get; set; }
 
 
 
@@ -3503,6 +3508,42 @@ public class Edit : ViewView
 
 
 
+                int ka;
+
+                ka = sourceLastLine.Char.Count;
+
+
+
+
+                start = endPos.Col;
+
+
+                end = firstLine.Char.Count;
+
+
+
+                Range kRange;
+
+                kRange = this.Range(start, end);
+
+
+
+                int kb;
+
+                kb = this.Count(kRange);
+
+
+
+                
+                int kk;
+
+                kk = ka + kb;
+
+
+
+
+
+
 
 
                 this.Line = lastLine;
@@ -3514,7 +3555,7 @@ public class Edit : ViewView
                 this.Char = sourceLastLine.Char.Data;
 
 
-                this.CharRange = this.Range(0, sourceLastLine.Char.Count);
+                this.CharRange = this.Range(0, ka);
 
 
 
@@ -3533,15 +3574,7 @@ public class Edit : ViewView
                 this.Char = firstLine.Char.Data;
 
 
-
-                start = endPos.Col;
-
-
-                end = firstLine.Char.Count;
-
-
-
-                this.CharRange = this.Range(start, end);
+                this.CharRange = kRange;
 
 
 
@@ -3939,6 +3972,20 @@ public class Edit : ViewView
 
         return true;
     }
+
+
+
+
+
+
+    private bool SetCharCount()
+    {
+        this.Line.Char.SetCount(this.Value);
+
+
+        return true;
+    }
+
 
 
 
