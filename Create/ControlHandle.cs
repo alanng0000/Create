@@ -321,26 +321,26 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[keyIndex] = new KeyMethod[boolCount][][];
+        this.KeyMethodList[keyIndex] = new KeyHandle[boolCount][][];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(false)] = new KeyMethod[boolCount][];
+        this.KeyMethodList[keyIndex][this.BoolIndex(false)] = new KeyHandle[boolCount][];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(true)] = new KeyMethod[boolCount][];
+        this.KeyMethodList[keyIndex][this.BoolIndex(true)] = new KeyHandle[boolCount][];
 
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(false)][this.BoolIndex(false)] = new KeyMethod[boolCount];
+        this.KeyMethodList[keyIndex][this.BoolIndex(false)][this.BoolIndex(false)] = new KeyHandle[boolCount];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(true)][this.BoolIndex(false)] = new KeyMethod[boolCount];
+        this.KeyMethodList[keyIndex][this.BoolIndex(true)][this.BoolIndex(false)] = new KeyHandle[boolCount];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(false)][this.BoolIndex(true)] = new KeyMethod[boolCount];
+        this.KeyMethodList[keyIndex][this.BoolIndex(false)][this.BoolIndex(true)] = new KeyHandle[boolCount];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(true)][this.BoolIndex(true)] = new KeyMethod[boolCount];
+        this.KeyMethodList[keyIndex][this.BoolIndex(true)][this.BoolIndex(true)] = new KeyHandle[boolCount];
 
 
 
@@ -407,7 +407,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex] = this.CreateKeyMethod(key, tab, shift, control);
+        this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex] = this.CreateKeyHandle(key, tab, shift, control);
 
 
 
@@ -420,34 +420,34 @@ class ControlHandle : Handle
 
 
 
-    private KeyHandle CreateKeyMethod(ControlKey key, bool tab, bool shift, bool control)
+    private KeyHandle CreateKeyHandle(ControlKey key, bool tab, bool shift, bool control)
     {
-        KeyHandle method;
+        KeyHandle a;
 
 
-        method = new KeyHandle();
+        a = new KeyHandle();
 
 
-        method.Init();
+        a.Init();
 
 
-        method.Key = key;
+        a.Key = key;
 
 
-        method.Tab = tab;
+        a.Tab = tab;
 
 
-        method.Shift = shift;
+        a.Shift = shift;
 
 
-        method.Control = control;
+        a.Control = control;
 
 
 
 
         KeyHandle ret;
 
-        ret = method;
+        ret = a;
 
 
         return ret;
@@ -538,7 +538,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewUnitLeft()
+    private bool ViewUnitLeft(KeyHandle a)
     {
         this.Edit.ViewLeft(this.ViewUnitCount);
 
@@ -550,7 +550,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewUnitRight()
+    private bool ViewUnitRight(KeyHandle a)
     {
         this.Edit.ViewRight(this.ViewUnitCount);
 
@@ -562,7 +562,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewUnitUp()
+    private bool ViewUnitUp(KeyHandle a)
     {
         this.Edit.ViewUp(this.ViewUnitCount);
 
@@ -574,7 +574,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewUnitDown()
+    private bool ViewUnitDown(KeyHandle a)
     {
         this.Edit.ViewDown(this.ViewUnitCount);
 
@@ -588,7 +588,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewEntireLeft()
+    private bool ViewEntireLeft(KeyHandle a)
     {
         this.Edit.ViewLeft(this.ViewHorzCount);
 
@@ -600,7 +600,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewEntireRight()
+    private bool ViewEntireRight(KeyHandle a)
     {
         this.Edit.ViewRight(this.ViewHorzCount);
 
@@ -612,7 +612,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewEntireUp()
+    private bool ViewEntireUp(KeyHandle a)
     {
         this.Edit.ViewUp(this.ViewVertCount);
 
@@ -624,7 +624,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ViewEntireDown()
+    private bool ViewEntireDown(KeyHandle a)
     {
         this.Edit.ViewDown(this.ViewVertCount);
 
@@ -637,7 +637,7 @@ class ControlHandle : Handle
 
 
 
-    private bool ReplaceText()
+    private bool ReplaceText(KeyHandle a)
     {
         this.Edit.ReplaceText(this.Create.Text);
 
@@ -725,7 +725,7 @@ class ControlHandle : Handle
 
 
 
-    private HandleMethod GetHandleMethod(ControlKey key, bool tab, bool shift, bool control)
+    private KeyHandle GetHandle(ControlKey key, bool tab, bool shift, bool control)
     {
         int keyIndex;
 
@@ -752,16 +752,18 @@ class ControlHandle : Handle
 
 
 
-        HandleMethod method;
         
-        method = this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex].Handle;
+        KeyHandle handle;
+
+
+        handle = this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex];
 
 
 
 
-        HandleMethod ret;
+        KeyHandle ret;
 
-        ret = method;
+        ret = handle;
 
         return ret;
     }
@@ -824,18 +826,25 @@ class ControlHandle : Handle
 
 
 
+        KeyHandle handle;
+
+
+
+        handle = this.GetHandle(key, this.IsTab, this.IsShift, this.IsControl);
+
+
+
+
         HandleMethod method;
 
 
-
-        method = this.GetHandleMethod(key, this.IsTab, this.IsShift, this.IsControl);
-
+        method = handle.Handle;
 
 
 
         if (!(method == null))
         {
-            method();
+            method(handle);
         }
 
 
