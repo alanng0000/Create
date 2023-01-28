@@ -35,7 +35,7 @@ class ControlHandle : Handle
 
 
 
-    private KeyHandle[][][][] KeyMethodList { get; set; }
+    private KeyHandle[][][][] KeyHandleList { get; set; }
 
 
 
@@ -95,7 +95,7 @@ class ControlHandle : Handle
 
 
 
-        this.InitKeyMethodList();
+        this.InitKeyHandleList();
 
 
 
@@ -114,7 +114,7 @@ class ControlHandle : Handle
 
 
 
-    private bool InitKeyMethodList()
+    private bool InitKeyHandleList()
     {
         int count;
 
@@ -124,7 +124,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList = new KeyHandle[count][][][];
+        this.KeyHandleList = new KeyHandle[count][][][];
 
 
 
@@ -141,7 +141,7 @@ class ControlHandle : Handle
 
 
 
-            this.InitKeyMethodArrayKey(key);            
+            this.InitKeyHandleArrayKey(key);            
 
 
 
@@ -252,7 +252,7 @@ class ControlHandle : Handle
 
 
         
-        this.InitKeyMethodListInsertChar();
+        this.InitKeyHandleListInsertChar();
 
 
 
@@ -275,7 +275,7 @@ class ControlHandle : Handle
 
 
 
-    private bool InitKeyMethodListInsertChar()
+    private bool InitKeyHandleListInsertChar()
     {
         ControlConstant constant;
 
@@ -326,7 +326,7 @@ class ControlHandle : Handle
 
 
 
-    private bool InitKeyMethodArrayKey(ControlKey key)
+    private bool InitKeyHandleArrayKey(ControlKey key)
     {
         int keyIndex;
 
@@ -342,26 +342,26 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[keyIndex] = new KeyHandle[boolCount][][];
+        this.KeyHandleList[keyIndex] = new KeyHandle[boolCount][][];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(false)] = new KeyHandle[boolCount][];
+        this.KeyHandleList[keyIndex][this.BoolIndex(false)] = new KeyHandle[boolCount][];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(true)] = new KeyHandle[boolCount][];
+        this.KeyHandleList[keyIndex][this.BoolIndex(true)] = new KeyHandle[boolCount][];
 
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(false)][this.BoolIndex(false)] = new KeyHandle[boolCount];
+        this.KeyHandleList[keyIndex][this.BoolIndex(false)][this.BoolIndex(false)] = new KeyHandle[boolCount];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(true)][this.BoolIndex(false)] = new KeyHandle[boolCount];
+        this.KeyHandleList[keyIndex][this.BoolIndex(true)][this.BoolIndex(false)] = new KeyHandle[boolCount];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(false)][this.BoolIndex(true)] = new KeyHandle[boolCount];
+        this.KeyHandleList[keyIndex][this.BoolIndex(false)][this.BoolIndex(true)] = new KeyHandle[boolCount];
 
 
-        this.KeyMethodList[keyIndex][this.BoolIndex(true)][this.BoolIndex(true)] = new KeyHandle[boolCount];
+        this.KeyHandleList[keyIndex][this.BoolIndex(true)][this.BoolIndex(true)] = new KeyHandle[boolCount];
 
 
 
@@ -428,7 +428,7 @@ class ControlHandle : Handle
 
 
 
-        this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex] = this.CreateKeyHandle(key, tab, shift, control);
+        this.KeyHandleList[keyIndex][tabIndex][shiftIndex][controlIndex] = this.CreateKeyHandle(key, tab, shift, control);
 
 
 
@@ -1133,7 +1133,7 @@ class ControlHandle : Handle
         KeyHandle handle;
 
 
-        handle = this.KeyMethodList[keyIndex][tabIndex][shiftIndex][controlIndex];
+        handle = this.KeyHandleList[keyIndex][tabIndex][shiftIndex][controlIndex];
 
 
 
