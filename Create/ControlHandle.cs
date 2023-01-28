@@ -57,6 +57,12 @@ class ControlHandle : Handle
 
 
 
+    private Text TextNewLine { get; set; }
+
+
+
+
+
     public override bool Init()
     {
         base.Init();
@@ -143,12 +149,6 @@ class ControlHandle : Handle
         }
 
 
-
-
-
-
-
-        this.SetHandleMethod(this.Key.Backspace, false, false, false, this.Edit.BackSpace);
 
 
 
@@ -258,6 +258,12 @@ class ControlHandle : Handle
 
         
         this.SetHandleMethod(this.Key.Enter, true, false, false, this.InsertLine);
+
+
+
+        
+        this.SetHandleMethod(this.Key.Backspace, true, false, false, this.BackSpace);
+
 
 
 
@@ -826,7 +832,7 @@ class ControlHandle : Handle
 
     private bool InsertLine(KeyHandle a)
     {
-       
+       this.Edit.ReplaceText(this.TextNewLine);
         
 
         return true;
@@ -859,16 +865,29 @@ class ControlHandle : Handle
 
 
 
+    private bool BackSpace(KeyHandle a)
+    {
+        return true;
+    }
+
+
+
+
 
 
 
     private bool InitText()
     {
+        this.InitCharOneList();
+
+
+
+
         this.InitTextOneChar();
 
+        
 
-
-        this.InitCharOneList();
+        this.InitTextNewLine();
 
 
 
@@ -900,7 +919,10 @@ class ControlHandle : Handle
 
         line.Init();
 
-        line.Char.SetCount(1);
+
+
+        line.Char.Insert(0, this.CharOneList, this.CharOneListRange);
+
 
 
 
@@ -952,6 +974,74 @@ class ControlHandle : Handle
         return true;
     }
 
+
+
+
+    private bool InitTextNewLine()
+    {
+        Text text;
+
+
+        text = new Text();
+
+
+        text.Init();
+
+
+
+
+        TextLine lineA;
+
+        lineA = new TextLine();
+
+        lineA.Init();
+
+
+
+        TextLine lineB;
+
+        lineB = new TextLine();
+
+        lineB.Init();
+
+
+
+
+        TextLine[] lines;
+
+
+        lines = new TextLine[2];
+
+
+        lines[0] = lineA;
+
+        lines[1] = lineB;
+
+
+
+
+        RangeInfra infra;
+
+        infra = RangeInfra.This;
+
+
+        Range range;
+
+        range = infra.Range(0, lines.Length);
+
+
+
+
+        text.Line.Insert(0, lines, range);
+
+
+
+        this.TextNewLine = text;
+
+
+
+        return true;
+    }
 
 
 
