@@ -876,8 +876,18 @@ public class Edit : ViewView
             index = text.Line.Count;
 
 
+            
+            Range u;
 
-            text.Line.Insert(index, this.LineOneList, range);
+            u = this.IndexRange(index);
+
+
+
+            text.Line.Insert(u);
+            
+
+
+            text.Line.Set(index, this.LineOneList, range);
 
 
 
