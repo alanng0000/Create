@@ -848,7 +848,7 @@ class ControlHandle : Handle
 
 
 
-        this.TextOneChar.Line.Get(0).Char.Replace(0, this.CharOneList, this.CharOneListRange);
+        this.TextOneChar.Line.Get(0).Char.Set(0, this.CharOneList, this.CharOneListRange);
 
 
 
@@ -921,7 +921,11 @@ class ControlHandle : Handle
 
 
 
-        line.Char.Insert(0, this.CharOneList, this.CharOneListRange);
+        line.Char.Insert(this.CharOneListRange);
+
+
+        line.Char.Set(0, this.CharOneList, this.CharOneListRange);
+
 
 
 
@@ -943,7 +947,11 @@ class ControlHandle : Handle
 
 
 
-        this.TextOneChar.Line.Insert(0, a, range);
+        this.TextOneChar.Line.Insert(range);
+
+
+
+        this.TextOneChar.Line.Set(0, a, range);
 
 
 
@@ -1007,15 +1015,15 @@ class ControlHandle : Handle
 
 
 
-        TextLine[] lines;
+        TextLine[] lineList;
 
 
-        lines = new TextLine[2];
+        lineList = new TextLine[2];
 
 
-        lines[0] = lineA;
+        lineList[0] = lineA;
 
-        lines[1] = lineB;
+        lineList[1] = lineB;
 
 
 
@@ -1027,12 +1035,16 @@ class ControlHandle : Handle
 
         Range range;
 
-        range = infra.Range(0, lines.Length);
+        range = infra.Range(0, lineList.Length);
 
 
 
 
-        text.Line.Insert(0, lines, range);
+        text.Line.Insert(range);
+
+
+        text.Line.Set(0, lineList, range);
+
 
 
 
