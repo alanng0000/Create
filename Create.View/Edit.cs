@@ -825,9 +825,16 @@ public class Edit : ViewView
 
 
 
-        RangeInfra rangeInfra;
 
-        rangeInfra = RangeInfra.This;
+        Range lineRange;
+
+        lineRange = this.Range(0, lineData.Length);
+
+
+
+
+        text.Line.Insert(lineRange);
+
 
 
 
@@ -835,8 +842,7 @@ public class Edit : ViewView
         Range range;
 
 
-        range = rangeInfra.Range(0, this.LineOneList.Length);
-
+        range = this.Range(0, this.LineOneList.Length);
 
 
 
@@ -871,23 +877,8 @@ public class Edit : ViewView
 
 
 
-            int index;
 
-            index = text.Line.Count;
-
-
-            
-            Range u;
-
-            u = this.IndexRange(index);
-
-
-
-            text.Line.Insert(u);
-            
-
-
-            text.Line.Set(index, this.LineOneList, range);
+            text.Line.Set(i, this.LineOneList, range);
 
 
 
@@ -924,14 +915,19 @@ public class Edit : ViewView
 
 
 
+        Range charRange;
+
+
+        charRange = this.Range(0, s.Length);
+
+
+
+        line.Char.Insert(charRange);
+
+
+
+
         char oc;
-
-
-
-
-        RangeInfra rangeInfra;
-
-        rangeInfra = RangeInfra.This;
 
 
 
@@ -939,7 +935,8 @@ public class Edit : ViewView
         Range range;
 
 
-        range = rangeInfra.Range(0, this.CharOneList.Length);
+        range = this.Range(0, this.CharOneList.Length);
+
 
 
 
@@ -965,13 +962,8 @@ public class Edit : ViewView
 
 
 
-            int index;
 
-            index = line.Char.Count;
-
-
-
-            line.Char.Insert(index, this.CharOneList, range);
+            line.Char.Set(i, this.CharOneList, range);
 
 
 
