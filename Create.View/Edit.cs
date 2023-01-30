@@ -193,6 +193,12 @@ public class Edit : ViewView
 
 
 
+    public Text StoreText { get; set; }
+
+
+
+
+
 
     private int IndentWidth { get; set; }
 
@@ -3775,6 +3781,268 @@ public class Edit : ViewView
 
         return true;
     }
+
+
+
+
+
+
+
+    public bool CopyText()
+    {
+        if (!this.SelectActive)
+        {
+            return true;
+        }
+
+
+
+
+        Pos startPos;
+
+        startPos = this.Select.Start.Value;
+
+
+
+        Pos endPos;
+
+        endPos = this.Select.End.Value;
+
+
+
+
+
+
+
+
+        int startRow;
+
+        startRow = startPos.Row;
+
+
+
+        int endRow;
+
+        endRow = endPos.Row + 1;
+
+
+
+
+        Range rowRange;
+
+        rowRange = this.Range(startRow, endRow);
+
+
+
+        int rowCount;
+
+        rowCount = this.Count(rowRange);
+
+
+
+
+        int uu;
+
+        uu = rowCount - 1;
+
+
+
+
+
+        Text text;
+
+        text = this.Text;
+
+
+
+
+        Range rowRangeA;
+
+        rowRangeA = this.Range(0, rowCount);
+
+
+
+
+        Text textA;
+
+        textA = new Text();
+
+        textA.Init();
+
+
+        textA.Line.Insert(rowRangeA);
+        
+
+
+
+        int count;
+
+        count = rowCount;
+
+        
+
+
+        int i;
+
+        i = 0;
+
+        while (i < count)
+        {
+            int row;
+
+            row = rowRange.Start + i;
+
+
+
+            Line line;
+            
+            line = text.Line.Get(row);
+
+
+
+            Range range;
+
+            range = new Range();
+
+
+
+            bool bba;
+
+            bba = (i == 0);
+
+
+            bool bbb;
+
+            bbb = (i == uu);
+
+
+
+            
+
+            if (bba)
+            {
+                if (bbb)
+                {
+                    range = this.Range(startPos.Col, endPos.Col);
+                }
+
+                if (!bbb)
+                {
+                    range = this.Range(startPos.Col, line.Char.Count);
+                }
+            }
+
+
+
+            if (!bba)
+            {
+                if (bbb)
+                {
+                    range = this.Range(0, endPos.Col);
+                }
+
+                if (!bbb)
+                {
+                    range = this.Range(0, line.Char.Count);
+                }
+            }
+
+
+
+
+            int countA;
+
+            countA = this.Count(range);
+
+
+
+            Range rangeA;
+
+            rangeA = this.Range(0, countA);
+
+
+
+
+            Line lineA;
+
+            lineA = new Line();
+
+            lineA.Init();
+
+
+            lineA.Char.Insert(rangeA);
+
+
+
+
+            int start;
+
+            start = range.Start;
+
+
+
+            int index;
+
+
+
+            char oc;
+
+
+
+
+            int j;
+
+            j = 0;
+
+
+            while (j < countA)
+            {
+                index = start + j;
+
+
+
+                oc = line.Char.Get(index);
+
+
+
+                this.SetCharOneList(oc);
+
+
+
+                lineA.Char.Set(j, this.CharOneList, this.OneRange);
+
+
+
+                j = j + 1;
+            }
+
+
+
+
+            this.SetLineOneList(lineA);
+
+
+
+            textA.Line.Set(i, this.LineOneList, this.OneRange);
+
+
+
+
+            i = i + 1;
+        }
+
+
+
+
+        this.StoreText = textA;
+
+
+
+
+
+        return true;
+    }
+
 
 
 
