@@ -51,6 +51,11 @@ class ControlHandle : Handle
 
 
 
+    private TextLine[] LineOneList { get; set; }
+
+
+
+
     private Range OneRange;
 
 
@@ -882,6 +887,11 @@ class ControlHandle : Handle
 
 
 
+        this.LineOneList = new TextLine[1];
+
+
+
+
 
         RangeInfra infra;
 
@@ -927,9 +937,9 @@ class ControlHandle : Handle
 
 
 
-        TextLine[] a;
+        this.CharOneList[0] = (char)0;
 
-        a = new TextLine[1];
+        
 
 
 
@@ -941,37 +951,27 @@ class ControlHandle : Handle
 
 
 
-        line.Char.Insert(this.CharOneListRange);
+        line.Char.Insert(this.OneRange);
 
 
-        line.Char.Set(0, this.CharOneList, this.CharOneListRange);
-
-
-
-
-
-        a[0] = line;
-
-
-
-        RangeInfra infra;
-
-        infra = RangeInfra.This;
-
-
-
-        Range range;
-
-        range = infra.Range(0, a.Length);
+        line.Char.Set(0, this.CharOneList, this.OneRange);
 
 
 
 
-        this.TextOneChar.Line.Insert(range);
+
+        this.LineOneList[0] = line;
 
 
 
-        this.TextOneChar.Line.Set(0, a, range);
+
+
+        this.TextOneChar.Line.Insert(this.OneRange);
+
+
+
+        this.TextOneChar.Line.Set(0, this.LineOneList, this.OneRange);
+
 
 
 
