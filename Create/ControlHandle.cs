@@ -937,12 +937,6 @@ class ControlHandle : Handle
 
 
 
-        this.CharOneList[0] = (char)0;
-
-        
-
-
-
         TextLine line;
 
         line = new TextLine();
@@ -952,9 +946,6 @@ class ControlHandle : Handle
 
 
         line.Char.Insert(this.OneRange);
-
-
-        line.Char.Set(0, this.CharOneList, this.OneRange);
 
 
 
