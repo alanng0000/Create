@@ -2882,253 +2882,6 @@ public class Edit : ViewView
 
 
 
-    public bool InsertLine()
-    {
-        Pos pos;
-
-
-        pos = this.Caret.Pos.Value;
-
-
-
-
-        this.PosA.Row = pos.Row + 1;
-
-
-        this.PosA.Col = 0;
-
-
-
-
-
-
-        bool b;
-
-
-        b = this.CheckRowIndex(this.PosA.Row);
-        
-
-
-
-        if (b)
-        {
-            this.InsertNewLine();
-        }
-        
-
-
-
-        if (!b)
-        {
-            this.AddNewLine();
-        }
-
-
-
-
-
-
-        this.PosA = pos;
-
-
-
-
-        this.PosB.Row = pos.Row + 1;
-
-
-        this.PosB.Col = 0;
-
-
-
-
-
-
-        Line line;
-
-        line = this.Text.Line.Get(this.PosA.Row);
-
-
-        this.Char = line.Char.Data;
-
-
-
-        int start;
-
-        start = this.PosA.Col;
-
-
-        int end;
-
-        end = line.Char.Count;
-
-
-
-
-        this.CharRange = this.Range(start, end);
-
-
-
-
-        this.Line = this.Text.Line.Get(this.PosB.Row);
-
-
-
-
-        this.PosA.Col = this.Line.Char.Count;
-
-
-
-        this.InsertCharList();
-
-
-
-
-
-        this.Line = this.Text.Line.Get(this.PosA.Row);    
-
-
-
-
-        this.RemoveCharList();
-
-
-
-
-
-
-        this.MoveCaretDown();
-
-
-
-
-
-        this.PosA.Col = 0;
-
-
-
-        this.MoveCaretCol();
-
-
-
-
-
-
-        this.CaretUpDownCol = this.Caret.Pos.Value.Col;
-
-
-
-
-
-
-
-
-        this.ExecuteClass();
-
-
-
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-    private bool AddNewLine()
-    {
-        Line line;
-
-
-        line = new Line();
-
-
-        line.Init();
-
-
-
-
-
-        this.SetLineOneList(line);
-
-
-
-
-        Range range;
-
-        range = this.Range(0, this.LineOneList.Length);
-
-
-
-
-        this.Text.Line.Insert(this.Text.Line.Count, this.LineOneList, range);
-        
-
-
-        
-
-        return true;
-    }
-    
-
-
-
-
-
-    private bool InsertNewLine()
-    {
-        int index;
-
-
-        index = this.PosA.Row;
-        
-
-
-        
-
-        Line line;
-
-
-        line = new Line();
-
-
-        line.Init();
-
-
-
-
-        this.SetLineOneList(line);
-
-
-
-
-        Range range;
-
-        range = this.Range(0, this.LineOneList.Length);
-
-
-
-
-        this.Text.Line.Insert(index, this.LineOneList, range);
-
-
-
-
-
-        return true;
-    }
-
-
-
-
-
-
-
-
 
 
     public bool ReplaceText(Text text)
@@ -3949,16 +3702,7 @@ public class Edit : ViewView
 
     private bool InsertCharList()
     {
-        int index;
-
-
-        index = this.PosA.Col;
-
-
-
-
-
-        this.Line.Char.Insert(index, this.Char, this.CharRange);
+        this.Line.Char.Insert(this.CharRange);
 
 
 
@@ -3986,7 +3730,7 @@ public class Edit : ViewView
 
 
 
-    private bool ReplaceCharList()
+    private bool SetCharList()
     {
         int index;
 
@@ -3997,7 +3741,7 @@ public class Edit : ViewView
 
 
 
-        this.Line.Char.Replace(index, this.Char, this.CharRange);
+        this.Line.Char.Set(index, this.Char, this.CharRange);
 
 
 
@@ -4007,19 +3751,6 @@ public class Edit : ViewView
         return true;
     }
 
-
-
-
-
-
-    private bool SetCharCount()
-    {
-        this.Line.Char.SetCount(this.Value);
-
-
-
-        return true;
-    }
 
 
 
@@ -4186,14 +3917,7 @@ public class Edit : ViewView
 
     private bool InsertLineList()
     {
-        int index;
-
-
-        index = this.PosA.Row;
-
-
-
-        this.Text.Line.Insert(index, this.LineData, this.LineRange);
+        this.Text.Line.Insert(this.LineRange);
 
 
 
