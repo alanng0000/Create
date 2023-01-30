@@ -937,6 +937,10 @@ class ControlHandle : Handle
         this.TextOneChar = new Text();
 
 
+        this.TextOneChar.Init();
+        
+
+
 
 
         TextLine line;
