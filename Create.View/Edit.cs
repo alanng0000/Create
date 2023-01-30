@@ -3080,7 +3080,11 @@ public class Edit : ViewView
 
 
 
+
         bool bb;
+
+        bb = (uRowCount == 1);
+
 
 
 
@@ -3093,11 +3097,6 @@ public class Edit : ViewView
         if (!b & !bbd)
         {
             Line lastLine;
-
-            
-            bb = (uRowCount == 1);
-
-
 
 
             if (bb)
@@ -3506,6 +3505,115 @@ public class Edit : ViewView
 
             i = i + 1;
         }
+
+
+
+
+        if (bb)
+        {
+            int k;
+
+            k = startPos.Col;
+
+
+
+            Line uFirstLine;
+
+            uFirstLine = text.Line.Get(0);
+
+
+
+            int uk;
+
+            uk = uFirstLine.Char.Count;
+
+
+
+            k = k + uk;
+
+
+
+            this.PosA.Row = startPos.Row;
+
+
+            this.PosA.Col = k;
+
+
+
+            this.Select.End.Value = this.PosA;
+        }
+
+
+
+
+        if (!bb)
+        {
+            int uLastRow;
+
+            uLastRow = uRowRange.End - 1;
+
+            
+
+
+
+            int row;
+
+
+            row = startPos.Row;
+
+
+            row = row + uLastRow;
+
+
+
+            
+
+
+            Line uLastLine;
+
+            uLastLine = text.Line.Get(uLastRow);
+
+
+
+            int k;
+
+            k = uLastLine.Char.Count;
+
+
+
+
+            int col;
+
+            col = k;
+
+
+
+            this.PosA.Row = row;
+
+
+            this.PosA.Col = col;
+
+
+
+            this.Select.End.Value = this.PosA;
+        }
+
+
+
+
+
+        this.CaretUpDownCol = this.Caret.Pos.Value.Col;
+
+
+
+
+
+
+        this.PosA = this.Caret.Pos.Value;
+
+
+
+        this.ScrollVisible();
 
 
 
