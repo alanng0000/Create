@@ -3519,10 +3519,11 @@ public class Edit : ViewView
         
 
 
+        int start;
 
-        int replaceCount;
 
-        replaceCount = sourceCount;
+        int end;
+
 
 
 
@@ -3533,63 +3534,24 @@ public class Edit : ViewView
 
         if (b)
         {
-            replaceCount = destCount;
-        }
+            int d;
+
+
+            d = sourceCount - destCount;
 
 
 
-
-
-        this.Line = destLine;
-
-
-
-        this.Char = sourceLine.Char.Data;
+            this.Line = destLine;
 
 
 
-        int start;
-
-        start = sourceRange.Start;
+            start = destRange.End;
 
 
-
-        int end;
-
-        end = start + replaceCount;
-
-
-
-        this.CharRange = this.Range(start, end);
-        
-
-
-
-        this.PosA.Col = destRange.Start;
-
-
-
-
-        this.SetCharList();
-
-
-
-
-
-        if (b)
-        {
-            start = sourceRange.Start + replaceCount;
-
-
-            end = sourceRange.End;
-
+            end = start + d;
 
 
             this.CharRange = this.Range(start, end);
-
-
-
-            this.PosA.Col = destRange.End;
 
 
 
@@ -3598,9 +3560,15 @@ public class Edit : ViewView
 
 
 
+
         if (!b)
         {
-            start = destRange.Start + replaceCount;
+            this.Line = destLine;
+
+            
+
+
+            start = destRange.Start + sourceCount;
 
 
             end = destRange.End;
@@ -3613,6 +3581,28 @@ public class Edit : ViewView
 
             this.RemoveCharList();
         }
+
+
+
+
+
+        this.Line = destLine;
+
+
+
+        this.PosA.Col = destRange.Start;
+
+
+
+        this.Char = sourceLine.Char.Data;
+
+
+
+        this.CharRange = sourceRange;
+
+
+
+        this.SetCharList();
 
 
 
