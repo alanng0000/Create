@@ -277,6 +277,13 @@ class ControlHandle : Handle
 
 
 
+        this.SetHandleMethod(this.Key.LetterC, true, false, true, this.CopyText);
+
+
+        this.SetHandleMethod(this.Key.LetterV, true, false, true, this.PasteText);
+
+
+
 
         return true;
     }
@@ -916,6 +923,65 @@ class ControlHandle : Handle
 
 
 
+    private bool CopyText(KeyHandle a)
+    {
+        bool b;
+
+        b = this.Edit.SelectActive;
+
+
+
+        if (b)
+        {
+            this.Edit.CopyText();
+        }
+
+
+
+        if (!b)
+        {
+            this.Edit.StoreText = null;
+        }
+        
+
+
+
+        return true;
+    }
+
+
+
+
+
+
+    private bool PasteText(KeyHandle a)
+    {
+        Text text;
+
+        text = this.Edit.StoreText;
+        
+
+        if (this.Null(text))
+        {
+            return true;
+        }
+
+
+
+        this.Edit.ReplaceText(text);
+        
+
+
+
+        return true;
+    }
+
+
+
+
+
+
+
 
     private bool InitText()
     {
@@ -1341,5 +1407,19 @@ class ControlHandle : Handle
     private bool Toggle(bool state)
     {
         return !state;
+    }
+
+
+
+
+
+    private bool Null(object o)
+    {
+        ObjectInfra infra;
+
+        infra = ObjectInfra.This;
+
+
+        return infra.Null(o);
     }
 }
