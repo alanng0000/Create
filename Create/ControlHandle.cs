@@ -840,8 +840,10 @@ class ControlHandle : Handle
         this.Edit.ReplaceText(this.TextNewLine);
         
 
+
         return true;
     }
+
 
 
 
