@@ -3658,24 +3658,6 @@ public class Edit : ViewView
 
 
 
-
-
-
-
-
-    public bool BackSpace()
-    {
-
-
-
-
-        return true;
-    }
-
-
-
-
-
     
 
   
