@@ -187,6 +187,11 @@ public class Edit : ViewView
 
 
 
+    private Range OneRange;
+
+
+
+
 
     private int Value { get; set; }
 
@@ -285,6 +290,11 @@ public class Edit : ViewView
 
 
         this.LineRange = this.Range(0, 0);
+
+
+
+
+        this.OneRange = this.Range(0, this.CharOneList.Length);
 
 
 
@@ -3015,31 +3025,32 @@ public class Edit : ViewView
 
 
 
+            start = insertIndex;
 
 
-            Line[] lineList;
-
-            lineList = null;
+            end = start + count;
 
 
 
-            bool bca;
+            this.LineRange = this.Range(start, end);
+
+
+
+            this.InsertLineList();
+
+
 
             
-            bca = (count == 1);
 
 
-            if (bca)
-            {
-                lineList = this.LineOneList;
-            }
-            
+            int row;
 
-            if (!bca)
-            {
-                lineList = new Line[count];
-            }
-            
+
+
+            this.LineData = this.LineOneList;
+                
+
+            this.LineRange = this.OneRange;
 
 
             
@@ -3055,29 +3066,24 @@ public class Edit : ViewView
 
 
 
-                lineList[i] = line;
+                this.SetLineOneList(line);
+
+
+
+                row = start + i;
+
+
+
+                this.PosA.Row = row;
+
+
+
+                this.SetLineList();
 
 
 
                 i = i + 1;
-            }
-
-
-
-
-            this.PosA.Row = insertIndex;
-
-
-
-            this.LineData = lineList;
-
-
-
-            this.LineRange = this.Range(0, lineList.Length);
-
-
-
-            this.InsertLineList();
+            }            
         }
 
 
