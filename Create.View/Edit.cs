@@ -3200,11 +3200,6 @@ public class Edit : ViewView
                 this.InsertCharList();
 
 
-                
-
-
-                firstLine.Char.SetCount(uu);
-
 
 
 
@@ -3212,7 +3207,7 @@ public class Edit : ViewView
                 this.Line = firstLine;
 
 
-                this.PosA.Col = hh;
+                this.PosA.Col = start;
 
 
                 this.Char = uFirstLine.Char.Data;
@@ -3222,13 +3217,13 @@ public class Edit : ViewView
 
 
 
-                this.ReplaceCharList();
+                this.SetCharList();
                 
 
 
 
 
-                this.PosA.Col = hh + uCount;
+                this.PosA.Col = this.PosA.Col + uCount;
 
 
                 this.Char = lastLine.Char.Data;
@@ -3238,7 +3233,7 @@ public class Edit : ViewView
 
 
                 
-                this.ReplaceCharList();
+                this.SetCharList();
 
 
 
