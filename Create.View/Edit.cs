@@ -3452,29 +3452,42 @@ public class Edit : ViewView
             bba = (i == 0);
 
 
-            if (bba)
-            {
-                destRange = this.Range(startPos.Col, destLine.Char.Count);
-            }
-
-
-
             bool bbb;
 
             bbb = (i == ku);
 
 
-            if (bbb)
+
+            
+
+            if (bba)
             {
-                destRange = this.Range(0, endPos.Col);
+                if (bbb)
+                {
+                    destRange = this.Range(startPos.Col, endPos.Col);
+                }
+
+                if (!bbb)
+                {
+                    destRange = this.Range(startPos.Col, destLine.Char.Count);
+                }
             }
 
 
 
-            if (!bba & !bbb)
+            if (!bba)
             {
-                destRange = this.Range(0, destLine.Char.Count);
+                if (bbb)
+                {
+                    destRange = this.Range(0, endPos.Col);
+                }
+
+                if (!bbb)
+                {
+                    destRange = this.Range(0, destLine.Char.Count);
+                }
             }
+
 
 
 
