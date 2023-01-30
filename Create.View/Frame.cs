@@ -18,22 +18,19 @@ public class Frame : ViewFrame
 
 
 
+        
+        this.Grid = new Grid();
 
-        this.Edit = new Edit();
+        this.Grid.Frame = this;
 
+        this.Grid.Init();
+        
 
-
-        this.Edit.Frame = this;
-
-
-
-        this.Edit.Init();
-
+        this.Edit = this.Grid.Edit;
 
 
 
-
-        this.View = this.Edit;
+        this.View = this.Grid;
 
 
 
@@ -43,6 +40,8 @@ public class Frame : ViewFrame
     }
 
 
+
+    private Grid Grid { get; set; }
 
 
 
