@@ -853,7 +853,7 @@ class ControlHandle : Handle
 
 
 
-        this.TextOneChar.Line.Get(0).Char.Set(0, this.CharOneList, this.CharOneListRange);
+        this.TextOneChar.Line.Get(0).Char.Set(0, this.CharOneList, this.OneRange);
 
 
 
