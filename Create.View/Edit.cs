@@ -3622,6 +3622,27 @@ public class Edit : ViewView
 
 
 
+        Pos posStart;
+
+        posStart = this.Select.Start.Value;
+
+
+        Pos posEnd;
+
+        posEnd = this.Select.End.Value;
+
+
+        if (posStart.Row == posEnd.Row & 
+            posStart.Col == posEnd.Col)
+        {
+            this.CaretSelectValue();
+        }
+
+
+
+
+
+
         this.PosA = this.Caret.Pos.Value;
 
 
