@@ -3570,7 +3570,7 @@ public class Edit : ViewView
 
 
 
-        this.ReplaceCharList();
+        this.SetCharList();
 
 
 
