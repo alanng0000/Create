@@ -2880,6 +2880,15 @@ public class Edit : ViewView
 
     public bool ReplaceText(Text text)
     {
+        if (text.Line.Count == 0)
+        {
+            return true;
+        }
+        
+
+
+
+
         Pos startPos;
 
         startPos = this.Select.Start.Value;
