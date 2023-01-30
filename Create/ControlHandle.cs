@@ -1342,12 +1342,21 @@ class ControlHandle : Handle
             if (key == this.Key.Tab)
             {
                 this.IsTab = this.Toggle(this.IsTab);
+
+
+                this.IsShift = false;
+
+
+                this.IsControl = false;
             }
 
 
             if (key == this.Key.Shift)
             {
                 this.IsShift = this.Toggle(this.IsShift);
+
+
+                this.IsControl = false;
             }
 
 
