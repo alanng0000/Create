@@ -3180,9 +3180,27 @@ public class Edit : ViewView
                 uu = uCount + k;
 
 
-                uu = uu + hh;
+                
+
+                this.Line = firstLine;
 
 
+
+                start = hh;
+
+
+                end = start + uu;
+
+
+
+                this.CharRange = this.Range(start, end);
+
+
+
+                this.InsertCharList();
+
+
+                
 
 
                 firstLine.Char.SetCount(uu);
