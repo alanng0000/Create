@@ -1620,7 +1620,7 @@ public class Edit : ViewView
 
     public bool SelectLeft()
     {
-        if (!this.CheckSelectActive())
+        if (!this.SelectActive)
         {
             this.SelectCaretValue();
 
@@ -1745,7 +1745,7 @@ public class Edit : ViewView
 
     public bool SelectRight()
     {
-        if (!this.CheckSelectActive())
+        if (!this.SelectActive)
         {
             this.SelectCaretValue();
 
@@ -1860,7 +1860,7 @@ public class Edit : ViewView
 
     public bool SelectUp()
     {
-        if (!this.CheckSelectActive())
+        if (!this.SelectActive)
         {
             this.SelectCaretValue();
 
@@ -1987,7 +1987,7 @@ public class Edit : ViewView
 
     public bool SelectDown()
     {
-        if (!this.CheckSelectActive())
+        if (!this.SelectActive)
         {
             this.SelectCaretValue();
 
@@ -2521,9 +2521,15 @@ public class Edit : ViewView
 
 
     
-    private bool CheckSelectActive()
+    public bool SelectActive
     {
-        return !(this.Select.Start == this.Select.End);
+        get
+        {
+            return !(this.Select.Start == this.Select.End);
+        }
+        set
+        {
+        }
     }
 
 
