@@ -831,9 +831,16 @@ public class Edit : ViewView
 
 
 
+        int count;
+
+        count = lineData.Length;
+
+
+
+
         Range lineRange;
 
-        lineRange = this.Range(0, lineData.Length);
+        lineRange = this.Range(0, count);
 
 
 
@@ -842,19 +849,6 @@ public class Edit : ViewView
 
 
 
-
-
-        Range range;
-
-
-        range = this.Range(0, this.LineOneList.Length);
-
-
-
-
-        int count;
-
-        count = lineData.Length;
 
 
 
@@ -883,7 +877,7 @@ public class Edit : ViewView
 
 
 
-            text.Line.Set(i, this.LineOneList, range);
+            text.Line.Set(i, this.LineOneList, this.OneRange);
 
 
 
@@ -920,10 +914,19 @@ public class Edit : ViewView
 
 
 
+
+        int count;
+
+        count = s.Length;
+
+
+
+
         Range charRange;
 
 
-        charRange = this.Range(0, s.Length);
+        charRange = this.Range(0, count);
+
 
 
 
@@ -932,24 +935,10 @@ public class Edit : ViewView
 
 
 
+
         char oc;
 
 
-
-
-        Range range;
-
-
-        range = this.Range(0, this.CharOneList.Length);
-
-
-
-
-
-        int count;
-
-        count = s.Length;
-        
 
 
         int i;
@@ -968,7 +957,7 @@ public class Edit : ViewView
 
 
 
-            line.Char.Set(i, this.CharOneList, range);
+            line.Char.Set(i, this.CharOneList, this.OneRange);
 
 
 
