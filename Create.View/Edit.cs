@@ -3084,12 +3084,19 @@ public class Edit : ViewView
 
 
 
-        if (!b)
+        bool bbd;
+
+        bbd = (thisRowCount == uRowCount);
+
+
+
+        if (!b & !bbd)
         {
             Line lastLine;
 
             
             bb = (uRowCount == 1);
+
 
 
 
