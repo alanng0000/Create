@@ -193,11 +193,6 @@ public class Edit : ViewView
 
 
 
-    private int Value { get; set; }
-
-
-
-
 
     private int IndentWidth { get; set; }
 
