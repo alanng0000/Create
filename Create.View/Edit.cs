@@ -3509,6 +3509,7 @@ public class Edit : ViewView
 
 
 
+
         if (bb)
         {
             int k;
@@ -3555,7 +3556,6 @@ public class Edit : ViewView
             
 
 
-
             int row;
 
 
@@ -3563,8 +3563,6 @@ public class Edit : ViewView
 
 
             row = row + uLastRow;
-
-
 
             
 
