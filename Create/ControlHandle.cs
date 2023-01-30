@@ -837,7 +837,7 @@ class ControlHandle : Handle
 
     private bool InsertLine(KeyHandle a)
     {
-       this.Edit.ReplaceText(this.TextNewLine);
+        this.Edit.ReplaceText(this.TextNewLine);
         
 
         return true;
