@@ -17,9 +17,18 @@ class Grid : ViewGrid
 
 
 
+
+        this.Size.Width = this.Frame.Size.Width;
+
+
+        this.Size.Height = this.Frame.Size.Height;
+
+
+
+
         int rowAHeight;
 
-        rowAHeight = this.Frame.Size.Height - this.RowBHeight;
+        rowAHeight = this.Size.Height - this.RowBHeight;
 
 
 
@@ -56,7 +65,7 @@ class Grid : ViewGrid
 
         int colBWidth;
 
-        colBWidth = this.Frame.Size.Width - this.ColAWidth;
+        colBWidth = this.Size.Width - this.ColAWidth;
 
 
 
@@ -116,7 +125,7 @@ class Grid : ViewGrid
 
 
         this.Child.Add(editChild);
-        
+
 
 
         return true;
