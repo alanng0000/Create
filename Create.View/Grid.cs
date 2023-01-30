@@ -157,7 +157,7 @@ class Grid : ViewGrid
     {
         get
         {
-            return 300;
+            return 400;
         }
         set
         {
