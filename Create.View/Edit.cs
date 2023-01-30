@@ -3336,11 +3336,19 @@ public class Edit : ViewView
                 this.Line = lastLine;
 
 
-                this.Value = kk;
+
+                start = 0;
+
+
+                end = kk;
 
 
 
-                this.SetCharCount();
+                this.CharRange = this.Range(start, end);
+
+
+
+                this.InsertCharList();
 
 
 
@@ -3360,7 +3368,7 @@ public class Edit : ViewView
 
 
 
-                this.ReplaceCharList();
+                this.SetCharList();
 
 
 
@@ -3379,7 +3387,7 @@ public class Edit : ViewView
 
 
 
-                this.ReplaceCharList();
+                this.SetCharList();
 
 
 
