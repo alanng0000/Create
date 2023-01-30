@@ -51,7 +51,7 @@ class ControlHandle : Handle
 
 
 
-    private Range CharOneListRange;
+    private Range OneRange;
 
 
 
@@ -878,16 +878,36 @@ class ControlHandle : Handle
 
     private bool InitText()
     {
-        this.InitCharOneList();
+        this.CharOneList = new char[1];
+
+
+
+
+        RangeInfra infra;
+
+        infra = RangeInfra.This;
+
+
+
+        this.OneRange = infra.Range(0, this.CharOneList.Length);
+
+
 
 
 
 
         this.InitTextOneChar();
 
+
+
+
         
 
         this.InitTextNewLine();
+
+
+
+
 
 
 
@@ -958,29 +978,6 @@ class ControlHandle : Handle
         return true;
     }
 
-
-
-
-    private bool InitCharOneList()
-    {
-        this.CharOneList = new char[1];
-
-
-
-
-        RangeInfra infra;
-
-        infra = RangeInfra.This;
-
-
-
-        this.CharOneListRange = infra.Range(0, this.CharOneList.Length);
-
-
-
-
-        return true;
-    }
 
 
 
