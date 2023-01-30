@@ -3405,6 +3405,13 @@ public class Edit : ViewView
 
 
 
+        int ku;
+
+        ku = uRowCount - 1;
+
+
+
+
         i = startIndex;
 
         while (i < count)
@@ -3454,7 +3461,7 @@ public class Edit : ViewView
 
             bool bbb;
 
-            bbb = (i == uRowCount - 1);
+            bbb = (i == ku);
 
 
             if (bbb)
