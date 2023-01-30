@@ -67,6 +67,11 @@ class ControlHandle : Handle
 
 
 
+    private Text TextEmpty { get; set; }
+
+
+
+
 
     public override bool Init()
     {
@@ -880,8 +885,29 @@ class ControlHandle : Handle
 
 
 
+
     private bool BackSpace(KeyHandle a)
     {
+        bool b;
+
+
+        b = this.Edit.SelectActive;
+
+
+
+        if (!b)
+        {
+            this.Edit.SelectLeft();
+        }
+
+
+
+
+        this.Edit.ReplaceText(this.TextEmpty);
+
+
+
+
         return true;
     }
 
@@ -927,6 +953,9 @@ class ControlHandle : Handle
 
 
 
+
+
+        this.InitTextEmpty();
 
 
 
@@ -1056,6 +1085,61 @@ class ControlHandle : Handle
 
         return true;
     }
+
+
+
+
+
+
+    private bool InitTextEmpty()
+    {
+        Text text;
+        
+        text = new Text();
+
+
+        text.Init();
+        
+
+
+
+
+        TextLine line;
+
+        line = new TextLine();
+
+        line.Init();
+
+
+
+
+
+        this.LineOneList[0] = line;
+
+
+
+
+
+        text.Line.Insert(this.OneRange);
+
+
+
+        text.Line.Set(0, this.LineOneList, this.OneRange);
+
+
+
+
+
+        this.TextEmpty = text;
+
+
+
+
+        return true;
+    }
+
+
+
 
 
 
