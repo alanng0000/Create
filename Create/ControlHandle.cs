@@ -855,7 +855,14 @@ class ControlHandle : Handle
 
 
 
-        this.TextOneChar.Line.Get(0).Char.Set(0, this.CharOneList, this.OneRange);
+        TextLine line;
+
+
+        line = this.TextOneChar.Line.Get(0);
+        
+        
+
+        line.Char.Set(0, this.CharOneList, this.OneRange);
 
 
 
