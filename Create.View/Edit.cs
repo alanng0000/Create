@@ -3848,6 +3848,31 @@ public class Edit : ViewView
 
 
 
+    private bool SetLineList()
+    {
+        int index;
+
+
+        index = this.PosA.Row;
+
+
+
+        this.Text.Line.Set(index, this.LineData, this.LineRange);
+
+
+
+
+        return true;
+    }
+
+
+    
+
+
+
+
+
+
     private Range Range(int start, int end)
     {
         RangeInfra infra;
