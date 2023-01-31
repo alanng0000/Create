@@ -111,11 +111,19 @@ class ClassHeadView : ViewGrid
 
 
 
+
+
         
         this.NameText = new ViewText();
 
 
         this.NameText.Init();
+
+
+
+        this.SetTransparentBack(this.NameText);
+
+        
 
 
 
@@ -131,28 +139,111 @@ class ClassHeadView : ViewGrid
 
 
 
+
         ViewGridChild nameTextChild;
 
         nameTextChild = new ViewGridChild();
 
         nameTextChild.Init();
 
-        nameTextChild.Range.Start.Row = 0;
 
-        nameTextChild.Range.Start.Col = 1;
 
-        nameTextChild.Range.End.Row = 1;
-
-        nameTextChild.Range.End.Col = 2;
-
+        this.GridRangeOne(nameTextChild.Range, 0, 1);
+        
 
         nameTextChild.View = this.NameText;
 
 
 
+
+
+
+        this.BaseText = new ViewText();
+
+
+        this.BaseText.Init();
+
+
+
+        this.SetTransparentBack(this.BaseText);
+
+;
+
+        font = this.BaseText.Font;
+
+
+        font.Size = 18;
+
+
+
+
+        ViewGridChild baseTextChild;
+
+        baseTextChild = new ViewGridChild();
+
+        baseTextChild.Init();
+
+
+
+        this.GridRangeOne(baseTextChild.Range, 1, 1);
+        
+
+        baseTextChild.View = this.BaseText;
+        
         
 
 
+
+        this.Child.Add(nameTextChild);
+
+
+        this.Child.Add(baseTextChild);
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool SetTransparentBack(ViewView view)
+    {        
+        DrawConstant constant;
+
+        constant = DrawConstant.This;
+
+
+
+
+        DrawColorBrush brush;
+
+        brush = (DrawColorBrush)view.Back;
+
+
+
+        brush.Color = constant.TransparentColor;
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool GridRangeOne(ViewGridRange range, int row, int col)
+    {
+        range.Start.Row = row;
+
+        range.Start.Col = col;
+
+
+
+        range.End.Row = range.Start.Row + 1;
+
+
+        range.End.Col = range.Start.Col + 1;
 
 
         return true;
