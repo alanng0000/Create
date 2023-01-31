@@ -59,6 +59,8 @@ class ClassHeadView : ViewGrid
 
         baseRow.Height = this.BaseRowHeight;
 
+        
+
 
 
         ViewGridCol leftCol;
