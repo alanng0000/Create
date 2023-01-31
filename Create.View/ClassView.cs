@@ -26,6 +26,13 @@ class ClassView : ViewGrid
 
 
 
+        this.Dest.Size.Width = this.Size.Width;
+
+
+        this.Dest.Size.Height = this.Size.Height;
+
+
+
 
         ViewGridRow headRow;
 
@@ -88,18 +95,6 @@ class ClassView : ViewGrid
 
 
 
-        this.Row.Add(headRow);
-
-
-        this.Row.Add(row);
-
-
-
-        this.Col.Add(colA);
-
-        this.Col.Add(colB);
-
-
 
 
 
@@ -110,6 +105,8 @@ class ClassView : ViewGrid
 
 
         this.Head.Init();
+
+
 
 
 
@@ -130,6 +127,25 @@ class ClassView : ViewGrid
 
         headChild.View = this.Head;
 
+
+
+
+
+
+        this.Row.Add(headRow);
+
+
+        this.Row.Add(row);
+
+
+
+        this.Col.Add(colA);
+
+        this.Col.Add(colB);
+
+
+
+        this.Child.Add(headChild);
 
 
 
