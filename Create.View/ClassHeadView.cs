@@ -61,14 +61,29 @@ class ClassHeadView : ViewGrid
 
 
 
+        ViewGridCol leftCol;
 
-        ViewGridCol col;
+        leftCol = new ViewGridCol();
 
-        col = new ViewGridCol();
+        leftCol.Init();
 
-        col.Init();
+        leftCol.Width = this.LeftColWidth;
 
-        col.Width = this.Size.Width;
+
+
+
+        this.RightColWidth = this.Size.Width - this.LeftColWidth;
+
+
+
+
+        ViewGridCol rightCol;
+
+        rightCol = new ViewGridCol();
+
+        rightCol.Init();
+
+        rightCol.Width = this.RightColWidth;
 
 
 
@@ -79,7 +94,11 @@ class ClassHeadView : ViewGrid
         this.Row.Add(baseRow);
 
 
-        this.Col.Add(col);
+        this.Col.Add(leftCol);
+
+
+        this.Col.Add(rightCol);
+
 
 
 
@@ -112,7 +131,26 @@ class ClassHeadView : ViewGrid
 
 
 
+        ViewGridChild nameTextChild;
 
+        nameTextChild = new ViewGridChild();
+
+        nameTextChild.Init();
+
+        nameTextChild.Range.Start.Row = 0;
+
+        nameTextChild.Range.Start.Col = 1;
+
+        nameTextChild.Range.End.Row = 1;
+
+        nameTextChild.Range.End.Col = 2;
+
+
+        nameTextChild.View = this.NameText;
+
+
+
+        
 
 
 
@@ -241,4 +279,22 @@ class ClassHeadView : ViewGrid
 
 
     private int BaseRowHeight { get; set; }
+
+
+
+
+    private int LeftColWidth
+    {
+        get
+        {
+            return 100;
+        }
+        set
+        {
+        }
+    }
+
+
+
+    private int RightColWidth { get; set; }
 }
