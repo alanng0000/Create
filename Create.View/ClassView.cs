@@ -86,7 +86,7 @@ class ClassView : ViewGrid
 
 
 
-    private int LeftColWidth
+    public int LeftColWidth
     {
         get
         {

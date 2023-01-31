@@ -53,6 +53,7 @@ global using Tree = Class.Node.Tree;
 global using NodeClass = Class.Node.Class;
 global using ClassName = Class.Node.ClassName;
 global using Traverse = Class.Check.Traverse;
+global using CheckClass = Class.Check.Class;
 global using Task = Class.Task;
 global using TaskKindList = Class.TaskKindList;
 global using ClassClass  = Class.Class;
