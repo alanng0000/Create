@@ -51,6 +51,7 @@ class ClassView : ViewGrid
 
 
 
+
         int colBWidth;
 
 
@@ -88,6 +89,16 @@ class ClassView : ViewGrid
 
 
         this.Head.Init();
+
+
+
+        ViewGridChild headChild;
+
+        headChild = new ViewGridChild();
+
+        headChild.Init();
+
+        
 
 
 
