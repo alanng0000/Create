@@ -161,6 +161,12 @@ class Grid : ViewGrid
 
 
 
+    private Array ViewArray { get; set; }
+
+
+
+
+
     public Edit Edit { get; set; }
 
 
