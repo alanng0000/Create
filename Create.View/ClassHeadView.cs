@@ -7,11 +7,6 @@ namespace Create.View;
 
 class ClassHeadView : ViewGrid
 {
-    public CheckClass Class { get; set; }
-
-
-
-
     public ClassView ClassView { get; set; }
 
 
@@ -97,6 +92,32 @@ class ClassHeadView : ViewGrid
 
 
 
+        
+        this.NameText = new ViewText();
+
+
+        this.NameText.Init();
+
+
+
+        Font font;
+
+        font = this.NameText.Font;
+
+
+        font.Size = 24;
+
+
+
+        FontStyle fontStyle;
+
+        fontStyle = font.Style;
+
+        fontStyle.Bold = true;
+
+
+        font.Style = fontStyle;
+
 
 
 
@@ -106,6 +127,108 @@ class ClassHeadView : ViewGrid
 
         return true;
     }
+
+
+
+
+
+    public CheckClass Class
+    {
+        get
+        {
+            return this.ClassData;
+        } 
+        set
+        {
+            this.ClassData = value;
+
+
+            this.SetClassText();
+        }
+    }
+
+
+
+    private CheckClass ClassData { get; set; }
+
+    
+
+
+    private bool SetClassText()
+    {        
+        this.SetTextValueString(this.NameText.Value, this.Class.Name);
+        
+
+
+
+        CheckClass baseClass;
+
+        baseClass = this.Class.Base;
+
+
+
+
+        string s;
+
+
+        s = null;
+
+
+
+        bool b;
+        
+        b = (baseClass == null);
+
+
+        if (b)
+        {
+            s = "";
+        }
+
+
+        if (!b)
+        {
+            s = baseClass.Name;
+        }
+
+
+        this.SetTextValueString(this.BaseText.Value, s);
+
+
+
+        return true;
+    }
+
+
+
+
+    private bool SetTextValueString(ViewTextValue a, string s)
+    {
+        RangeInfra infra;
+
+        infra = RangeInfra.This;
+
+
+
+        a.Span.String = s;
+
+
+        a.Span.Range = infra.Range(0, s.Length);
+
+
+        return true;
+    }
+
+
+
+
+    private ViewText NameText { get; set; }
+
+
+
+
+
+    private ViewText BaseText { get; set; }
 
 
 
