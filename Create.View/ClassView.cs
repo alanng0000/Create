@@ -80,8 +80,28 @@ class ClassView : ViewGrid
 
 
 
+
+        this.Head = new ClassHeadView();
+
+
+        this.Head.ClassView = this;
+
+
+        this.Head.Init();
+
+
+
+
         return true;
     }
+
+
+
+
+
+    private ClassHeadView Head { get; set; }
+
+
 
 
 

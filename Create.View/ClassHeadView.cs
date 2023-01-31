@@ -59,7 +59,7 @@ class ClassHeadView : ViewGrid
 
         baseRow.Height = this.BaseRowHeight;
 
-        
+
 
 
 
@@ -203,8 +203,16 @@ class ClassHeadView : ViewGrid
 
 
 
+
+        this.SetClassText();
+        
+
+
+
         return true;
     }
+
+
 
 
 
@@ -278,45 +286,75 @@ class ClassHeadView : ViewGrid
 
 
     private bool SetClassText()
-    {        
-        this.SetTextValueString(this.NameText.Value, this.Class.Name);
-        
+    {
+        string nameS;
+
+        nameS = null;
 
 
+        string baseS;
 
-        CheckClass baseClass;
+        baseS = null;
 
-        baseClass = this.Class.Base;
-
-
-
-
-        string s;
-
-
-        s = null;
 
 
 
         bool b;
-        
-        b = (baseClass == null);
+
+        b = this.Null(this.Class);
 
 
         if (b)
         {
-            s = "";
+            nameS = "";
+
+            baseS = "";
         }
+        
 
 
         if (!b)
         {
-            s = baseClass.Name;
+
+            nameS = this.Class.Name;
+        
+
+
+
+            CheckClass baseClass;
+
+            baseClass = this.Class.Base;
+
+
+
+
+            bool ba;
+
+            ba = this.Null(baseClass);
+
+
+
+            if (ba)
+            {
+                baseS = "";
+            }
+
+
+
+            if (!ba)
+            {
+                baseS = baseClass.Name;
+            }
         }
 
 
-        this.SetTextValueString(this.BaseText.Value, s);
 
+        this.SetTextValue(this.NameText, nameS);
+
+
+        this.SetTextValue(this.BaseText, baseS);
+
+        
 
 
         return true;
@@ -325,7 +363,7 @@ class ClassHeadView : ViewGrid
 
 
 
-    private bool SetTextValueString(ViewTextValue a, string s)
+    private bool SetTextValue(ViewText a, string s)
     {
         RangeInfra infra;
 
@@ -333,10 +371,10 @@ class ClassHeadView : ViewGrid
 
 
 
-        a.Span.String = s;
+        a.Value.Span.String = s;
 
 
-        a.Span.Range = infra.Range(0, s.Length);
+        a.Value.Span.Range = infra.Range(0, s.Length);
 
 
         return true;
