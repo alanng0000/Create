@@ -145,6 +145,19 @@ class Grid : ViewGrid
 
 
 
+        this.ViewArray = new Array();
+
+
+        this.ViewArray.Count = 2;
+
+
+        this.ViewArray.Init();
+
+
+
+
+
+
         this.Edit.Visible = true;
 
 
