@@ -26,59 +26,31 @@ class Grid : ViewGrid
 
 
 
-        int rowAHeight;
+        ViewGridRow row;
 
-        rowAHeight = this.Size.Height - this.RowBHeight;
+        row = new ViewGridRow();
 
+        row.Init();
 
-
-        ViewGridRow rowA;
-
-        rowA = new ViewGridRow();
-
-        rowA.Init();
-
-        rowA.Height = rowAHeight;
-
-
-
-        ViewGridRow rowB;
-
-        rowB = new ViewGridRow();
-
-        rowB.Init();
-
-        rowB.Height = this.RowBHeight;
+        row.Height = this.Size.Height;
 
 
 
 
-        ViewGridCol colA;
 
-        colA = new ViewGridCol();
+        ViewGridCol col;
 
-        colA.Init();
+        col = new ViewGridCol();
 
-        colA.Width = this.ColAWidth;
+        col.Init();
 
-
-
-        int colBWidth;
-
-        colBWidth = this.Size.Width - this.ColAWidth;
+        col.Width = this.Size.Width;
 
 
 
-        ViewGridCol colB;
-
-        colB = new ViewGridCol();
-
-        colB.Init();
-
-        colB.Width = colBWidth;
 
 
-
+        
         
         this.Edit = new Edit();
 
@@ -101,11 +73,11 @@ class Grid : ViewGrid
 
         editChild.Range.Start.Row = 0;
 
-        editChild.Range.Start.Col = 1;
+        editChild.Range.Start.Col = 0;
 
         editChild.Range.End.Row = 1;
 
-        editChild.Range.End.Col = 2;
+        editChild.Range.End.Col = 1;
 
 
         editChild.View = this.Edit;
@@ -113,18 +85,23 @@ class Grid : ViewGrid
 
 
 
-        this.Row.Add(rowA);
-
-        this.Row.Add(rowB);
+        this.Row.Add(row);
 
 
-        this.Col.Add(colA);
-
-        this.Col.Add(colB);
+        this.Col.Add(col);
 
 
 
         this.Child.Add(editChild);
+
+
+
+
+        this.Dest.Size.Width = this.Size.Width;
+
+
+        this.Dest.Size.Height = this.Size.Height;
+
 
 
 
@@ -136,31 +113,4 @@ class Grid : ViewGrid
 
 
     public Edit Edit { get; set; }
-
-
-
-
-
-    private int RowBHeight
-    {
-        get
-        {
-            return 240;
-        }
-        set
-        {
-        }
-    }
-
-
-    private int ColAWidth
-    {
-        get
-        {
-            return 400;
-        }
-        set
-        {
-        }
-    }
 }
