@@ -36,6 +36,18 @@ class ClassHeadView : ViewGrid
 
 
 
+        
+
+        Infra infra;
+
+        infra = Infra.This;
+
+
+
+        infra.SetTransparentBack(this);
+
+
+
 
 
         ViewGridRow nameRow;
@@ -123,7 +135,7 @@ class ClassHeadView : ViewGrid
 
 
 
-        this.SetTransparentBack(this.NameText);
+        infra.SetTransparentBack(this.NameText);
 
         
 
@@ -139,11 +151,6 @@ class ClassHeadView : ViewGrid
 
         font.Style.Bold = true;
 
-
-
-        Infra infra;
-
-        infra = Infra.This;
 
 
 
@@ -173,7 +180,7 @@ class ClassHeadView : ViewGrid
 
 
 
-        this.SetTransparentBack(this.BaseText);
+        infra.SetTransparentBack(this.BaseText);
 
 ;
 
@@ -217,34 +224,6 @@ class ClassHeadView : ViewGrid
 
         return true;
     }
-
-
-
-
-
-
-    private bool SetTransparentBack(ViewView view)
-    {        
-        DrawConstant constant;
-
-        constant = DrawConstant.This;
-
-
-
-
-        DrawColorBrush brush;
-
-        brush = (DrawColorBrush)view.Back;
-
-
-
-        brush.Color = constant.TransparentColor;
-
-
-
-        return true;
-    }
-
 
 
 
