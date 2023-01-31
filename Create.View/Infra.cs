@@ -53,6 +53,34 @@ class Infra : Object
 
 
 
+    public bool SetTransparentBack(ViewView view)
+    {        
+        DrawConstant constant;
+
+        constant = DrawConstant.This;
+
+
+
+
+        DrawColorBrush brush;
+
+        brush = (DrawColorBrush)view.Back;
+
+
+
+        brush.Color = constant.TransparentColor;
+
+
+
+        return true;
+    }
+
+
+
+
+
+
+
     public PortPort CreatePort()
     {
         PortModuleName name;
