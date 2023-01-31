@@ -27,13 +27,31 @@ class ClassView : ViewGrid
 
 
 
+        ViewGridRow headRow;
+
+        headRow = new ViewGridRow();
+
+        headRow.Init();
+
+
+        headRow.Height = this.HeadRowHeight;
+
+
+
+
+        int h;
+
+        h = this.Size.Height - this.HeadRowHeight;
+
+
+
         ViewGridRow row;
 
         row = new ViewGridRow();
 
         row.Init();
 
-        row.Height = this.Size.Height;
+        row.Height = h;
 
 
 
@@ -70,6 +88,9 @@ class ClassView : ViewGrid
 
 
 
+        this.Row.Add(headRow);
+
+
         this.Row.Add(row);
 
 
@@ -98,7 +119,16 @@ class ClassView : ViewGrid
 
         headChild.Init();
 
-        
+
+        Infra infra;
+
+        infra = Infra.This;
+
+        infra.GridRangeOne(headChild.Range, 0, 0);
+
+
+
+        headChild.View = this.Head;
 
 
 
@@ -113,6 +143,19 @@ class ClassView : ViewGrid
     private ClassHeadView Head { get; set; }
 
 
+
+
+
+    public int HeadRowHeight
+    {
+        get
+        {
+            return 70;
+        }
+        set
+        {
+        }
+    }
 
 
 

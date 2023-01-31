@@ -31,6 +31,26 @@ class Infra : Object
 
 
 
+    public bool GridRangeOne(ViewGridRange range, int row, int col)
+    {
+        range.Start.Row = row;
+
+        range.Start.Col = col;
+
+
+
+        range.End.Row = range.Start.Row + 1;
+
+
+        range.End.Col = range.Start.Col + 1;
+
+
+        return true;
+    }
+
+
+
+
 
 
     public PortPort CreatePort()

@@ -22,7 +22,17 @@ class ClassHeadView : ViewGrid
 
 
 
-        this.Size.Height = 70;
+        this.Size.Height = this.ClassView.HeadRowHeight;
+
+
+
+
+
+        this.Dest.Size.Width = this.Size.Width;
+
+
+        this.Dest.Size.Height = this.Size.Height;
+
 
 
 
@@ -105,16 +115,6 @@ class ClassHeadView : ViewGrid
 
 
 
-        this.Dest.Size.Width = this.Size.Width;
-
-
-        this.Dest.Size.Height = this.Size.Height;
-
-
-
-
-
-
         
         this.NameText = new ViewText();
 
@@ -141,6 +141,12 @@ class ClassHeadView : ViewGrid
 
 
 
+        Infra infra;
+
+        infra = Infra.This;
+
+
+
 
         ViewGridChild nameTextChild;
 
@@ -150,7 +156,7 @@ class ClassHeadView : ViewGrid
 
 
 
-        this.GridRangeOne(nameTextChild.Range, 0, 1);
+        infra.GridRangeOne(nameTextChild.Range, 0, 1);
         
 
         nameTextChild.View = this.NameText;
@@ -187,7 +193,7 @@ class ClassHeadView : ViewGrid
 
 
 
-        this.GridRangeOne(baseTextChild.Range, 1, 1);
+        infra.GridRangeOne(baseTextChild.Range, 1, 1);
         
 
         baseTextChild.View = this.BaseText;
@@ -242,22 +248,6 @@ class ClassHeadView : ViewGrid
 
 
 
-    private bool GridRangeOne(ViewGridRange range, int row, int col)
-    {
-        range.Start.Row = row;
-
-        range.Start.Col = col;
-
-
-
-        range.End.Row = range.Start.Row + 1;
-
-
-        range.End.Col = range.Start.Col + 1;
-
-
-        return true;
-    }
 
 
 
