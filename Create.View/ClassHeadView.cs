@@ -108,15 +108,7 @@ class ClassHeadView : ViewGrid
         font.Size = 24;
 
 
-
-        FontStyle fontStyle;
-
-        fontStyle = font.Style;
-
-        fontStyle.Bold = true;
-
-
-        font.Style = fontStyle;
+        font.Style.Bold = true;
 
 
 
