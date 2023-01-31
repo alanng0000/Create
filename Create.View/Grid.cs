@@ -25,6 +25,14 @@ class Grid : ViewGrid
 
 
 
+        this.Dest.Size.Width = this.Size.Width;
+
+
+        this.Dest.Size.Height = this.Size.Height;
+
+
+
+
 
         ViewGridRow row;
 
@@ -65,22 +73,58 @@ class Grid : ViewGrid
 
 
 
+
+        this.ClassView = new ClassView();
+
+
+
+        this.ClassView.Frame = this.Frame;
+
+
+
+        this.ClassView.Init();
+
+
+
+
+
+
+
+
+        Infra infra;
+
+        infra = Infra.This;
+
+
+
         ViewGridChild editChild;
 
         editChild = new ViewGridChild();
 
         editChild.Init();
 
-        editChild.Range.Start.Row = 0;
 
-        editChild.Range.Start.Col = 0;
-
-        editChild.Range.End.Row = 1;
-
-        editChild.Range.End.Col = 1;
+        infra.GridRangeOne(editChild.Range, 0, 0);
 
 
         editChild.View = this.Edit;
+
+
+
+
+
+
+        ViewGridChild classViewChild;
+
+        classViewChild = new ViewGridChild();
+
+        classViewChild.Init();
+
+
+        infra.GridRangeOne(classViewChild.Range, 0, 0);
+
+
+        classViewChild.View = this.ClassView;
 
 
 
@@ -95,12 +139,17 @@ class Grid : ViewGrid
         this.Child.Add(editChild);
 
 
+        this.Child.Add(classViewChild);
 
 
-        this.Dest.Size.Width = this.Size.Width;
 
 
-        this.Dest.Size.Height = this.Size.Height;
+
+        this.Edit.Visible = true;
+
+
+
+        this.ClassView.Visible = false;
 
 
 
@@ -113,4 +162,8 @@ class Grid : ViewGrid
 
 
     public Edit Edit { get; set; }
+
+
+
+    public ClassView ClassView { get; set; }
 }
