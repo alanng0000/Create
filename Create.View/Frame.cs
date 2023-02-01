@@ -19,7 +19,7 @@ public class Frame : ViewFrame
 
 
         
-        this.Main = new MainView();
+        this.Main = new Main();
 
         this.Main.Frame = this;
 
@@ -38,5 +38,5 @@ public class Frame : ViewFrame
 
 
 
-    public MainView Main { get; set; }
+    public Main Main { get; set; }
 }
