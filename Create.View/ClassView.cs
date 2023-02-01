@@ -4,7 +4,7 @@ namespace Create.View;
 
 
 
-class ClassView : ViewGrid
+public class ClassView : ViewGrid
 {
     public Frame Frame { get; set; }
 

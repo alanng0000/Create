@@ -230,8 +230,6 @@ class ClassHeadView : ViewGrid
 
 
 
-
-
     public CheckClass Class
     {
         get
@@ -246,6 +244,7 @@ class ClassHeadView : ViewGrid
             this.SetClassText();
         }
     }
+
 
 
 

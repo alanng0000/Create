@@ -163,6 +163,12 @@ class ControlHandle : Handle
 
 
 
+        this.InitKeyHandleListView();
+
+
+
+
+
     
         this.SetHandleMethod(this.Key.LetterA, false, false, false, this.CaretLeft);
 
@@ -338,6 +344,55 @@ class ControlHandle : Handle
 
         return true;
     }
+
+
+
+
+
+
+
+    private bool InitKeyHandleListView()
+    {
+        int index;
+
+
+
+        int count;
+
+        count = this.Frame.Grid.ViewCount;
+
+
+        int i;
+
+        i = 0;
+
+        while (i < count)
+        {
+            index = i + 1;
+
+
+
+            ControlKey key;
+
+
+            key = this.Control.Key.DigitKey(index);
+
+
+
+
+            this.SetHandleMethod(key, false, false, false, this.SelectView);
+
+
+
+
+
+            i = i + 1;
+        }
+
+
+        return true;
+    }
+
 
 
 
@@ -571,6 +626,55 @@ class ControlHandle : Handle
         {
         }
     }
+
+
+
+
+
+    private bool SelectView(KeyHandle a)
+    {
+        int index;
+
+        index = a.Key.Index;
+
+
+        ControlConstant constant;
+
+        constant = ControlConstant.This;
+
+
+        int digitIndex;
+
+        digitIndex = index - constant.LetterIndexEnd;
+
+
+
+        int viewIndex;
+
+        viewIndex = digitIndex - 1;
+
+
+
+        int k;
+
+        k = this.Frame.Grid.ViewIndex;
+        
+        
+        if (viewIndex == k)
+        {
+            return true;
+        }
+
+
+
+        this.Frame.Grid.ViewIndex = viewIndex;
+
+
+
+
+        return true;
+    }
+
 
 
 

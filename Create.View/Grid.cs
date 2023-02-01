@@ -4,7 +4,7 @@ namespace Create.View;
 
 
 
-class Grid : ViewGrid
+public class Grid : ViewGrid
 {
     public Frame Frame { get; set; }
 
@@ -193,13 +193,6 @@ class Grid : ViewGrid
 
     private bool SetViewIndex(int value)
     {
-        if (this.ViewIndexData == value)
-        {
-            return true;
-        }
-
-
-
         ViewView view;
 
         view = this.Get(this.ViewIndexData);

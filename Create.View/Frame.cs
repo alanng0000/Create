@@ -41,7 +41,7 @@ public class Frame : ViewFrame
 
 
 
-    private Grid Grid { get; set; }
+    public Grid Grid { get; set; }
 
 
 
