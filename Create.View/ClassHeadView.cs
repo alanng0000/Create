@@ -5,7 +5,7 @@ namespace Create.View;
 
 
 
-class ClassHeadView : ViewGrid
+class ClassHead : ViewGrid
 {
     public Class ClassView { get; set; }
 

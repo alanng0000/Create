@@ -98,7 +98,7 @@ public class Class : Comp
 
 
 
-        this.Head = new ClassHeadView();
+        this.Head = new ClassHead();
 
 
         this.Head.ClassView = this;
@@ -191,7 +191,7 @@ public class Class : Comp
 
 
 
-    private ClassHeadView Head { get; set; }
+    private ClassHead Head { get; set; }
 
 
 
