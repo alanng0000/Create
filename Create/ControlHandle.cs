@@ -657,8 +657,13 @@ class ControlHandle : Handle
 
 
 
+        Comp comp;
 
-        this.Frame.Main.CompIndex = compIndex;
+        comp = this.Frame.Main.Get(compIndex);
+
+
+
+        this.Frame.Main.Comp = comp;
 
 
 

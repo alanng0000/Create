@@ -13,3 +13,4 @@ global using ControlConstant = System.Control.Constant;
 global using Handle = System.Event.Handle;
 global using Edit = Create.View.Edit;
 global using Frame = Create.View.Frame;
+global using Comp = Create.View.Comp;
