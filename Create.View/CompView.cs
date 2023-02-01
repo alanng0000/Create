@@ -3,7 +3,7 @@ namespace Create.View;
 
 
 
-public class CompView : ViewView
+public class Comp : ViewView
 {
     public Frame Frame { get; set; }
 

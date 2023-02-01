@@ -4,7 +4,7 @@ namespace Create.View;
 
 
 
-public class Edit : CompView
+public class Edit : Comp
 {
     private Text Text { get; set; }
 
