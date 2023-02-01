@@ -156,6 +156,17 @@ class Grid : ViewGrid
 
 
 
+        this.ViewArray.Set(0, this.Edit);
+
+
+
+
+        this.ViewArray.Set(1, this.ClassView);
+
+
+
+
+
 
 
         this.Edit.Visible = true;
@@ -169,6 +180,69 @@ class Grid : ViewGrid
 
         return true;
     }
+
+
+
+
+    public ViewView Get(int index)
+    {
+        return (ViewView)this.ViewArray.Get(index);
+    }
+
+
+
+
+
+    private bool SetViewIndex(int value)
+    {
+        if (this.ViewIndexData == value)
+        {
+            return true;
+        }
+
+
+
+        ViewView view;
+
+        view = this.Get(this.ViewIndexData);
+
+        view.Visible = false;
+
+
+
+        this.ViewIndexData = value;
+
+
+
+        view = this.Get(this.ViewIndexData);
+
+        view.Visible = true;
+
+
+
+        return true;
+    }
+
+
+
+
+
+
+    public int ViewIndex
+    {
+        get
+        {
+            return this.ViewIndexData;
+        }
+        set
+        {
+            this.SetViewIndex(value);
+        }
+    }
+
+
+    
+    private int ViewIndexData { get; set; }
 
 
 
