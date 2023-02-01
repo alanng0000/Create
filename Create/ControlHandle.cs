@@ -277,7 +277,8 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.LetterC, true, false, true, this.CopyText);
+        this.SetKeyHandle(this.Key.LetterC, true, false, true, true, this.CopyText);
+        
 
 
         this.SetHandleMethod(this.Key.LetterV, true, false, true, this.PasteText);
@@ -1250,10 +1251,26 @@ class ControlHandle : Handle
 
     private bool SetHandleMethod(ControlKey key, bool tab, bool shift, bool control, HandleMethod method)
     {
+        this.SetKeyHandle(key, tab, shift, control, true, method);
+
+
+        return true;
+    }
+
+
+
+
+    private bool SetKeyHandle(ControlKey key, bool tab, bool shift, bool control, bool update, HandleMethod method)
+    {
         KeyHandle handle;
 
 
         handle = this.GetHandle(key, tab, shift, control);
+
+
+
+        handle.Update = update;
+
 
 
         handle.Handle = method;
@@ -1399,9 +1416,13 @@ class ControlHandle : Handle
 
 
 
+        if (handle.Update)
+        {
+            this.Frame.Update();
+        }
 
-        this.Frame.Update();
 
+        
 
 
 
