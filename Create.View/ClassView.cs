@@ -168,7 +168,7 @@ public class ClassView : CompView
         ClassResult result;
 
 
-        result = this.Frame.Grid.Edit.Class.Result;
+        result = this.Frame.Main.Edit.Class.Result;
 
 
 

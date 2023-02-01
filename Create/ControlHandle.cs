@@ -86,7 +86,7 @@ class ControlHandle : Handle
 
 
 
-        this.Edit = this.Frame.Grid.Edit;
+        this.Edit = this.Frame.Main.Edit;
 
 
 
@@ -359,7 +359,7 @@ class ControlHandle : Handle
 
         int count;
 
-        count = this.Frame.Grid.ViewCount;
+        count = this.Frame.Main.ViewCount;
 
 
         int i;
@@ -658,7 +658,7 @@ class ControlHandle : Handle
 
 
 
-        this.Frame.Grid.ViewIndex = viewIndex;
+        this.Frame.Main.ViewIndex = viewIndex;
 
 
 

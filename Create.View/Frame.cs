@@ -19,15 +19,15 @@ public class Frame : ViewFrame
 
 
         
-        this.Grid = new MainGrid();
+        this.Main = new MainView();
 
-        this.Grid.Frame = this;
+        this.Main.Frame = this;
 
-        this.Grid.Init();
+        this.Main.Init();
         
 
 
-        this.View = this.Grid;
+        this.View = this.Main;
 
 
 
@@ -38,5 +38,5 @@ public class Frame : ViewFrame
 
 
 
-    public MainGrid Grid { get; set; }
+    public MainView Main { get; set; }
 }
