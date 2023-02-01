@@ -86,7 +86,7 @@ class ControlHandle : Handle
 
 
 
-        this.Edit = this.Frame.Edit;
+        this.Edit = this.Frame.Grid.Edit;
 
 
 
