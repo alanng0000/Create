@@ -7,7 +7,7 @@ namespace Create.View;
 
 class ClassHeadView : ViewGrid
 {
-    public ClassView ClassView { get; set; }
+    public Class ClassView { get; set; }
 
 
 

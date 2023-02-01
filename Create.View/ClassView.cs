@@ -4,7 +4,7 @@ namespace Create.View;
 
 
 
-public class ClassView : Comp
+public class Class : Comp
 {
     public override bool Init()
     {

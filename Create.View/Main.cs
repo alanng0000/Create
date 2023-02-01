@@ -40,7 +40,7 @@ public class Main : ViewGrid
 
 
 
-        this.ClassView = new ClassView();
+        this.ClassView = new Class();
 
 
 
@@ -308,5 +308,5 @@ public class Main : ViewGrid
 
 
 
-    public ClassView ClassView { get; set; }
+    public Class ClassView { get; set; }
 }
