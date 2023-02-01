@@ -4,13 +4,8 @@ namespace Create.View;
 
 
 
-public class ClassView : ViewGrid
+public class ClassView : MainView
 {
-    public Frame Frame { get; set; }
-
-
-
-
     public override bool Init()
     {
         base.Init();
@@ -18,18 +13,23 @@ public class ClassView : ViewGrid
 
 
 
-
-        this.Size.Width = this.Frame.Size.Width;
-
-
-        this.Size.Height = this.Frame.Size.Height;
+        this.Grid = new ViewGrid();
 
 
+        this.Grid.Init();
 
-        this.Dest.Size.Width = this.Size.Width;
+
+        this.Grid.Size.Width = this.Size.Width;
 
 
-        this.Dest.Size.Height = this.Size.Height;
+        this.Grid.Size.Height = this.Size.Height;
+
+
+
+        this.Grid.Dest.Size.Width = this.Size.Width;
+
+
+        this.Grid.Dest.Size.Height = this.Size.Height;
 
 
 
@@ -48,7 +48,7 @@ public class ClassView : ViewGrid
 
         int h;
 
-        h = this.Size.Height - this.HeadRowHeight;
+        h = this.Grid.Size.Height - this.HeadRowHeight;
 
 
 
@@ -80,7 +80,7 @@ public class ClassView : ViewGrid
         int colBWidth;
 
 
-        colBWidth = this.Size.Width - this.LeftColWidth;
+        colBWidth = this.Grid.Size.Width - this.LeftColWidth;
 
 
 
@@ -132,25 +132,39 @@ public class ClassView : ViewGrid
 
 
 
-        this.Row.Add(headRow);
+        this.Grid.Row.Add(headRow);
 
 
-        this.Row.Add(row);
-
-
-
-        this.Col.Add(colA);
-
-        this.Col.Add(colB);
+        this.Grid.Row.Add(row);
 
 
 
-        this.Child.Add(headChild);
+        this.Grid.Col.Add(colA);
+
+        this.Grid.Col.Add(colB);
+
+
+
+        this.Grid.Child.Add(headChild);
+
+
+
+
+        this.Child = this.Grid;
+
+        
 
 
 
         return true;
     }
+
+
+
+
+
+    private ViewGrid Grid { get; set; }
+
 
 
 

@@ -4,14 +4,8 @@ namespace Create.View;
 
 
 
-public class Edit : ViewView
+public class Edit : MainView
 {
-    public Frame Frame { get; set; }
-
-
-
-
-
     private Text Text { get; set; }
 
 
@@ -227,16 +221,6 @@ public class Edit : ViewView
     public override bool Init()
     {
         base.Init();
-
-        
-
-
-
-        this.Size.Width = this.Frame.Size.Width;
-
-
-
-        this.Size.Height = this.Frame.Size.Height;
 
 
 
