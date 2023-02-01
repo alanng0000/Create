@@ -4,7 +4,7 @@ namespace Create.View;
 
 
 
-public class Edit : MainView
+public class Edit : CompView
 {
     private Text Text { get; set; }
 
@@ -19,7 +19,7 @@ public class Edit : MainView
 
 
 
-    private ClassClass Class { get; set; }
+    internal ClassClass Class { get; set; }
 
 
 

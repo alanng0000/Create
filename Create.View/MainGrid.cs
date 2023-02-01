@@ -188,7 +188,7 @@ public class MainGrid : ViewGrid
 
 
 
-    private bool AddView(MainView view)
+    private bool AddView(CompView view)
     {
         view.Index = this.Index;
 
@@ -209,9 +209,9 @@ public class MainGrid : ViewGrid
 
 
 
-    public MainView Get(int index)
+    public CompView Get(int index)
     {
-        return (MainView)this.ViewArray.Get(index);
+        return (CompView)this.ViewArray.Get(index);
     }
 
 

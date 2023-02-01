@@ -4,7 +4,7 @@ namespace Create.View;
 
 
 
-public class ClassView : MainView
+public class ClassView : CompView
 {
     public override bool Init()
     {
@@ -152,7 +152,28 @@ public class ClassView : MainView
 
         this.Child = this.Grid;
 
+
+
+
+
+        return true;
+    }
+
+
+
+
+
+    public bool Set()
+    {
+        ClassResult result;
+
+
+        result = this.Frame.Grid.Edit.Class.Result;
+
+
+
         
+
 
 
 
