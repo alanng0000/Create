@@ -31,4 +31,12 @@ public class CompView : ViewView
 
         return true;
     }
+
+
+
+
+    public virtual bool Set()
+    {
+        return true;
+    }
 }

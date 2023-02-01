@@ -220,7 +220,7 @@ public class MainGrid : ViewGrid
 
     private bool SetViewIndex(int value)
     {
-        ViewView view;
+        CompView view;
 
         view = this.Get(this.ViewIndexData);
 
@@ -233,6 +233,11 @@ public class MainGrid : ViewGrid
 
 
         view = this.Get(this.ViewIndexData);
+
+
+
+        view.Set();
+
 
         view.Visible = true;
 

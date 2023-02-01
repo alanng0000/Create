@@ -163,7 +163,7 @@ public class ClassView : CompView
 
 
 
-    public bool Set()
+    public override bool Set()
     {
         ClassResult result;
 
