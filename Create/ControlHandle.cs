@@ -638,9 +638,11 @@ class ControlHandle : Handle
         index = a.Key.Index;
 
 
+
         ControlConstant constant;
 
         constant = ControlConstant.This;
+
 
 
         int digitIndex;
@@ -653,17 +655,6 @@ class ControlHandle : Handle
 
         viewIndex = digitIndex - 1;
 
-
-
-        int k;
-
-        k = this.Frame.Grid.ViewIndex;
-        
-        
-        if (viewIndex == k)
-        {
-            return true;
-        }
 
 
 
