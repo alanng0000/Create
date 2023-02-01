@@ -40,7 +40,7 @@ public class Main : ViewGrid
 
 
 
-        this.ClassView = new Class();
+        this.Class = new Class();
 
 
 
@@ -62,7 +62,7 @@ public class Main : ViewGrid
 
 
 
-        this.AddComp(this.ClassView);
+        this.AddComp(this.Class);
 
 
 
@@ -308,5 +308,5 @@ public class Main : ViewGrid
 
 
 
-    public Class ClassView { get; set; }
+    public Class Class { get; set; }
 }
