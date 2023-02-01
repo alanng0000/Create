@@ -283,7 +283,6 @@ class ClassHead : ViewGrid
 
         if (!b)
         {
-
             nameS = this.Class.Name;
         
 

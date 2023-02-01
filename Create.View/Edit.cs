@@ -4399,22 +4399,12 @@ public class Edit : Comp
 
     private bool ExecuteClassNameTraverse()
     {
-        ListIter iter;
-
-
-        iter = this.Class.Result.Node.Tree.Iter();
-
-
-
-        iter.Next();
-
-
-
-
         Tree tree;
 
 
-        tree = (Tree)iter.Value;
+        
+        tree = (Tree)this.Class.Result.Node.Tree.Get(0);
+
 
 
 
@@ -4425,7 +4415,7 @@ public class Edit : Comp
 
 
 
-        if (root == null)
+        if (this.Null(root))
         {
             return true;
         }

@@ -172,7 +172,57 @@ public class Class : Comp
 
 
 
+
+        Tree tree;
+
+        tree = (Tree)result.Node.Tree.Get(0);
+
+
+
+
+        NodeClass nodeClass;
+
+        nodeClass = (NodeClass)tree.Root;
         
+
+
+
+        if (this.Null(nodeClass))
+        {
+            this.Head.Class = null;
+
+
+            return true;
+        }
+
+
+
+
+        CheckCheck check;
+
+        check = (CheckCheck)result.Check.Check.Get(nodeClass);
+
+
+
+        CheckClass varClass;
+
+        varClass = check.Class;
+
+
+
+
+        if (this.Null(varClass))
+        {
+            this.Head.Class = null;
+
+
+            return true;
+        }
+
+
+
+
+        this.Head.Class = varClass;
 
 
 
