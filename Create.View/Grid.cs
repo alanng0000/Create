@@ -156,12 +156,11 @@ public class Grid : ViewGrid
 
 
 
-        this.ViewArray.Set(0, this.Edit);
+        this.AddView(this.Edit);
 
 
 
-
-        this.ViewArray.Set(1, this.ClassView);
+        this.AddView(this.ClassView);
 
 
 
@@ -182,9 +181,37 @@ public class Grid : ViewGrid
 
 
 
-    public ViewView Get(int index)
+
+    private int Index { get; set; }
+
+
+
+
+
+    private bool AddView(MainView view)
     {
-        return (ViewView)this.ViewArray.Get(index);
+        view.Index = this.Index;
+
+
+
+        this.ViewArray.Set(view.Index, view);
+
+
+
+        this.Index = this.Index + 1;
+
+
+
+        return true;
+    }
+    
+
+
+
+
+    public MainView Get(int index)
+    {
+        return (MainView)this.ViewArray.Get(index);
     }
 
 
