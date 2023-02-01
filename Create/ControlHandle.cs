@@ -163,7 +163,7 @@ class ControlHandle : Handle
 
 
 
-        this.InitKeyHandleListView();
+        this.InitKeyHandleListComp();
 
 
 
@@ -351,7 +351,7 @@ class ControlHandle : Handle
 
 
 
-    private bool InitKeyHandleListView()
+    private bool InitKeyHandleListComp()
     {
         int index;
 
@@ -380,7 +380,7 @@ class ControlHandle : Handle
 
 
 
-            this.SetHandleMethod(key, false, false, false, this.SelectView);
+            this.SetHandleMethod(key, false, false, false, this.SelectComp);
 
 
 
@@ -631,7 +631,7 @@ class ControlHandle : Handle
 
 
 
-    private bool SelectView(KeyHandle a)
+    private bool SelectComp(KeyHandle a)
     {
         int index;
 
