@@ -95,44 +95,6 @@ public class MainView : ViewGrid
 
 
 
-        Infra infra;
-
-        infra = Infra.This;
-
-
-
-        ViewGridChild editChild;
-
-        editChild = new ViewGridChild();
-
-        editChild.Init();
-
-
-        infra.GridRangeOne(editChild.Range, 0, 0);
-
-
-        editChild.View = this.Edit;
-
-
-
-
-
-
-        ViewGridChild classViewChild;
-
-        classViewChild = new ViewGridChild();
-
-        classViewChild.Init();
-
-
-        infra.GridRangeOne(classViewChild.Range, 0, 0);
-
-
-        classViewChild.View = this.ClassView;
-
-
-
-
         this.Row.Add(row);
 
 
@@ -140,24 +102,78 @@ public class MainView : ViewGrid
 
 
 
-        this.Child.Add(editChild);
 
-
-        this.Child.Add(classViewChild);
-
+        this.InitChild();
 
 
 
 
 
 
-
-        this.Edit.Visible = true;
-
+        this.CompIndex = 0;
 
 
-        this.ClassView.Visible = false;
 
+
+
+        return true;
+    }
+
+
+
+
+    private bool InitChild()
+    {
+        int count;
+
+        count = this.CompArray.Count;
+
+
+        int i;
+
+        i = 0;
+
+
+        while (i < count)
+        {
+            Comp comp;
+
+            comp = this.Get(i);
+
+
+
+
+            
+
+            Infra infra;
+
+            infra = Infra.This;
+
+
+
+
+            ViewGridChild child;
+
+            child = new ViewGridChild();
+
+            child.Init();
+
+
+            infra.GridRangeOne(child.Range, 0, 0);
+
+
+            child.View = comp;
+
+
+
+
+            this.Child.Add(child);
+
+
+
+
+            i = i + 1;
+        }
 
 
 
@@ -183,7 +199,10 @@ public class MainView : ViewGrid
 
 
         a.Init();
-        
+
+
+        a.Visible = false;
+
 
 
 
