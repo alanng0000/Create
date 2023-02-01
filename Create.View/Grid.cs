@@ -166,11 +166,6 @@ class Grid : ViewGrid
 
 
 
-        this.ViewCount = this.ViewArray.Count;
-
-
-
-
 
         this.Edit.Visible = true;
 
@@ -246,7 +241,17 @@ class Grid : ViewGrid
 
 
 
-    public int ViewCount { get; set; }
+    public int ViewCount
+    {
+        get
+        {
+            return this.ViewArray.Count;
+        }
+        set
+        {
+
+        } 
+    }
 
 
 
