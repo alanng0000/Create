@@ -277,8 +277,8 @@ class ControlHandle : Handle
 
 
 
-        this.SetKeyHandle(this.Key.LetterC, true, false, true, true, this.CopyText);
-        
+        this.SetKeyHandle(this.Key.LetterC, true, false, true, false, this.CopyText);
+
 
 
         this.SetHandleMethod(this.Key.LetterV, true, false, true, this.PasteText);
