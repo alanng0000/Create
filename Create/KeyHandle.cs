@@ -21,5 +21,11 @@ class KeyHandle : Object
 
 
 
+
+    public bool Update { get; set; }
+    
+
+
+
     public HandleMethod Handle { get; set; }
 }
