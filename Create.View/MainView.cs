@@ -110,7 +110,7 @@ public class MainView : ViewGrid
 
 
 
-        this.CompIndex = 0;
+        this.Comp = this.Get(0);
 
 
 
@@ -124,9 +124,14 @@ public class MainView : ViewGrid
 
     private bool InitChild()
     {
+        Infra infra;
+
+        infra = Infra.This;
+
+
         int count;
 
-        count = this.CompArray.Count;
+        count = this.CompCount;
 
 
         int i;
@@ -139,15 +144,6 @@ public class MainView : ViewGrid
             Comp comp;
 
             comp = this.Get(i);
-
-
-
-
-            
-
-            Infra infra;
-
-            infra = Infra.This;
 
 
 
@@ -230,21 +226,24 @@ public class MainView : ViewGrid
 
 
 
-    private bool SetCompIndex(int value)
+    private bool SetComp(Comp value)
     {
         Comp view;
 
-        view = this.Get(this.CompIndexData);
+
+        view = this.CompData;
+
 
         view.Visible = false;
 
 
 
-        this.CompIndexData = value;
+
+        this.CompData = value;
 
 
 
-        view = this.Get(this.CompIndexData);
+        view = this.CompData;
 
 
 
@@ -263,15 +262,15 @@ public class MainView : ViewGrid
 
 
 
-    public int CompIndex
+    public Comp Comp
     {
         get
         {
-            return this.CompIndexData;
+            return this.CompData;
         }
         set
         {
-            this.SetCompIndex(value);
+            this.SetComp(value);
         }
     }
 
@@ -293,7 +292,7 @@ public class MainView : ViewGrid
 
 
     
-    private int CompIndexData { get; set; }
+    private Comp CompData { get; set; }
 
 
 
