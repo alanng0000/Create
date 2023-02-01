@@ -34,6 +34,41 @@ public class MainView : ViewGrid
 
 
 
+        
+        this.Edit = new Edit();
+
+
+
+
+        this.ClassView = new ClassView();
+
+
+
+
+
+
+        this.CompArray = new Array();
+
+
+        this.CompArray.Count = 2;
+
+
+        this.CompArray.Init();
+
+
+
+
+        this.AddComp(this.Edit);
+
+
+
+        this.AddComp(this.ClassView);
+
+
+
+
+
+
         ViewGridRow row;
 
         row = new ViewGridRow();
@@ -53,37 +88,6 @@ public class MainView : ViewGrid
         col.Init();
 
         col.Width = this.Size.Width;
-
-
-
-
-
-        
-        
-        this.Edit = new Edit();
-
-
-
-        this.Edit.Frame = this.Frame;
-
-
-
-        this.Edit.Init();
-
-
-
-
-
-        this.ClassView = new ClassView();
-
-
-
-        this.ClassView.Frame = this.Frame;
-
-
-
-        this.ClassView.Init();
-
 
 
 
@@ -145,24 +149,6 @@ public class MainView : ViewGrid
 
 
 
-        this.CompArray = new Array();
-
-
-        this.CompArray.Count = 2;
-
-
-        this.CompArray.Init();
-
-
-
-
-        this.AddComp(this.Edit);
-
-
-
-        this.AddComp(this.ClassView);
-
-
 
 
 
@@ -191,6 +177,13 @@ public class MainView : ViewGrid
     private bool AddComp(Comp a)
     {
         a.Index = this.Index;
+
+
+        a.Frame = this.Frame;
+
+
+        a.Init();
+        
 
 
 
