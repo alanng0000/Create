@@ -166,6 +166,9 @@ class Grid : ViewGrid
 
 
 
+        this.ViewCount = this.ViewArray.Count;
+
+
 
 
 
@@ -239,6 +242,12 @@ class Grid : ViewGrid
             this.SetViewIndex(value);
         }
     }
+
+
+
+
+    public int ViewCount { get; set; }
+
 
 
     
