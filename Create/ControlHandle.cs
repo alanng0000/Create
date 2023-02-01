@@ -359,7 +359,7 @@ class ControlHandle : Handle
 
         int count;
 
-        count = this.Frame.Main.ViewCount;
+        count = this.Frame.Main.CompCount;
 
 
         int i;
@@ -651,14 +651,14 @@ class ControlHandle : Handle
 
 
 
-        int viewIndex;
+        int compIndex;
 
-        viewIndex = digitIndex - 1;
-
-
+        compIndex = digitIndex - 1;
 
 
-        this.Frame.Main.ViewIndex = viewIndex;
+
+
+        this.Frame.Main.CompIndex = compIndex;
 
 
 

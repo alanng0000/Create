@@ -145,22 +145,22 @@ public class MainView : ViewGrid
 
 
 
-        this.ViewArray = new Array();
+        this.CompArray = new Array();
 
 
-        this.ViewArray.Count = 2;
+        this.CompArray.Count = 2;
 
 
-        this.ViewArray.Init();
-
-
-
-
-        this.AddView(this.Edit);
+        this.CompArray.Init();
 
 
 
-        this.AddView(this.ClassView);
+
+        this.AddComp(this.Edit);
+
+
+
+        this.AddComp(this.ClassView);
 
 
 
@@ -188,13 +188,13 @@ public class MainView : ViewGrid
 
 
 
-    private bool AddView(CompView view)
+    private bool AddComp(CompView a)
     {
-        view.Index = this.Index;
+        a.Index = this.Index;
 
 
 
-        this.ViewArray.Set(view.Index, view);
+        this.CompArray.Set(a.Index, a);
 
 
 
@@ -211,28 +211,28 @@ public class MainView : ViewGrid
 
     public CompView Get(int index)
     {
-        return (CompView)this.ViewArray.Get(index);
+        return (CompView)this.CompArray.Get(index);
     }
 
 
 
 
 
-    private bool SetViewIndex(int value)
+    private bool SetCompIndex(int value)
     {
         CompView view;
 
-        view = this.Get(this.ViewIndexData);
+        view = this.Get(this.CompIndexData);
 
         view.Visible = false;
 
 
 
-        this.ViewIndexData = value;
+        this.CompIndexData = value;
 
 
 
-        view = this.Get(this.ViewIndexData);
+        view = this.Get(this.CompIndexData);
 
 
 
@@ -251,26 +251,26 @@ public class MainView : ViewGrid
 
 
 
-    public int ViewIndex
+    public int CompIndex
     {
         get
         {
-            return this.ViewIndexData;
+            return this.CompIndexData;
         }
         set
         {
-            this.SetViewIndex(value);
+            this.SetCompIndex(value);
         }
     }
 
 
 
 
-    public int ViewCount
+    public int CompCount
     {
         get
         {
-            return this.ViewArray.Count;
+            return this.CompArray.Count;
         }
         set
         {
@@ -281,13 +281,13 @@ public class MainView : ViewGrid
 
 
     
-    private int ViewIndexData { get; set; }
+    private int CompIndexData { get; set; }
 
 
 
 
 
-    private Array ViewArray { get; set; }
+    private Array CompArray { get; set; }
 
 
 
