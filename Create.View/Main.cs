@@ -109,9 +109,14 @@ public class Main : ViewGrid
 
 
 
+        this.CompData = this.Get(0);
 
-        this.Comp = this.Get(0);
 
+
+        this.Comp.Set();
+
+
+        this.Comp.Visible = true;
 
 
 
