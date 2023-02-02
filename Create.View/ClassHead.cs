@@ -227,7 +227,7 @@ class ClassHead : ViewGrid
 
         infra.SetTransparentBack(this.BaseText);
 
-;
+
 
 
 
