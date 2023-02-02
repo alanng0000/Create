@@ -153,6 +153,10 @@ class ClassHead : ViewGrid
 
         
 
+        ViewConstant constant;
+
+        constant = ViewConstant.This;
+
 
 
         Font font;
@@ -161,7 +165,7 @@ class ClassHead : ViewGrid
         font = new Font();
         
         
-        font.Family = this.NameText.Font.Family;
+        font.Family = constant.DefaultFont.Family;
 
 
         font.Size = 24;
@@ -230,7 +234,7 @@ class ClassHead : ViewGrid
         font = new Font();
         
         
-        font.Family = this.BaseText.Font.Family;
+        font.Family = constant.DefaultFont.Family;
 
 
         font.Size = 16;

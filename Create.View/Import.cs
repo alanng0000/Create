@@ -34,6 +34,7 @@ global using ViewGridCol = System.View.GridCol;
 global using ViewGridChild = System.View.GridChild;
 global using ViewGridRange = System.View.GridRange;
 global using ViewText = System.View.Text;
+global using ViewConstant = System.View.Constant;
 global using ViewTextValue = System.View.TextValue;
 global using Source = Class.Infra.Source;
 global using SourceArray = Class.Infra.SourceArray;
