@@ -134,6 +134,20 @@ class ClassHead : ViewGrid
         this.NameText.Init();
 
 
+        this.NameText.Size.Width = this.RightColWidth;
+
+
+        this.NameText.Size.Height = this.NameRowHeight;
+
+
+
+        this.NameText.Dest.Size.Width = this.NameText.Size.Width;
+
+
+        this.NameText.Dest.Size.Height = this.NameText.Size.Height;
+
+
+
 
         infra.SetTransparentBack(this.NameText);
 
@@ -143,13 +157,25 @@ class ClassHead : ViewGrid
 
         Font font;
 
-        font = this.NameText.Font;
+
+        font = new Font();
+        
+        
+        font.Family = this.NameText.Font.Family;
 
 
         font.Size = 24;
 
 
         font.Style.Bold = true;
+
+
+
+        font.Init();
+
+
+
+        this.NameText.Font = font;
 
 
 
@@ -180,14 +206,43 @@ class ClassHead : ViewGrid
 
 
 
+        this.BaseText.Size.Width = this.RightColWidth;
+
+
+        this.BaseText.Size.Height = this.NameRowHeight;
+
+
+
+        this.BaseText.Dest.Size.Width = this.BaseText.Size.Width;
+
+
+        this.BaseText.Dest.Size.Height = this.BaseText.Size.Height;
+
+
+
+
         infra.SetTransparentBack(this.BaseText);
 
 ;
 
-        font = this.BaseText.Font;
+
+
+        font = new Font();
+        
+        
+        font.Family = this.BaseText.Font.Family;
 
 
         font.Size = 18;
+
+
+        font.Init();
+
+
+
+        this.BaseText.Font = font;
+
+        
 
 
 
