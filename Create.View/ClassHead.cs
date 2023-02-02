@@ -233,7 +233,7 @@ class ClassHead : ViewGrid
         font.Family = this.BaseText.Font.Family;
 
 
-        font.Size = 18;
+        font.Size = 16;
 
 
         font.Init();
