@@ -165,6 +165,27 @@ public class Class : Comp
 
     public override bool Set()
     {
+        bool b;
+
+        b = this.SetClass();
+
+
+        if (!b)
+        {
+            this.Head.Class = null;
+        }
+
+
+
+        return true;
+    }
+
+
+
+
+
+    private bool SetClass()
+    {
         ClassResult result;
 
 
@@ -189,10 +210,7 @@ public class Class : Comp
 
         if (this.Null(nodeClass))
         {
-            this.Head.Class = null;
-
-
-            return true;
+            return false;
         }
 
 
@@ -213,10 +231,7 @@ public class Class : Comp
 
         if (this.Null(varClass))
         {
-            this.Head.Class = null;
-
-
-            return true;
+            return false;
         }
 
 
