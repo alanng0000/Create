@@ -170,38 +170,38 @@ class ControlHandle : Handle
 
 
     
-        this.SetHandleMethod(this.Key.LetterA, false, false, false, this.CaretLeft);
+        this.SetHandleMethod(this.Key.LeftLeft, false, false, false, this.CaretLeft);
 
 
         
-        this.SetHandleMethod(this.Key.LetterD, false, false, false, this.CaretRight);
+        this.SetHandleMethod(this.Key.LeftRight, false, false, false, this.CaretRight);
 
 
 
-        this.SetHandleMethod(this.Key.LetterW, false, false, false, this.CaretUp);
+        this.SetHandleMethod(this.Key.LeftUp, false, false, false, this.CaretUp);
 
 
         
-        this.SetHandleMethod(this.Key.LetterS, false, false, false, this.CaretDown);
+        this.SetHandleMethod(this.Key.LeftDown, false, false, false, this.CaretDown);
 
 
 
 
 
 
-        this.SetHandleMethod(this.Key.LetterA, false, true, false, this.SelectLeft);
+        this.SetHandleMethod(this.Key.LeftLeft, false, true, false, this.SelectLeft);
 
 
 
-        this.SetHandleMethod(this.Key.LetterD, false, true, false, this.SelectRight);
+        this.SetHandleMethod(this.Key.LeftRight, false, true, false, this.SelectRight);
 
 
 
-        this.SetHandleMethod(this.Key.LetterW, false, true, false, this.SelectUp);
+        this.SetHandleMethod(this.Key.LeftUp, false, true, false, this.SelectUp);
 
 
 
-        this.SetHandleMethod(this.Key.LetterS, false, true, false, this.SelectDown);
+        this.SetHandleMethod(this.Key.LeftDown, false, true, false, this.SelectDown);
 
 
 
@@ -230,37 +230,37 @@ class ControlHandle : Handle
 
 
 
-        this.SetHandleMethod(this.Key.LetterJ, false, false, false, this.ViewUnitLeft);
+        this.SetHandleMethod(this.Key.RightLeft, false, false, false, this.ViewUnitLeft);
 
 
 
-        this.SetHandleMethod(this.Key.LetterL, false, false, false, this.ViewUnitRight);
+        this.SetHandleMethod(this.Key.RightRight, false, false, false, this.ViewUnitRight);
 
 
 
-        this.SetHandleMethod(this.Key.LetterI, false, false, false, this.ViewUnitUp);
+        this.SetHandleMethod(this.Key.RightUp, false, false, false, this.ViewUnitUp);
 
 
 
-        this.SetHandleMethod(this.Key.LetterK, false, false, false, this.ViewUnitDown);
+        this.SetHandleMethod(this.Key.RightDown, false, false, false, this.ViewUnitDown);
 
 
 
 
 
-        this.SetHandleMethod(this.Key.LetterJ, false, true, false, this.ViewEntireLeft);
+        this.SetHandleMethod(this.Key.RightLeft, false, true, false, this.ViewEntireLeft);
 
 
 
-        this.SetHandleMethod(this.Key.LetterL, false, true, false, this.ViewEntireRight);
+        this.SetHandleMethod(this.Key.RightRight, false, true, false, this.ViewEntireRight);
 
 
 
-        this.SetHandleMethod(this.Key.LetterI, false, true, false, this.ViewEntireUp);
+        this.SetHandleMethod(this.Key.RightUp, false, true, false, this.ViewEntireUp);
 
 
 
-        this.SetHandleMethod(this.Key.LetterK, false, true, false, this.ViewEntireDown);
+        this.SetHandleMethod(this.Key.RightDown, false, true, false, this.ViewEntireDown);
 
 
 
