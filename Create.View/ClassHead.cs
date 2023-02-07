@@ -127,6 +127,50 @@ class ClassHead : ViewGrid
 
 
 
+        ViewConstant constant;
+
+        constant = ViewConstant.This;
+
+
+
+
+
+        ViewText nameLabel;
+
+        nameLabel = new ViewText();
+
+        nameLabel.Init();
+
+
+        this.SetTextSize(nameLabel, this.LeftColWidth, this.NameRowHeight);
+
+
+        infra.SetTransparentBack(nameLabel);
+
+
+
+
+
+
+
+
+        ViewText baseLabel;
+
+        baseLabel = new ViewText();
+
+        baseLabel.Init();
+
+
+        this.SetTextSize(baseLabel, this.LeftColWidth, this.BaseRowHeight);
+
+
+        infra.SetTransparentBack(baseLabel);
+
+
+
+
+
+
         
         this.NameText = new ViewText();
 
@@ -134,30 +178,13 @@ class ClassHead : ViewGrid
         this.NameText.Init();
 
 
-        this.NameText.Size.Width = this.RightColWidth;
-
-
-        this.NameText.Size.Height = this.NameRowHeight;
-
-
-
-        this.NameText.Dest.Size.Width = this.NameText.Size.Width;
-
-
-        this.NameText.Dest.Size.Height = this.NameText.Size.Height;
-
+        this.SetTextSize(this.NameText, this.RightColWidth, this.NameRowHeight);
 
 
 
         infra.SetTransparentBack(this.NameText);
 
         
-
-        ViewConstant constant;
-
-        constant = ViewConstant.This;
-
-
 
         Font font;
 
@@ -185,23 +212,6 @@ class ClassHead : ViewGrid
 
 
 
-        ViewGridChild nameTextChild;
-
-        nameTextChild = new ViewGridChild();
-
-        nameTextChild.Init();
-
-
-
-        infra.GridRangeOne(nameTextChild.Range, 0, 1);
-        
-
-        nameTextChild.View = this.NameText;
-
-
-
-
-
 
         this.BaseText = new ViewText();
 
@@ -210,18 +220,7 @@ class ClassHead : ViewGrid
 
 
 
-        this.BaseText.Size.Width = this.RightColWidth;
-
-
-        this.BaseText.Size.Height = this.NameRowHeight;
-
-
-
-        this.BaseText.Dest.Size.Width = this.BaseText.Size.Width;
-
-
-        this.BaseText.Dest.Size.Height = this.BaseText.Size.Height;
-
+        this.SetTextSize(this.BaseText, this.RightColWidth, this.BaseRowHeight);
 
 
 
@@ -250,6 +249,80 @@ class ClassHead : ViewGrid
 
 
 
+        nameLabel.Font = this.NameText.Font;
+
+
+
+        baseLabel.Font = this.BaseText.Font;
+
+
+
+
+        this.SetTextValue(nameLabel, "Class:");
+
+
+
+        this.SetTextValue(baseLabel, "Base:");
+
+
+
+
+
+        ViewGridChild nameLabelChild;
+
+        nameLabelChild = new ViewGridChild();
+
+        nameLabelChild.Init();
+
+
+
+        infra.GridRangeOne(nameLabelChild.Range, 0, 0);
+        
+
+        nameLabelChild.View = nameLabel;
+
+
+
+
+
+
+        ViewGridChild baseLabelChild;
+
+        baseLabelChild = new ViewGridChild();
+
+        baseLabelChild.Init();
+
+
+
+        infra.GridRangeOne(baseLabelChild.Range, 1, 0);
+        
+
+        baseLabelChild.View = baseLabel;
+
+
+
+
+
+
+
+
+        ViewGridChild nameTextChild;
+
+        nameTextChild = new ViewGridChild();
+
+        nameTextChild.Init();
+
+
+
+        infra.GridRangeOne(nameTextChild.Range, 0, 1);
+        
+
+        nameTextChild.View = this.NameText;
+
+
+
+
+
 
         ViewGridChild baseTextChild;
 
@@ -265,6 +338,13 @@ class ClassHead : ViewGrid
         baseTextChild.View = this.BaseText;
         
         
+        
+
+
+        this.Child.Add(nameLabelChild);
+
+
+        this.Child.Add(baseLabelChild);
 
 
 
@@ -385,6 +465,31 @@ class ClassHead : ViewGrid
 
         return true;
     }
+
+
+
+
+
+
+    private bool SetTextSize(ViewText a, int width, int height)
+    {
+        a.Size.Width = width;
+
+
+        a.Size.Height = height;
+
+
+
+        a.Dest.Size.Width = a.Size.Width;
+
+
+        a.Dest.Size.Height = a.Size.Height;
+
+
+
+        return true;
+    }
+
 
 
 
