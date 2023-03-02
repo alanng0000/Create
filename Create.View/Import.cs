@@ -6,7 +6,6 @@ global using InfraConvert = System.Infra.Convert;
 global using List = System.List.List;
 global using Array = System.List.Array;
 global using ListIter = System.List.ListIter;
-global using GenericListByte = System.List.GenericList<byte>;
 global using ViewFrame = System.View.Frame;
 global using Text = System.Text.Text;
 global using Line = System.Text.Line;

@@ -3,6 +3,6 @@ namespace Create.View;
 
 
 
-class ByteList : GenericListByte
+class ByteList : GenericList<byte>
 {
 }
